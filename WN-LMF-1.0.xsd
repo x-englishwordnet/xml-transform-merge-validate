@@ -1,0 +1,456 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:t='http://www.w3.org/namespace/'
+  xmlns:dc='http://purl.org/dc/elements/1.1/'
+>
+
+<xsd:import namespace='http://purl.org/dc/elements/1.1/' schemaLocation='dc.xsd'/>
+
+ <xsd:element name='LexicalResource'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='Lexicon' maxOccurs='unbounded'/>
+   </xsd:sequence>
+   <!--
+   <xsd:attribute name='xmlns:dc' type='xsd:string' use='fixed' value='http://purl.org/dc/elements/1.1/'/>
+   -->
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Lexicon'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='LexicalEntry' maxOccurs='unbounded'/>
+    <xsd:element ref='Synset' minOccurs='0' maxOccurs='unbounded'/>
+   </xsd:sequence>
+   <xsd:attribute name='id' type='xsd:ID' use='required'/>
+   <xsd:attribute name='label' type='xsd:string' use='required'/>
+   <xsd:attribute name='language' type='xsd:string' use='required'/>
+   <xsd:attribute name='email' type='xsd:string' use='required'/>
+   <xsd:attribute name='license' type='xsd:string' use='required'/>
+   <xsd:attribute name='version' type='xsd:string' use='required'/>
+   <xsd:attribute name='url' type='xsd:string' use='optional'/>
+   <xsd:attribute name='citation' type='xsd:string' use='optional'/>
+
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='LexicalEntry'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='Lemma'/>
+    <xsd:element ref='Form' minOccurs='0' maxOccurs='unbounded'/>
+    <xsd:element ref='Sense' minOccurs='0' maxOccurs='unbounded'/>
+    <xsd:element ref='SyntacticBehaviour' minOccurs='0' maxOccurs='unbounded'/>
+   </xsd:sequence>
+   <xsd:attribute name='id' type='xsd:ID' use='required'/>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Lemma'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='Tag' minOccurs='0' maxOccurs='unbounded'/>
+   </xsd:sequence>
+   <xsd:attribute name='writtenForm' type='xsd:string' use='required'/>
+   <xsd:attribute name='script' type='xsd:string' use='optional'/>
+   <xsd:attribute name='partOfSpeech' use='required'>
+    <xsd:simpleType>
+     <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='n'/>
+      <xsd:enumeration value='v'/>
+      <xsd:enumeration value='a'/>
+      <xsd:enumeration value='r'/>
+      <xsd:enumeration value='s'/>
+      <xsd:enumeration value='t'/>
+      <xsd:enumeration value='c'/>
+      <xsd:enumeration value='p'/>
+      <xsd:enumeration value='x'/>
+      <xsd:enumeration value='u'/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:attribute>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Form'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='Tag' minOccurs='0' maxOccurs='unbounded'/>
+   </xsd:sequence>
+   <xsd:attribute name='writtenForm' type='xsd:string' use='required'/>
+   <xsd:attribute name='script' type='xsd:string' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Tag'>
+  <xsd:complexType mixed='true'>
+   <xsd:attribute name='category' type='xsd:string' use='required'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Sense'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='SenseRelation' minOccurs='0' maxOccurs='unbounded'/>
+    <xsd:element ref='Example' minOccurs='0' maxOccurs='unbounded'/>
+    <xsd:element ref='Count' minOccurs='0' maxOccurs='unbounded'/>
+   </xsd:sequence>
+   <xsd:attribute name='id' type='xsd:ID' use='required'/>
+   <xsd:attribute name='synset' type='xsd:IDREF' use='required'/>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+   <xsd:attribute name='n' type='xsd:string' use='optional'/>
+   <xsd:attribute name='lexicalized' default='true' use='optional'>
+    <xsd:simpleType>
+     <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='true'/>
+      <xsd:enumeration value='false'/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:attribute>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Synset'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='Definition' minOccurs='0' maxOccurs='unbounded'/>
+    <xsd:element ref='ILIDefinition' minOccurs='0' maxOccurs='1'/>
+    <xsd:element ref='SynsetRelation' minOccurs='0' maxOccurs='unbounded'/>
+    <xsd:element ref='Example' minOccurs='0' maxOccurs='unbounded'/>
+   </xsd:sequence>
+   <xsd:attribute name='id' type='xsd:ID' use='required'/>
+   <xsd:attribute name='ili' type='xsd:string' use='required'/>
+   <xsd:attribute name='partOfSpeech' use='optional'>
+    <xsd:simpleType>
+     <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='n'/>
+      <xsd:enumeration value='v'/>
+      <xsd:enumeration value='a'/>
+      <xsd:enumeration value='r'/>
+      <xsd:enumeration value='s'/>
+      <xsd:enumeration value='t'/>
+      <xsd:enumeration value='c'/>
+      <xsd:enumeration value='p'/>
+      <xsd:enumeration value='x'/>
+      <xsd:enumeration value='u'/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:attribute>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+   <xsd:attribute name='lexicalized' default='true' use='optional'>
+    <xsd:simpleType>
+     <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='true'/>
+      <xsd:enumeration value='false'/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:attribute>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Definition'>
+  <xsd:complexType mixed='true'>
+   <xsd:attribute name='language' type='xsd:string' use='optional'/>
+   <xsd:attribute name='sourceSense' type='xsd:IDREF' use='optional'/>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='ILIDefinition'>
+  <xsd:complexType mixed='true'>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Example'>
+  <xsd:complexType mixed='true'>
+   <xsd:attribute name='language' type='xsd:string' use='optional'/>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='SynsetRelation'>
+  <xsd:complexType>
+   <xsd:attribute name='target' type='xsd:IDREF' use='required'/>
+   <xsd:attribute name='relType' use='required'>
+    <xsd:simpleType>
+     <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='agent'/>
+      <xsd:enumeration value='also'/>
+      <xsd:enumeration value='antonym'/>
+      <xsd:enumeration value='attribute'/>
+      <xsd:enumeration value='be_in_state'/>
+      <xsd:enumeration value='causes'/>
+      <xsd:enumeration value='classified_by'/>
+      <xsd:enumeration value='classifies'/>
+      <xsd:enumeration value='co_agent_instrument'/>
+      <xsd:enumeration value='co_agent_patient'/>
+      <xsd:enumeration value='co_agent_result'/>
+      <xsd:enumeration value='co_instrument_agent'/>
+      <xsd:enumeration value='co_instrument_patient'/>
+      <xsd:enumeration value='co_instrument_result'/>
+      <xsd:enumeration value='co_patient_agent'/>
+      <xsd:enumeration value='co_patient_instrument'/>
+      <xsd:enumeration value='co_result_agent'/>
+      <xsd:enumeration value='co_result_instrument'/>
+      <xsd:enumeration value='co_role'/>
+      <xsd:enumeration value='direction'/>
+      <xsd:enumeration value='domain_region'/>
+      <xsd:enumeration value='domain_topic'/>
+      <xsd:enumeration value='entails'/>
+      <xsd:enumeration value='eq_synonym'/>
+      <xsd:enumeration value='exemplifies'/>
+      <xsd:enumeration value='has_domain_region'/>
+      <xsd:enumeration value='has_domain_topic'/>
+      <xsd:enumeration value='holo_location'/>
+      <xsd:enumeration value='holo_member'/>
+      <xsd:enumeration value='holonym'/>
+      <xsd:enumeration value='holo_part'/>
+      <xsd:enumeration value='holo_portion'/>
+      <xsd:enumeration value='holo_substance'/>
+      <xsd:enumeration value='hypernym'/>
+      <xsd:enumeration value='hyponym'/>
+      <xsd:enumeration value='in_manner'/>
+      <xsd:enumeration value='instance_hypernym'/>
+      <xsd:enumeration value='instance_hyponym'/>
+      <xsd:enumeration value='instrument'/>
+      <xsd:enumeration value='involved'/>
+      <xsd:enumeration value='involved_agent'/>
+      <xsd:enumeration value='involved_direction'/>
+      <xsd:enumeration value='involved_instrument'/>
+      <xsd:enumeration value='involved_location'/>
+      <xsd:enumeration value='involved_patient'/>
+      <xsd:enumeration value='involved_result'/>
+      <xsd:enumeration value='involved_source_direction'/>
+      <xsd:enumeration value='involved_target_direction'/>
+      <xsd:enumeration value='is_caused_by'/>
+      <xsd:enumeration value='is_entailed_by'/>
+      <xsd:enumeration value='is_exemplified_by'/>
+      <xsd:enumeration value='is_subevent_of'/>
+      <xsd:enumeration value='location'/>
+      <xsd:enumeration value='manner_of'/>
+      <xsd:enumeration value='mero_location'/>
+      <xsd:enumeration value='mero_member'/>
+      <xsd:enumeration value='meronym'/>
+      <xsd:enumeration value='mero_part'/>
+      <xsd:enumeration value='mero_portion'/>
+      <xsd:enumeration value='mero_substance'/>
+      <xsd:enumeration value='patient'/>
+      <xsd:enumeration value='restricted_by'/>
+      <xsd:enumeration value='restricts'/>
+      <xsd:enumeration value='result'/>
+      <xsd:enumeration value='role'/>
+      <xsd:enumeration value='similar'/>
+      <xsd:enumeration value='source_direction'/>
+      <xsd:enumeration value='state_of'/>
+      <xsd:enumeration value='subevent'/>
+      <xsd:enumeration value='target_direction'/>
+      <xsd:enumeration value='other'/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:attribute>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='SenseRelation'>
+  <xsd:complexType>
+   <xsd:attribute name='target' type='xsd:IDREF' use='required'/>
+   <xsd:attribute name='relType' use='required'>
+    <xsd:simpleType>
+     <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='antonym'/>
+      <xsd:enumeration value='also'/>
+      <xsd:enumeration value='participle'/>
+      <xsd:enumeration value='pertainym'/>
+      <xsd:enumeration value='derivation'/>
+      <xsd:enumeration value='domain_topic'/>
+      <xsd:enumeration value='has_domain_topic'/>
+      <xsd:enumeration value='domain_region'/>
+      <xsd:enumeration value='has_domain_region'/>
+      <xsd:enumeration value='exemplifies'/>
+      <xsd:enumeration value='is_exemplified_by'/>
+      <xsd:enumeration value='similar'/>
+      <xsd:enumeration value='other'/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:attribute>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='SyntacticBehaviour'>
+  <xsd:complexType>
+   <xsd:attribute name='subcategorizationFrame' type='xsd:string' use='required'/>
+   <xsd:attribute name='senses' type='xsd:IDREFS' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Count'>
+  <xsd:complexType mixed='true'>
+   <xsd:attribute ref='dc:contributor' use='optional'/>
+   <xsd:attribute ref='dc:coverage' use='optional'/>
+   <xsd:attribute ref='dc:creator' use='optional'/>
+   <xsd:attribute ref='dc:date' use='optional'/>
+   <xsd:attribute ref='dc:description' use='optional'/>
+   <xsd:attribute ref='dc:format' use='optional'/>
+   <xsd:attribute ref='dc:identifier' use='optional'/>
+   <xsd:attribute ref='dc:publisher' use='optional'/>
+   <xsd:attribute ref='dc:relation' use='optional'/>
+   <xsd:attribute ref='dc:rights' use='optional'/>
+   <xsd:attribute ref='dc:source' use='optional'/>
+   <xsd:attribute ref='dc:subject' use='optional'/>
+   <xsd:attribute ref='dc:title' use='optional'/>
+   <xsd:attribute ref='dc:type' use='optional'/>
+   <xsd:attribute name='status' type='xsd:string' use='optional'/>
+   <xsd:attribute name='note' type='xsd:string' use='optional'/>
+   <xsd:attribute name='confidenceScore' type='xsd:float' use='optional'/>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:schema>
