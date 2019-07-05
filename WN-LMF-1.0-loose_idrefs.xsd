@@ -45,16 +45,16 @@
 	</xsd:simpleType>
 
 	<xsd:simpleType name="SenseIDREFType">
-		<!-- <xsd:restriction base="xsd:NCName"> -->
-		<xsd:restriction base="xsd:IDREF">
+		<!-- <xsd:restriction base="xsd:IDREF"> -->
+		<xsd:restriction base="xsd:NCName">
 			<xsd:pattern
 				value="ewn\-.*\-(n|v|a|r|s)\-\d{8}\-\d{2}|ewn\-.*\-(n|v|a|r|s)\-ewn\-\d{8}\-\d{2}" />
 		</xsd:restriction>
 	</xsd:simpleType>
 
 	<xsd:simpleType name="SynsetIDREFType">
-		<!-- <xsd:restriction base="xsd:NCName"> -->
-		<xsd:restriction base="xsd:IDREF">
+		<!-- <xsd:restriction base="xsd:IDREF"> -->
+		<xsd:restriction base="xsd:NCName">
 			<xsd:pattern value="ewn\-\d{8}\-(n|v|a|r|s)" />
 		</xsd:restriction>
 	</xsd:simpleType>
