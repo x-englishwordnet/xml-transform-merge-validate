@@ -1,6 +1,8 @@
 package validator;
 
 /*
+ * Xerces class modified as per [4][4a][5] BNF in XSD specification
+ * 
  * The Apache Software License, Version 1.1
  *
  *

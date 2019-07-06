@@ -32,15 +32,15 @@
 	</xsd:simpleType>
 
 	<xsd:simpleType name='SynsetIDREFType'>
-		<xsd:restriction base='xsd:IDREF'>
-		<!-- <xsd:restriction base='xsd:NCName'> -->
+		<!-- <xsd:restriction base='xsd:IDREF'> -->
+		<xsd:restriction base='xsd:NCName'>
 			<xsd:pattern value='&synsetid;' />
 		</xsd:restriction>
 	</xsd:simpleType>
 
 	<xsd:simpleType name='SenseIDREFType'>
-		<xsd:restriction base='xsd:IDREF'>
-		<!-- <xsd:restriction base='xsd:NCName'> -->
+		<!-- <xsd:restriction base='xsd:IDREF'> -->
+		<xsd:restriction base='xsd:NCName'>
 			<xsd:pattern value='&senseid;' />
 		</xsd:restriction>
 	</xsd:simpleType>
@@ -50,8 +50,8 @@
 			<xsd:simpleType>
 				<xsd:list>
 					<xsd:simpleType>
-						<xsd:restriction base='xsd:IDREF'>
-						<!-- <xsd:restriction base='xsd:NCName'> -->
+						<!-- <xsd:restriction base='xsd:IDREF'> -->
+						<xsd:restriction base='xsd:NCName'>
 							<xsd:pattern value='&synsetid;' />
 						</xsd:restriction>
 					</xsd:simpleType>
@@ -66,8 +66,8 @@
 			<xsd:simpleType>
 				<xsd:list>
 					<xsd:simpleType>
-						<xsd:restriction base='xsd:IDREF'>
-						<!-- <xsd:restriction base='xsd:NCName'> -->
+						<!-- <xsd:restriction base='xsd:IDREF'> -->
+						<xsd:restriction base='xsd:NCName'>
 							<xsd:pattern value='&senseid;' />
 						</xsd:restriction>
 					</xsd:simpleType>
