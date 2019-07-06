@@ -17,6 +17,8 @@ Two XSD's are provided:
 
 * WN-LMF-1.0[-relax_idrefs].xsd
 
+* dc.xsd
+
 
 *How to run:*
 
