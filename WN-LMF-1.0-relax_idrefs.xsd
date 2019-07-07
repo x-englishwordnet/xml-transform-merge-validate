@@ -2,8 +2,9 @@
 [
 <!ENTITY lexid "ewn\-[a-zA-Z0-9_\.\-]*-(n|v|a|r|s)">
 <!ENTITY synsetid "ewn\-\d{8}\-[nvars]">
-<!ENTITY senseid "ewn\-.*\-[nvars]\-\d{8}\-\d{2}|ewn\-.*\-[nvars]\-ewn\-\d{8}\-\d{2}">
-<!ENTITY word "[a-zA-Z0-9 '/\-\.]+">
+<!ENTITY senseid "ewn\-.*\-[nvars]\-\d{8}\-\d{2}">
+<!ENTITY senseid_ns "ewn\-.*\-[nvars]\-\d{8}\-\d{2}|ewn\-.*\-[nvars]\-ewn\-\d{8}\-\d{2}">
+<!ENTITY word "[a-zA-Z0-9 '!,/\-\.]+">
 <!ENTITY ili "i\d+|in">
 ]>
 
