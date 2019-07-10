@@ -3,7 +3,7 @@
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<xsl:strip-space elements="*" />
-	<xsl:output method="xml" indent="yes"/>
+	<xsl:output method="xml" indent="yes" />
 
 	<xsl:template match="/">
 		<xsl:copy>
@@ -19,12 +19,13 @@
 			<xsl:call-template name="make-sensekey">
 				<xsl:with-param name="sensenode" select="." />
 				<xsl:with-param name="senseidx" select="$senseidx" />
+				<xsl:with-param name="pos" select="../Lemma/@partOfSpeech" />
 				<xsl:with-param name="wn31sensekey" select="./@dc:identifier" />
 			</xsl:call-template>
 		</xsl:variable>
 		<xsl:copy>
 			<xsl:attribute name="senseidx">
-					<xsl:value-of select="$senseidx -1" />
+					<xsl:value-of select="format-number($senseidx - 1,'00')" />
 			</xsl:attribute>
 			<xsl:attribute name="sensekey">
 					<xsl:value-of select="$sensekey" />
@@ -39,6 +40,7 @@
 	<xsl:template name="make-sensekey">
 		<xsl:param name="sensenode" />
 		<xsl:param name="senseidx" />
+		<xsl:param name="pos" />
 		<xsl:param name="wn31sensekey" />
 
 		<xsl:variable name="lemma">
@@ -69,24 +71,27 @@
 		<xsl:variable name="lexid">
 			<xsl:value-of select="format-number($senseidx - 1,'00')" />
 		</xsl:variable>
-		<!-- assume: volatile /> -->
+
+		<!-- HEAD WORD : assume: volatile /> -->
 		<xsl:variable name="headword">
 			<xsl:choose>
-				<xsl:when test="substring-before($wn31lexsense_tail3,':') != ''">
-					<!-- <xsl:value-of select="'xxx'" /> -->
-					<xsl:value-of select="substring-before($wn31lexsense_tail3,':')" />
+				<xsl:when test="$pos = 's'">
+					<xsl:variable name="head_lexicalentry_id">
+						<xsl:value-of select="concat('ewn-',substring-before($wn31lexsense_tail3,':'),'-a')" />
+					</xsl:variable>
+					<xsl:value-of select="translate(id($head_lexicalentry_id)/Lemma/@writtenForm,' ','_')" />
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="''" />
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<!-- assume: may change /> -->
+
+		<!-- HEAD assume: volatile /> -->
 		<xsl:variable name="headid">
 			<xsl:choose>
-				<xsl:when test="substring-after($wn31lexsense_tail3,':') != ''">
-					<!-- <xsl:value-of select="'xxx'" /> -->
-					<xsl:value-of select="substring-after($wn31lexsense_tail3,':')" />
+				<xsl:when test="$pos = 's'">
+					<xsl:value-of select="'nnn'" />
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="''" />
@@ -129,10 +134,6 @@
 		</xsl:choose>
 	</xsl:template>
 
-	<!--
-	<xsl:template match="text()">
-		<xsl:value-of select="normalize-space()" />
-	</xsl:template>
-	-->
-	
+	<!-- <xsl:template match="text()"> <xsl:value-of select="normalize-space()" /> </xsl:template> -->
+
 </xsl:transform>
