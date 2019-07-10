@@ -10,7 +10,7 @@
 	</xsl:template>
 
 	<xsl:template match="Sense">
-		<xsl:if test="./@sensekey != ./@dc:identifier">
+		<xsl:if test="substring-before(./@sensekey,'%') != substring-before(./@dc:identifier,'%')">
 			<xsl:text>---</xsl:text>
 			<xsl:value-of select="./@dc:identifier" />
 			<xsl:text>&#xa;</xsl:text>
