@@ -72,46 +72,33 @@
 			<xsl:value-of select="format-number($senseidx - 1,'00')" />
 		</xsl:variable>
 
-		<!-- HEAD WORD : assume: volatile = "the lemma of the first word of the satellite's head synset" /> -->
-		<xsl:variable name="headword">
-			<xsl:choose>
-				<xsl:when test="$pos = 's'">
-					<xsl:variable name="head_synset_id">
-						<xsl:value-of select="id($sensenode/@synset)/SynsetRelation[@relType='similar']/@target" />
-					</xsl:variable>
-					<xsl:variable name="first_sense_head_synset_id">
-						<xsl:value-of select="//Sense[@synset=$head_synset_id]/@id" />
-					</xsl:variable>
-					<xsl:value-of select="id($first_sense_head_synset_id)/../Lemma/@writtenForm" />
+		<!-- SATELLITE HEAD -->
+		<xsl:choose>
+			<xsl:when test="$pos != 's'">
+				<xsl:value-of select="concat($lemma,'%',$sstype,':',$lexfilenum,':',$lexid,'::')" />
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:variable name="head_synset_id">
+					<xsl:value-of select="id($sensenode/@synset)/SynsetRelation[@relType='similar']/@target" />
+				</xsl:variable>
+				<xsl:variable name="first_sense_head_synset_id">
+					<xsl:value-of select="//Sense[@synset=$head_synset_id]/@id" />
+				</xsl:variable>
+				<!-- HEAD WORD : assume: volatile = "the lemma of the first word of the satellite's head synset" /> -->
+				<xsl:variable name="headword">
+					<xsl:value-of select="translate(id($first_sense_head_synset_id)/../Lemma/@writtenForm,' ','_')" />
 					<!-- <xsl:value-of select="substring-before($wn31lexsense_tail3,':')" /> -->
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="''" />
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
+				</xsl:variable>
 
-		<!-- HEAD assume: volatile = "a two digit decimal integer that, when appended onto head_word, uniquely identifies the sense of head_word within a lexicographer file, as described for lex_id" /> -->
-		<xsl:variable name="headid">
-			<xsl:choose>
-				<xsl:when test="$pos = 's'">
-					<xsl:variable name="head_synset_id">
-						<xsl:value-of select="id($sensenode/@synset)/SynsetRelation[@relType='similar']/@target" />
-					</xsl:variable>
-					<xsl:variable name="head_sense_id">
-						<xsl:value-of select="//Sense[@synset=$head_synset_id]/@id" />
-					</xsl:variable>
+				<!-- HEAD assume: volatile = "a two digit decimal integer that, when appended onto head_word, uniquely identifies the sense of head_word within a lexicographer 
+					file, as described for lex_id" /> -->
+				<xsl:variable name="headid">
+					<xsl:value-of select="$first_sense_head_synset_id" />
+				</xsl:variable>
 
-					<xsl:value-of select="$head_sense_id" />
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="''" />
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-
-		<xsl:value-of select="concat($lemma,'%',$sstype,':',$lexfilenum,':',$lexid,':',$headword,':',$headid)" />
-
+				<xsl:value-of select="concat($lemma,'%',$sstype,':',$lexfilenum,':',$lexid,':',$headword,':',$headid)" />
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="@*|node()">
