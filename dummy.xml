@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LexicalResource SYSTEM "http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.0.dtd">
+<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+	<Lexicon>
+		<LexicalEntry id="ewn-xxx-n">
+			<Sense id="ewn-xxx-n-88888888-99" n="0" synset="ewn-88888888-n" sensekey="xxx%p:ll:ii:hhhh:nn" dc:identifier="XXX%P:LL:II:HHHH:NN">
+			</Sense>
+		</LexicalEntry>
+
+	</Lexicon>
+</LexicalResource>

@@ -10,7 +10,16 @@
 	</xsl:template>
 
 	<xsl:template match="Sense">
-		<xsl:if test="substring-before(./@sensekey,'%') != substring-before(./@dc:identifier,'%')">
+		<xsl:variable name="var1">
+			<xsl:value-of select="substring-before(./@sensekey,'%')" />
+		</xsl:variable>
+		<xsl:variable name="var2">
+			<xsl:value-of select="substring-before(./@dc:identifier,'%')" />
+		</xsl:variable>
+		<xsl:if test="$var1 != $var2">
+			<xsl:text>@@@</xsl:text>
+			<xsl:value-of select="$var1" />
+			<xsl:text>&#xa;</xsl:text>
 			<xsl:text>---</xsl:text>
 			<xsl:value-of select="./@dc:identifier" />
 			<xsl:text>&#xa;</xsl:text>

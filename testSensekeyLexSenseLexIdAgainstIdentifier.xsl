@@ -11,11 +11,13 @@
 
 	<xsl:template match="Sense">
 		<xsl:variable name="var1">
-			<xsl:value-of select="substring-after(substring-after(substring-after(substring-after(./@sensekey,'%'),':'),':'),':')" />
+			<xsl:value-of select="substring-before(substring-after(substring-after(substring-after(./@sensekey,'%'),':'),':'),':')" />
 		</xsl:variable>
 		<xsl:variable name="var2">
-			<xsl:value-of select="substring-after(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
+			<xsl:value-of select="substring-before(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
 		</xsl:variable>
+		<xsl:value-of select="position()" />
+		<xsl:text>&#xa;</xsl:text>
 		<xsl:if test="$var1 != $var2">
 			<xsl:text>@@@</xsl:text>
 			<xsl:value-of select="$var1" />

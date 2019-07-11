@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LexicalResource SYSTEM "http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.0.dtd">
+<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <Lexicon id="ewn" 
+           label="English WordNet" 
+           language="en"
+           email="john@mccr.ae"
+           license="https://wordnet.princeton.edu/license-and-commercial-use"
+           version="2019"
+           url="https://github.com/globalwordnet/english-wordnet">
+
+    <!-- LEX POSSESSION -->
+
+    <LexicalEntry id="ewn-abandon-v">
+      <Lemma writtenForm="abandon" partOfSpeech="v"/>
+
+      <Sense id="ewn-abandon-v-02232523-01" n="1" synset="ewn-02232523-v" dc:identifier="abandon%2:40:01::"> <!-- 2 give up with the intent of never claiming again -->
+        <SenseRelation relType="derivation" target="ewn-abandonment-n-00205288-01"/>
+        </Sense>
+
+      <Sense id="ewn-abandon-v-02232813-01" n="0" synset="ewn-02232813-v" dc:identifier="abandon%2:40:00::"> <!-- 1 forsake, leave behind -->
+        <SenseRelation relType="derivation" target="ewn-abandonment-n-00091833-01"/>
+        </Sense>
+
+      <SyntacticBehaviour subcategorizationFrame="They %s the car down the avenue" senses="ewn-abandon-v-02080923-03"/>
+      <SyntacticBehaviour subcategorizationFrame="The cars %s down the avenue" senses="ewn-abandon-v-00615748-01"/>
+      <SyntacticBehaviour subcategorizationFrame="The coins %s " senses="ewn-abandon-v-00614907-01 ewn-abandon-v-00615748-01 ewn-abandon-v-02080923-03 ewn-abandon-v-02232523-01 ewn-abandon-v-02232813-01"/>
+      <SyntacticBehaviour subcategorizationFrame="They %s the coin " senses="ewn-abandon-v-00615748-01 ewn-abandon-v-02232523-01 ewn-abandon-v-02232813-01"/>
+    </LexicalEntry>
+
+    <!-- SYNSET POSSESSION -->
+
+    <!-- 2 give up, abandon -->
+    <Synset id="ewn-02232523-v" ili="i32883" partOfSpeech="v" dc:subject="verb.possession">
+      <Definition>give up with the intent of never claiming again</Definition>
+      <SynsetRelation relType="hyponym" target="ewn-02232269-v"/> <!-- quit, foreswear, renounce, relinquish -->
+      <Example>&quot;Abandon your life to God&quot;</Example>
+      <Example>&quot;She gave up her children to her ex-husband when she moved to Tahiti&quot;</Example>
+      <Example>&quot;We gave the drowning victim up for dead&quot;</Example>
+    </Synset>
+
+    <!-- 1 abandon -->
+    <Synset id="ewn-02232813-v" ili="i32884" partOfSpeech="v" dc:subject="verb.possession">
+      <Definition>forsake, leave behind</Definition>
+      <SynsetRelation relType="hypernym" target="ewn-02227100-v"/> <!-- dispose, toss, cast out, cast away, fling, throw out, put away, toss away, cast aside, chuck out, throw away, discard, toss out -->
+      <SynsetRelation relType="hyponym" target="ewn-02232144-v"/> <!-- ditch, chuck -->
+      <SynsetRelation relType="hyponym" target="ewn-02308215-v"/> <!-- dispense with -->
+      <SynsetRelation relType="hyponym" target="ewn-02308311-v"/> <!-- forgo, give up, forego, throw overboard, forfeit, waive -->
+      <SynsetRelation relType="hyponym" target="ewn-02353320-v"/> <!-- consign -->
+      <Example>&quot;We abandoned the old car in the empty parking lot&quot;</Example>
+    </Synset>
+
+
+
+
+
+    <!-- LEX MOTION -->
+
+    <LexicalEntry id="ewn-abandon-v">
+      <Lemma writtenForm="abandon" partOfSpeech="v"/>
+      <Sense id="ewn-abandon-v-02080923-03" n="2" synset="ewn-02080923-v" dc:identifier="abandon%2:38:00::"/> <!-- 3 leave behind empty; move out of -->
+      <SyntacticBehaviour subcategorizationFrame="They %s the car down the avenue" senses="ewn-abandon-v-02080923-03"/>
+      <SyntacticBehaviour subcategorizationFrame="The cars %s down the avenue" senses="ewn-abandon-v-00615748-01"/>
+      <SyntacticBehaviour subcategorizationFrame="The coins %s " senses="ewn-abandon-v-00614907-01 ewn-abandon-v-00615748-01 ewn-abandon-v-02080923-03 ewn-abandon-v-02232523-01 ewn-abandon-v-02232813-01"/>
+      <SyntacticBehaviour subcategorizationFrame="They %s the coin " senses="ewn-abandon-v-00615748-01 ewn-abandon-v-02232523-01 ewn-abandon-v-02232813-01"/>
+    </LexicalEntry>
+
+    <!-- SYNSET MOTION -->
+
+    <!-- 3 empty, vacate, abandon -->
+    <Synset id="ewn-02080923-v" ili="i32128" partOfSpeech="v" dc:subject="verb.motion">
+      <Definition>leave behind empty; move out of</Definition>
+      <SynsetRelation relType="hypernym" target="ewn-02013448-v"/> <!-- go away, go forth, leave -->
+      <Example>&quot;You must vacate your office by tonight&quot;</Example>
+    </Synset>
+
+
+
+
+
+    <!-- LEX COGNITION -->
+
+    <LexicalEntry id="ewn-abandon-v">
+      <Lemma writtenForm="abandon" partOfSpeech="v"/>
+
+      <Sense id="ewn-abandon-v-00614907-01" n="3" synset="ewn-00614907-v" dc:identifier="abandon%2:31:01::"> <!-- 4 stop maintaining or insisting on; of ideas or claims -->
+        <SenseRelation relType="derivation" target="ewn-abandonment-n-00205288-01"/>
+        </Sense>
+
+      <Sense id="ewn-abandon-v-00615748-01" n="4" synset="ewn-00615748-v" dc:identifier="abandon%2:31:00::"> <!-- 5 leave someone who needs or counts on you; leave in the lurch -->
+        <SenseRelation relType="derivation" target="ewn-abandonment-n-00056135-02"/>
+        </Sense>
+
+    </LexicalEntry>
+
+    <!-- SYNSET COGNITION -->
+
+    <!-- 4  give up, abandon -->
+    <Synset id="ewn-00614907-v" ili="i24825" partOfSpeech="v" dc:subject="verb.cognition">
+      <Definition>stop maintaining or insisting on; of ideas or claims</Definition>
+      <SynsetRelation relType="similar" target="ewn-01993067-v"/> <!-- give way, give, collapse, cave in, founder, fall in, break -->
+      <SynsetRelation relType="similar" target="ewn-01852407-v"/> <!-- ease up, give way, move over, yield, give -->
+      <SynsetRelation relType="hyponym" target="ewn-00615215-v"/> <!-- sell out -->
+      <Example>&quot;He abandoned the thought of asking for her hand in marriage&quot;</Example>
+      <Example>&quot;Both sides have to give up some claims in these negotiations&quot;</Example>
+    </Synset>
+
+    <!-- 5  forsake, abandon, desert, desolate -->
+    <Synset id="ewn-00615748-v" ili="i24827" partOfSpeech="v" dc:subject="verb.cognition">
+      <Definition>leave someone who needs or counts on you; leave in the lurch</Definition>
+      <SynsetRelation relType="hypernym" target="ewn-00615374-v"/> <!-- leave -->
+      <SynsetRelation relType="hyponym" target="ewn-00616135-v"/> <!-- expose -->
+      <SynsetRelation relType="hyponym" target="ewn-00616355-v"/> <!-- walk out -->
+      <SynsetRelation relType="hyponym" target="ewn-02233050-v"/> <!-- ditch -->
+      <SynsetRelation relType="hyponym" target="ewn-02233137-v"/> <!-- maroon, strand -->
+      <Example>&quot;The mother deserted her children&quot;</Example>
+    </Synset>
+
+  </Lexicon>
+</LexicalResource>

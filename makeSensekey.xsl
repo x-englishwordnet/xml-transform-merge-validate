@@ -3,64 +3,100 @@
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<xsl:strip-space elements="*" />
-	<xsl:output method="xml" indent="yes" />
+	<xsl:output method="text" indent="yes" />
 
 	<xsl:template match="/">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()" />
-		</xsl:copy>
+		<xsl:apply-templates select="//Sense" />
+		<xsl:text>&#xa;</xsl:text>
 	</xsl:template>
 
 	<xsl:template match="Sense">
+		<xsl:text>&#xa;</xsl:text>
 		<xsl:variable name="senseidx">
 			<xsl:number />
 		</xsl:variable>
-		<xsl:variable name="lexid">
-			<!-- does not match -->
-			<!-- <xsl:number /> -->
-			<!-- does not match -->
-			<!-- <xsl:value-of select="./@n" /> -->
+		<xsl:variable name="nth">
+			<xsl:value-of select="./@n" />
+		</xsl:variable>
+		<xsl:variable name="idxlexid">
 			<xsl:variable name="numsenses">
 				<xsl:value-of select="count(../Sense)" />
 			</xsl:variable>
 			<xsl:choose>
 				<xsl:when test="$numsenses &gt; 1">
-					<xsl:value-of select="./@n + 1" />
+					<xsl:value-of select="$senseidx" />
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="0" />
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		<xsl:variable name="nbasedlexid">
+			<xsl:variable name="numsenses">
+				<xsl:value-of select="count(../Sense)" />
+			</xsl:variable>
+			<xsl:variable name="minsense">
+				<xsl:for-each select="../Sense/@n">
+					<xsl:sort select="." data-type="number" order="ascending" />
+					<xsl:if test="position() = 1">
+						<xsl:value-of select="number(.)" />
+					</xsl:if>
+				</xsl:for-each>
+			</xsl:variable>
+			<xsl:choose>
+				<xsl:when test="$numsenses &gt; 1">
+					<xsl:value-of select="$nth - $minsense" />
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="0" />
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="legacylexid">
+			<xsl:value-of select="substring-before(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
+		</xsl:variable>
 		<xsl:variable name="sensekey">
 			<xsl:call-template name="make-sensekey">
 				<xsl:with-param name="sensenode" select="." />
-				<xsl:with-param name="lexid" select="$lexid" />
+				<xsl:with-param name="lexid" select="$legacylexid" />
 				<xsl:with-param name="pos" select="../Lemma/@partOfSpeech" />
 				<xsl:with-param name="lexfile" select="id(./@synset)/@dc:subject" />
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:copy>
-			<xsl:attribute name="senseidx">
-					<xsl:value-of select="format-number($senseidx - 1,'00')" />
-			</xsl:attribute>
-			<xsl:attribute name="lexid">
-					<xsl:value-of select="format-number($lexid,'00')" />
-			</xsl:attribute>
-			<xsl:attribute name="checked_synset">
-					<xsl:value-of select="id(./@synset)/@id" />
-			</xsl:attribute>
-			<xsl:attribute name="lexfile">
-					<xsl:value-of select="id(./@synset)/@dc:subject" />
-			</xsl:attribute>
-			<xsl:attribute name="sensekey">
-					<xsl:value-of select="$sensekey" />
-			</xsl:attribute>
-			<xsl:apply-templates select="@*" />
-			<xsl:apply-templates select="./SenseRelation" />
-			<xsl:apply-templates select="./Example" />
-			<xsl:apply-templates select="./Count" />
-		</xsl:copy>
+
+		<xsl:text>&#xa;sense #</xsl:text>
+		<xsl:value-of select="$nth" />
+
+		<xsl:text>&#xa;n </xsl:text>
+		<xsl:value-of select="./@n" />
+
+		<xsl:text>&#xa;sense idx in lexical entry </xsl:text>
+		<xsl:value-of select="format-number($senseidx - 1,'00')" />
+
+		<xsl:text>&#xa;checked_synset </xsl:text>
+		<xsl:value-of select="id(./@synset)/@id" />
+
+		<xsl:text>&#xa;lexfile </xsl:text>
+		<xsl:value-of select="id(./@synset)/@dc:subject" />
+
+		<xsl:text>&#xa;legacy lexid </xsl:text>
+		<xsl:value-of select="format-number($legacylexid,'00')" />
+
+		<xsl:text>&#xa;idx lexid </xsl:text>
+		<xsl:value-of select="format-number($idxlexid,'00')" />
+
+		<xsl:text>&#xa;n-based lexid </xsl:text>
+		<xsl:value-of select="format-number($nbasedlexid,'00')" />
+
+		<xsl:text>&#xa;wn sensekey  </xsl:text>
+		<xsl:value-of select="./@dc:identifier" />
+
+		<xsl:text>&#xa;ewn sensekey </xsl:text>
+		<xsl:value-of select="$sensekey" />
+
+		<xsl:text>&#xa;equals </xsl:text>
+		<xsl:value-of select="$sensekey = ./@dc:identifier" />
+
 	</xsl:template>
 
 	<xsl:template name="make-sensekey">
@@ -271,13 +307,5 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-
-	<xsl:template match="@*|node()">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()" />
-		</xsl:copy>
-	</xsl:template>
-
-	<!-- <xsl:template match="text()"> <xsl:value-of select="normalize-space()" /> </xsl:template> -->
 
 </xsl:transform>
