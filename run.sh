@@ -5,19 +5,19 @@ if [ -z "$1" ]; then
 	exit
 fi
 XSL="$1"
+shift
 echo "XSL: $XSL" 1>&2;
 
-if [ -z "$2" ]; then
+OUT="$1"
+echo "OUT: $OUT" 1>&2;
+shift
+
+if [ -z "$*" ]; then
 	echo "Null Source"
 	exit
 fi
-SRC="$2"
-echo "SRC: $SRC" 1>&2;
+echo "SRC: $*" 1>&2;
 
-RES="$3"
-if [ -z "$3" ]; then
-	RES="-"
-fi
-
-MEM=-Xmx2G
-java -jar transformer.jar $XSL $SRC $RES
+MEM=-Xmx1G
+echo java $MEM -jar transformer.jar $XSL $OUT $*
+java $MEM -jar transformer.jar $XSL $OUT $*

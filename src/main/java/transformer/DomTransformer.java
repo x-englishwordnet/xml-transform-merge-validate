@@ -38,12 +38,17 @@ public class DomTransformer
 	/**
 	 * Output as html
 	 */
-	private final boolean outputHtml;
+	private final String outputMethod;
 
 	/**
-	 * Dtd string
+	 * Doc type system string
 	 */
-	private final String dtd;
+	private final String docTypeSystem;
+
+	/**
+	 * Doc type public string
+	 */
+	private final String docTypePublic;
 
 	// C O N S T R U C T O R
 
@@ -52,21 +57,44 @@ public class DomTransformer
 	 */
 	public DomTransformer()
 	{
-		this(false, null);
+		this(null, null, null);
 	}
 
 	/**
 	 * Constructor
 	 *
-	 * @param outputHtmlFlag
-	 *            output as html
-	 * @param dtd
-	 *            dtd id
+	 * @param outputMethod
+	 *            output method
+	 * @param docTypeSystem
+	 *            doctype system
+	 * @param docTypePublic
+	 *            doctype public
 	 */
-	public DomTransformer(final boolean outputHtmlFlag, final String dtd)
+	public DomTransformer(final String outputMethod, final String docTypeSystem, final String docTypePublic)
 	{
-		this.outputHtml = outputHtmlFlag;
-		this.dtd = dtd;
+		this.outputMethod = outputMethod;
+		this.docTypeSystem = docTypeSystem;
+		this.docTypePublic = docTypePublic;
+	}
+
+	private Transformer config(final Transformer transformer)
+	{
+		if (this.outputMethod != null)
+		{
+			transformer.setOutputProperty(javax.xml.transform.OutputKeys.METHOD, this.outputMethod);
+		}
+		if (this.docTypeSystem != null)
+		{
+			transformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_SYSTEM, this.docTypeSystem);
+		}
+		if (this.docTypeSystem != null)
+		{
+			transformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_PUBLIC, this.docTypePublic);
+		}
+		transformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty(javax.xml.transform.OutputKeys.ENCODING, "UTF8");
+		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+		return transformer;
 	}
 
 	// T O . F I L E
@@ -89,14 +117,14 @@ public class DomTransformer
 		final Source xsltSource = new StreamSource(new File(xsltFilePath));
 
 		// in
-		final Source xmlSource = inFilePath.equals("-") ? new StreamSource(System.in) : new StreamSource(new File(inFilePath)); //$NON-NLS-1$
+		final Source xmlSource = inFilePath.equals("-") ? new StreamSource(System.in) : new StreamSource(new File(inFilePath));
 
 		// out
-		final StreamResult result = outFilePath.equals("-") ? new StreamResult(System.out) : new StreamResult(new FileWriter(outFilePath)); //$NON-NLS-1$
+		final StreamResult result = outFilePath.equals("-") ? new StreamResult(System.out) : new StreamResult(new FileWriter(outFilePath));
 
 		// transform
 		final TransformerFactory factory = TransformerFactory.newInstance();
-		final Transformer transformer = factory.newTransformer(xsltSource);
+		final Transformer transformer = config(factory.newTransformer(xsltSource));
 		transformer.transform(xmlSource, result);
 	}
 
@@ -207,6 +235,32 @@ public class DomTransformer
 		toStream(document, null, result);
 	}
 
+
+	/**
+	 * File to stream result
+	 * 
+	 * @param inFilePath
+	 *            the file path
+	 * @param streamResult
+	 *            the stream result
+	 * @param xsltFilePath
+	 *            the XSLT source
+	 * @throws TransformerException
+	 */
+	public void fileToStreamResult(final String inFilePath, final StreamResult streamResult, final String xsltFilePath) throws TransformerException
+	{
+		// xsl
+		final Source xsltSource = new StreamSource(new File(xsltFilePath));
+
+		// in
+		final Source xmlSource = inFilePath.equals("-") ? new StreamSource(System.in) : new StreamSource(new File(inFilePath));
+
+		// transform
+		final TransformerFactory factory = TransformerFactory.newInstance();
+		final Transformer transformer = config(factory.newTransformer(xsltSource));
+		transformer.transform(xmlSource, streamResult);
+	}
+
 	// T O . D O C U M E N T
 
 	/**
@@ -307,15 +361,8 @@ public class DomTransformer
 
 		// transform
 		final TransformerFactory factory = TransformerFactory.newInstance();
-		final Transformer transformer = xsltSource == null ? factory.newTransformer() : factory.newTransformer(xsltSource);
-		transformer.setOutputProperty(javax.xml.transform.OutputKeys.METHOD, this.outputHtml ? "html" : "xml"); //$NON-NLS-1$ //$NON-NLS-2$
-		if (this.dtd != null)
-		{
-			transformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_SYSTEM, this.dtd);
-		}
-		transformer.setOutputProperty(javax.xml.transform.OutputKeys.INDENT, "yes"); //$NON-NLS-1$
-		transformer.setOutputProperty(javax.xml.transform.OutputKeys.ENCODING, "UTF8"); //$NON-NLS-1$
-		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2"); //$NON-NLS-1$ //$NON-NLS-2$
+		final Transformer transformer = config(xsltSource == null ? factory.newTransformer() : factory.newTransformer(xsltSource));
+		config(transformer);
 		transformer.transform(source, result);
 	}
 
@@ -337,7 +384,7 @@ public class DomTransformer
 
 		// transform
 		final TransformerFactory factory = TransformerFactory.newInstance();
-		final Transformer transformer = xsltSource == null ? factory.newTransformer() : factory.newTransformer(xsltSource);
+		final Transformer transformer = config(xsltSource == null ? factory.newTransformer() : factory.newTransformer(xsltSource));
 		transformer.transform(xmlSource, result);
 		return (Document) result.getNode();
 	}
