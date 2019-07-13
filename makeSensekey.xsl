@@ -18,7 +18,22 @@
 		<xsl:variable name="nth">
 			<xsl:value-of select="./@n" />
 		</xsl:variable>
-		<xsl:variable name="idxlexid">
+
+		<!--  legacy -->
+		<xsl:variable name="legacy_lexid">
+			<xsl:value-of select="substring-before(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
+		</xsl:variable>
+		<xsl:variable name="legacy_sensekey">
+			<xsl:call-template name="make-sensekey">
+				<xsl:with-param name="sensenode" select="." />
+				<xsl:with-param name="lexid" select="$legacy_lexid" />
+				<xsl:with-param name="pos" select="../Lemma/@partOfSpeech" />
+				<xsl:with-param name="lexfile" select="id(./@synset)/@dc:subject" />
+			</xsl:call-template>
+		</xsl:variable>
+
+		<!--  based on index of <Sense> in <LexicalEntry> -->
+		<xsl:variable name="idx_lexid">
 			<xsl:variable name="numsenses">
 				<xsl:value-of select="count(../Sense)" />
 			</xsl:variable>
@@ -31,7 +46,17 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<xsl:variable name="nbasedlexid">
+		<xsl:variable name="idx_sensekey">
+			<xsl:call-template name="make-sensekey">
+				<xsl:with-param name="sensenode" select="." />
+				<xsl:with-param name="lexid" select="$idx_lexid" />
+				<xsl:with-param name="pos" select="../Lemma/@partOfSpeech" />
+				<xsl:with-param name="lexfile" select="id(./@synset)/@dc:subject" />
+			</xsl:call-template>
+		</xsl:variable>
+
+		<!--  based on ordering of 'n' attribute, floored to min value of n -->
+		<xsl:variable name="nbased_lexid">
 			<xsl:variable name="numsenses">
 				<xsl:value-of select="count(../Sense)" />
 			</xsl:variable>
@@ -52,13 +77,10 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<xsl:variable name="legacylexid">
-			<xsl:value-of select="substring-before(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
-		</xsl:variable>
-		<xsl:variable name="sensekey">
+		<xsl:variable name="nbased_sensekey">
 			<xsl:call-template name="make-sensekey">
 				<xsl:with-param name="sensenode" select="." />
-				<xsl:with-param name="lexid" select="$legacylexid" />
+				<xsl:with-param name="lexid" select="$nbased_lexid" />
 				<xsl:with-param name="pos" select="../Lemma/@partOfSpeech" />
 				<xsl:with-param name="lexfile" select="id(./@synset)/@dc:subject" />
 			</xsl:call-template>
@@ -80,25 +102,38 @@
 		<xsl:value-of select="id(./@synset)/@dc:subject" />
 
 		<xsl:text>&#xa;legacy lexid </xsl:text>
-		<xsl:value-of select="format-number($legacylexid,'00')" />
+		<xsl:value-of select="format-number($legacy_lexid,'00')" />
 
 		<xsl:text>&#xa;idx lexid </xsl:text>
-		<xsl:value-of select="format-number($idxlexid,'00')" />
+		<xsl:value-of select="format-number($idx_lexid,'00')" />
 
 		<xsl:text>&#xa;n-based lexid </xsl:text>
-		<xsl:value-of select="format-number($nbasedlexid,'00')" />
+		<xsl:value-of select="format-number($nbased_lexid,'00')" />
 
-		<xsl:text>&#xa;wn sensekey  </xsl:text>
+		<xsl:text>&#xa;wn sensekey          </xsl:text>
 		<xsl:value-of select="./@dc:identifier" />
 
-		<xsl:text>&#xa;ewn sensekey </xsl:text>
-		<xsl:value-of select="$sensekey" />
+		<xsl:text>&#xa;ewn legacy sensekey  </xsl:text>
+		<xsl:value-of select="$legacy_sensekey" />
 
-		<xsl:text>&#xa;equals </xsl:text>
-		<xsl:value-of select="$sensekey = ./@dc:identifier" />
+		<xsl:text>&#xa;ewn idx sensekey     </xsl:text>
+		<xsl:value-of select="$idx_sensekey" />
+
+		<xsl:text>&#xa;ewn sensekey         </xsl:text>
+		<xsl:value-of select="$nbased_sensekey" />
+
+		<xsl:text>&#xa;legacy_equals </xsl:text>
+		<xsl:value-of select="$legacy_sensekey = ./@dc:identifier" />
+
+		<xsl:text>&#xa;idx_equals    </xsl:text>
+		<xsl:value-of select="$idx_sensekey = ./@dc:identifier" />
+
+		<xsl:text>&#xa;nbased_equals </xsl:text>
+		<xsl:value-of select="$nbased_sensekey = ./@dc:identifier" />
 
 	</xsl:template>
 
+	<!-- S E N S E K E Y  F A C T O R Y -->
 	<xsl:template name="make-sensekey">
 		<xsl:param name="sensenode" />
 		<xsl:param name="lexid" />
@@ -111,6 +146,7 @@
 		</xsl:variable>
 
 		<!-- LEX_SENSE -->
+		
 		<!-- LEX_SENSE.SSTYPE, assumed stable : we do not jump over the part-of-speech boundary, can be computed from $pos /> -->
 		<xsl:variable name="sstype">
 			<xsl:choose>
@@ -134,7 +170,8 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<!-- LEX_SENSE.LEXFILENUM, assumed stable relative to wn31 : we do not jump over the lexicographer file boundary , can be computed from dc:subject /> -->
+		
+		<!-- LEX_SENSE.LEXFILE_NUM, assumed stable relative to wn31 : we do not jump over the lexicographer file boundary , can be computed from dc:subject /> -->
 		<xsl:variable name="lexfilenum">
 			<xsl:choose>
 				<xsl:when test="$lexfile = 'adj.all' ">
@@ -278,11 +315,14 @@
 			</xsl:choose>
 		</xsl:variable>
 		<!-- LEX_SENSE.LEXID, assume: volatile /> -->
+		
+		<!-- LEX_SENSE.SS_TYPE:LEXFILENUM:LEXID /> -->
+		<xsl:value-of select="concat($lemma,'%',$sstype,':',format-number($lexfilenum,'00'),':',format-number($lexid,'00'))" />
 
 		<!-- SATELLITE HEAD -->
 		<xsl:choose>
 			<xsl:when test="$pos != 's'">
-				<xsl:value-of select="concat($lemma,'%',$sstype,':',format-number($lexfilenum,'00'),':',format-number($lexid,'00'),'::')" />
+				<xsl:value-of select="'::'" />
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:variable name="head_synset_id">
@@ -291,6 +331,7 @@
 				<xsl:variable name="first_sense_head_synset_id">
 					<xsl:value-of select="//Sense[@synset=$head_synset_id]/@id" />
 				</xsl:variable>
+				
 				<!-- HEAD WORD : assume: volatile = "the lemma of the first word of the satellite's head synset" /> -->
 				<xsl:variable name="headword">
 					<xsl:value-of select="translate(id($first_sense_head_synset_id)/../Lemma/@writtenForm,' ','_')" />
@@ -303,7 +344,7 @@
 				</xsl:variable>
 
 				<xsl:value-of
-					select="concat($lemma,'%',format-number($sstype,'0'),':',format-number($lexfilenum,'00'),':',format-number($lexid,'00'),':',$headword,':',$headid)" />
+					select="concat(':',$headword,':',$headid)" />
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

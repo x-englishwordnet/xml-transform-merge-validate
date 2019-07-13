@@ -92,8 +92,15 @@ public class XSLTTransform
 				System.err.println("OUT:  " + result);
 
 				// out
-				final StreamResult streamResult = "-".equals(result) ? new StreamResult(System.out) : new StreamResult(new FileWriter(result));
+				final boolean isFile = !"-".equals(result);
+				if (isFile)
+				{
+					File file = new File(result);
+					if (file.exists())
+						file.delete();
+				}
 
+				final StreamResult streamResult = isFile ? new StreamResult(new FileWriter(result)) : new StreamResult(System.out);
 				for (String sourceFilePath : inputs)
 				{
 					System.err.println("XFRM: " + sourceFilePath + " -> " + result);
