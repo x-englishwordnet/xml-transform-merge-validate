@@ -6,17 +6,14 @@
 	<xsl:output method="text" indent="yes" />
 
 	<xsl:template match="/">
-		<xsl:apply-templates select="//Sense" />
+		<xsl:apply-templates select="//Sense[@dc:identifier='unpolluted%5:00:00:pure:02']" />
 		<xsl:text>&#xa;</xsl:text>
 	</xsl:template>
 
 	<xsl:template match="Sense">
 		<xsl:text>&#xa;</xsl:text>
-		<xsl:variable name="senseidx">
-			<xsl:number />
-		</xsl:variable>
-		<xsl:text>&#xa;sense idx in lexical entry </xsl:text>
-		<xsl:value-of select="format-number($senseidx - 1,'00')" />
+		<!-- <xsl:text>&#xa;sense idx in lexical entry </xsl:text> <xsl:value-of select="format-number($senseidx - 1,'00')" /> <xsl:variable name="senseidx"> <xsl:number 
+			/> </xsl:variable> -->
 		<xsl:text>&#xa;legacy sensekey </xsl:text>
 		<xsl:value-of select="./@dc:identifier" />
 
@@ -38,7 +35,8 @@
 
 	</xsl:template>
 
-	<!-- S E N S E K E Y F A C T O R Y -->
+	<!-- S E N S E K E Y S A T E L L I T E F A C T O R Y -->
+
 	<xsl:template name="make-satellite">
 		<xsl:param name="sensenode" />
 		<xsl:param name="pos" />
@@ -56,7 +54,6 @@
 				<xsl:variable name="head_senses" select="//Sense[@synset=$head_synset_id]" />
 				<xsl:variable name="lemma" select="$head_senses[1]/../Lemma/@writtenForm" />
 
-<!-- 
 				<xsl:text>&#xa;*synset_id </xsl:text>
 				<xsl:value-of select="$synset_id" />
 				<xsl:text>&#xa;*its fetched synset </xsl:text>
@@ -72,7 +69,7 @@
 				<xsl:text>&#xa;*lemma </xsl:text>
 				<xsl:value-of select="$lemma" />
 				<xsl:text>&#xa;</xsl:text>
--->
+				<!-- -->
 				<!-- HEAD WORD : "the lemma of the first word of the satellite's head synset" /> -->
 				<xsl:variable name="headword" select="translate($lemma,' ','_')" />
 
@@ -85,7 +82,8 @@
 				</xsl:variable>
 
 				<!-- Value -->
-				<xsl:value-of select="concat($headword,':',format-number($headid,'00'))" />
+				<xsl:value-of select="concat($headword,':',$headid)" />
+				<xsl:value-of select="concat($headword,':',format-number(substring-after($headid, 'RETURN '),'00'))" />
 			</xsl:otherwise>
 		</xsl:choose>
 
@@ -123,7 +121,6 @@
 		<xsl:variable name="allsenses" select="$sensenode[1]/parent::LexicalEntry/Sense" />
 		<xsl:variable name="numsenses" select="count($allsenses)" />
 
-<!-- 
 		<xsl:text>&#xa;*sense id </xsl:text>
 		<xsl:value-of select="$senseid" />
 		<xsl:text>&#xa;*num co-senses </xsl:text>
@@ -131,9 +128,13 @@
 		<xsl:for-each select="$allsenses">
 			<xsl:text>&#xa;*sense </xsl:text>
 			<xsl:value-of select="concat('#',position(), ' id=', ./@id, ' synset=', ./@synset)" />
-			<xsl:text>&#xa;</xsl:text>
+			<xsl:if test='./@id = $senseid'>
+				<xsl:text> CHOOSE THIS WITH POSITION </xsl:text>
+				<xsl:value-of select="position()" />
+			</xsl:if>
 		</xsl:for-each>
--->
+		<xsl:text>&#xa;RETURN </xsl:text>
+		<!-- -->
 
 		<xsl:choose>
 			<xsl:when test='$numsenses &gt; 1'>
@@ -150,6 +151,7 @@
 				<xsl:value-of select='0' />
 			</xsl:otherwise>
 		</xsl:choose>
+		<xsl:text>&#xa;</xsl:text>
 	</xsl:template>
 
 </xsl:transform>
