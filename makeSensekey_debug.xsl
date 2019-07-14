@@ -7,7 +7,7 @@
 	<xsl:strip-space elements="*" />
 	<xsl:output method="text" indent="yes" />
 
-	<xsl:variable name='debug' select='false()' />
+	<xsl:variable name='debug' select='true()' />
 
 	<xsl:template match="/">
 		<xsl:apply-templates select="//Sense" />

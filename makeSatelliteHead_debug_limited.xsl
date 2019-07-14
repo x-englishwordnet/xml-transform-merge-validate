@@ -7,10 +7,10 @@
 	<xsl:strip-space elements="*" />
 	<xsl:output method="text" indent="yes" />
 
-	<xsl:variable name='debug' select='false()' />
+	<xsl:variable name='debug' select='true()' />
 
 	<xsl:template match="/">
-		<xsl:apply-templates select="//Sense" />
+		<xsl:apply-templates select="//Sense[@dc:identifier='unpolluted%5:00:00:pure:02']" />
 	</xsl:template>
 
 	<xsl:template match="Sense">

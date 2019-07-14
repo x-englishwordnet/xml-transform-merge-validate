@@ -1,477 +1,104 @@
-<?xml version="1.0" encoding="UTF-8"?><LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <Lexicon id="ewn" label="English WordNet" language="en" email="john@mccr.ae" license="https://wordnet.princeton.edu/license-and-commercial-use" version="2019" url="https://github.com/globalwordnet/english-wordnet" confidenceScore="1.0">
-        <LexicalEntry id="ewn-generous-a">
-            <Lemma writtenForm="generous" partOfSpeech="a"/>
-            <Sense senseidx="00" lexid="01" checked_synset="ewn-01114727-a" lexfile="adj.all" sensekey="generous%3:00:01::" id="ewn-generous-a-01114727-01" n="0" synset="ewn-01114727-a" dc:identifier="generous%3:00:01::" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-generousness-n-04838958-02"/>
-                <SenseRelation relType="derivation" target="ewn-generosity-n-01087861-01"/>
-                <SenseRelation relType="antonym" target="ewn-stingy-a-01116284-01"/>
-            </Sense>
-            <Sense senseidx="01" lexid="02" checked_synset="ewn-01118176-a" lexfile="adj.all" sensekey="generous%3:00:02::" id="ewn-generous-a-01118176-01" n="1" synset="ewn-01118176-a" dc:identifier="generous%3:00:02::" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-generousness-n-04838958-02"/>
-                <SenseRelation relType="derivation" target="ewn-generosity-n-04838958-01"/>
-                <SenseRelation relType="antonym" target="ewn-ungenerous-a-01118823-01"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-generous-s">
-            <Lemma writtenForm="generous" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-00106981-s" lexfile="adj.all" sensekey="generous%5:00:00::NaN" id="ewn-generous-s-00106981-01" n="2" synset="ewn-00106981-s" dc:identifier="generous%5:00:00:ample:00" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-bountiful-s">
-            <Lemma writtenForm="bountiful" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="02" checked_synset="ewn-01084588-s" lexfile="adj.all" sensekey="bountiful%5:00:02::NaN" id="ewn-bountiful-s-01084588-01" n="1" synset="ewn-01084588-s" dc:identifier="bountiful%5:00:00:fruitful:00" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-bountifulness-n-05122718-02"/>
-            </Sense>
-            <Sense senseidx="01" lexid="01" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="bountiful%5:00:01:generous:00" id="ewn-bountiful-s-01115129-04" n="0" synset="ewn-01115129-s" dc:identifier="bountiful%5:00:00:generous:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-bountifulness-n-05122718-02"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-bighearted-s">
-            <Lemma writtenForm="bighearted" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="bighearted%5:00:00:generous:00" id="ewn-bighearted-s-01115129-02" n="0" synset="ewn-01115129-s" dc:identifier="bighearted%5:00:00:generous:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-bigheartedness-n-04839632-01"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-freehearted-s">
-            <Lemma writtenForm="freehearted" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115023-s" lexfile="adj.all" sensekey="freehearted%5:00:00:generous:00" id="ewn-freehearted-s-01115023-02" n="0" synset="ewn-01115023-s" dc:identifier="freehearted%5:00:00:generous:01" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-freehanded-s">
-            <Lemma writtenForm="freehanded" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="02" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="freehanded%5:00:02:generous:00" id="ewn-freehanded-s-01115129-05" n="1" synset="ewn-01115129-s" dc:identifier="freehanded%5:00:00:generous:01" lexicalized="true"/>
-            <Sense senseidx="01" lexid="01" checked_synset="" lexfile="" sensekey="freehanded%5:NaN:01::NaN" id="ewn-freehanded-s-01691672-02" n="0" synset="ewn-01691672-s" dc:identifier="freehanded%5:00:00:original:00" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-bounteous-s">
-            <Lemma writtenForm="bounteous" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="bounteous%5:00:00:generous:00" id="ewn-bounteous-s-01115129-03" n="0" synset="ewn-01115129-s" dc:identifier="bounteous%5:00:00:generous:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-bounty-n-04839475-01"/>
-                <SenseRelation relType="derivation" target="ewn-bounteousness-n-04839475-02"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-unsparing-s">
-            <Lemma writtenForm="unsparing" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="02" checked_synset="" lexfile="" sensekey="unsparing%5:NaN:02::NaN" id="ewn-unsparing-s-00439803-01" n="1" synset="ewn-00439803-s" dc:identifier="unsparing%5:00:00:inclement:01" lexicalized="true"/>
-            <Sense senseidx="01" lexid="01" checked_synset="ewn-01115676-s" lexfile="adj.all" sensekey="unsparing%5:00:01:generous:00" id="ewn-unsparing-s-01115676-05" n="0" synset="ewn-01115676-s" dc:identifier="unsparing%5:00:00:generous:01" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-handsome-s">
-            <Lemma writtenForm="handsome" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="01" checked_synset="" lexfile="" sensekey="handsome%5:NaN:01::NaN" id="ewn-handsome-s-00220542-04" n="0" synset="ewn-00220542-s" dc:identifier="handsome%5:00:00:beautiful:00" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-handsomeness-n-04693189-01"/>
-            </Sense>
-            <Sense senseidx="01" lexid="02" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="handsome%5:00:02:generous:00" id="ewn-handsome-s-01115129-06" n="1" synset="ewn-01115129-s" dc:identifier="handsome%5:00:00:generous:01" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-big-s">
-            <Lemma writtenForm="big" partOfSpeech="s"/>
-            <Form writtenForm="bigger"/>
-            <Form writtenForm="biggest"/>
-            <Sense senseidx="00" lexid="05" checked_synset="" lexfile="" sensekey="big%5:NaN:05::NaN" id="ewn-big-s-00581973-01" n="4" synset="ewn-00581973-s" dc:identifier="big%5:00:00:conspicuous:00" lexicalized="true"/>
-            <Sense senseidx="01" lexid="12" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="big%5:00:12:generous:00" id="ewn-big-s-01115129-01" n="11" synset="ewn-01115129-s" dc:identifier="big%5:00:00:generous:00" lexicalized="true"/>
-            <Sense senseidx="02" lexid="11" checked_synset="ewn-01118400-s" lexfile="adj.all" sensekey="big%5:00:11:generous:01" id="ewn-big-s-01118400-01" n="10" synset="ewn-01118400-s" dc:identifier="big%5:00:00:generous:02" lexicalized="true"/>
-            <Sense senseidx="03" lexid="10" checked_synset="" lexfile="" sensekey="big%5:NaN:10::NaN" id="ewn-big-s-01195323-01" n="9" synset="ewn-01195323-s" dc:identifier="big%5:00:00:heavy:08" lexicalized="true"/>
-            <Sense senseidx="04" lexid="02" checked_synset="" lexfile="" sensekey="big%5:NaN:02::NaN" id="ewn-big-s-01279982-01" n="1" synset="ewn-01279982-s" dc:identifier="big%5:00:00:important:00" lexicalized="true"/>
-            <Sense senseidx="05" lexid="04" checked_synset="" lexfile="" sensekey="big%5:NaN:04::NaN" id="ewn-big-s-01455863-01" n="3" synset="ewn-01455863-s" dc:identifier="big%5:00:00:loud:00" lexicalized="true"/>
-            <Sense senseidx="06" lexid="09" checked_synset="" lexfile="" sensekey="big%5:NaN:09::NaN" id="ewn-big-s-01491979-02" n="8" synset="ewn-01491979-s" dc:identifier="big%5:00:00:mature:01" lexicalized="true"/>
-            <Sense senseidx="07" lexid="03" checked_synset="" lexfile="" sensekey="big%5:NaN:03::NaN" id="ewn-big-s-01514159-02" n="2" synset="ewn-01514159-s" dc:identifier="big%5:00:00:intense:00" lexicalized="true"/>
-            <Sense senseidx="08" lexid="08" checked_synset="" lexfile="" sensekey="big%5:NaN:08::NaN" id="ewn-big-s-01896254-01" n="7" synset="ewn-01896254-s" dc:identifier="big%5:00:00:proud:00" lexicalized="true"/>
-            <Sense senseidx="09" lexid="07" checked_synset="" lexfile="" sensekey="big%5:NaN:07::NaN" id="ewn-big-s-01896819-05" n="6" synset="ewn-01896819-s" dc:identifier="big%5:00:02:proud:00" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-too-generous-s">
-            <Lemma writtenForm="too-generous" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115676-s" lexfile="adj.all" sensekey="too-generous%5:00:00:generous:00" id="ewn-too-generous-s-01115676-04" n="0" synset="ewn-01115676-s" dc:identifier="too-generous%5:00:00:generous:01" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-ungenerous-a">
-            <Lemma writtenForm="ungenerous" partOfSpeech="a"/>
-            <Sense senseidx="00" lexid="02" checked_synset="ewn-01116284-a" lexfile="adj.all" sensekey="ungenerous%3:00:02::" id="ewn-ungenerous-a-01116284-02" n="1" synset="ewn-01116284-a" dc:identifier="ungenerous%3:00:04::" lexicalized="true"/>
-            <Sense senseidx="01" lexid="01" checked_synset="ewn-01118823-a" lexfile="adj.all" sensekey="ungenerous%3:00:01::" id="ewn-ungenerous-a-01118823-01" n="0" synset="ewn-01118823-a" dc:identifier="ungenerous%3:00:00::" lexicalized="true">
-                <SenseRelation relType="antonym" target="ewn-generous-a-01118176-01"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-stingy-a">
-            <Lemma writtenForm="stingy" partOfSpeech="a"/>
-            <Form writtenForm="stingier"/>
-            <Form writtenForm="stingiest"/>
-            <Sense senseidx="00" lexid="02" checked_synset="" lexfile="" sensekey="stingy%3:NaN:02::" id="ewn-stingy-a-00107268-04" n="1" synset="ewn-00107268-a" dc:identifier="stingy%3:00:02::" lexicalized="true"/>
-            <Sense senseidx="01" lexid="01" checked_synset="ewn-01116284-a" lexfile="adj.all" sensekey="stingy%3:00:01::" id="ewn-stingy-a-01116284-01" n="0" synset="ewn-01116284-a" dc:identifier="stingy%3:00:00::" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-stinginess-n-04840689-01"/>
-                <SenseRelation relType="antonym" target="ewn-generous-a-01114727-01"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-giving-s">
-            <Lemma writtenForm="giving" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="giving%5:00:00:generous:00" id="ewn-giving-s-01115129-07" n="0" synset="ewn-01115129-s" dc:identifier="giving%5:00:00:generous:01" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-overgenerous-s">
-            <Lemma writtenForm="overgenerous" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115676-s" lexfile="adj.all" sensekey="overgenerous%5:00:00:generous:00" id="ewn-overgenerous-s-01115676-03" n="0" synset="ewn-01115676-s" dc:identifier="overgenerous%5:00:00:generous:01" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-large-s">
-            <Lemma writtenForm="large" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="06" checked_synset="" lexfile="" sensekey="large%5:NaN:06::NaN" id="ewn-large-s-00530075-01" n="5" synset="ewn-00530075-s" dc:identifier="large%5:00:00:comprehensive:00" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-largeness-n-05626076-03"/>
-            </Sense>
-            <Sense senseidx="01" lexid="05" checked_synset="" lexfile="" sensekey="large%5:NaN:05::NaN" id="ewn-large-s-00581973-02" n="4" synset="ewn-00581973-s" dc:identifier="large%5:00:00:conspicuous:00" lexicalized="true"/>
-            <Sense senseidx="02" lexid="04" checked_synset="ewn-01118400-s" lexfile="adj.all" sensekey="large%5:00:04:generous:01" id="ewn-large-s-01118400-02" n="3" synset="ewn-01118400-s" dc:identifier="large%5:00:00:generous:02" lexicalized="true"/>
-            <Sense senseidx="03" lexid="03" checked_synset="" lexfile="" sensekey="large%5:NaN:03::NaN" id="ewn-large-s-02024095-03" n="2" synset="ewn-02024095-s" dc:identifier="large%5:00:00:rhetorical:00" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-largeness-n-04796210-03"/>
-            </Sense>
-            <Sense senseidx="04" lexid="02" checked_synset="" lexfile="" sensekey="large%5:NaN:02::NaN" id="ewn-large-s-02170722-01" n="1" synset="ewn-02170722-s" dc:identifier="large%5:00:00:significant:00" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-largeness-n-05113617-01"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-ungrudging-s">
-            <Lemma writtenForm="ungrudging" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01118715-s" lexfile="adj.all" sensekey="ungrudging%5:00:00:generous:01" id="ewn-ungrudging-s-01118715-01" n="0" synset="ewn-01118715-s" dc:identifier="ungrudging%5:00:00:generous:02" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-unselfish-s">
-            <Lemma writtenForm="unselfish" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01116182-s" lexfile="adj.all" sensekey="unselfish%5:00:00:generous:00" id="ewn-unselfish-s-01116182-01" n="1" synset="ewn-01116182-s" dc:identifier="unselfish%5:00:00:generous:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-unselfishness-n-04840182-01"/>
-                <SenseRelation relType="derivation" target="ewn-unselfishness-n-01087861-02"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-lavish-s">
-            <Lemma writtenForm="lavish" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="01" checked_synset="ewn-01115676-s" lexfile="adj.all" sensekey="lavish%5:00:01:generous:00" id="ewn-lavish-s-01115676-01" n="0" synset="ewn-01115676-s" dc:identifier="lavish%5:00:00:generous:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-lavishness-n-05153718-01"/>
-                <SenseRelation relType="derivation" target="ewn-lavishness-n-00744939-03"/>
-            </Sense>
-            <Sense senseidx="01" lexid="02" checked_synset="" lexfile="" sensekey="lavish%5:NaN:02::NaN" id="ewn-lavish-s-02032677-01" n="1" synset="ewn-02032677-s" dc:identifier="lavish%5:00:00:rich:03" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-lavishness-n-05153718-01"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-benevolent-s">
-            <Lemma writtenForm="benevolent" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="04" checked_synset="" lexfile="" sensekey="benevolent%5:NaN:04::NaN" id="ewn-benevolent-s-00360725-02" n="3" synset="ewn-00360725-s" dc:identifier="benevolent%5:00:00:charitable:00" lexicalized="true"/>
-            <Sense senseidx="01" lexid="03" checked_synset="ewn-01115023-s" lexfile="adj.all" sensekey="benevolent%5:00:03:generous:00" id="ewn-benevolent-s-01115023-01" n="2" synset="ewn-01115023-s" dc:identifier="benevolent%5:00:00:generous:01" lexicalized="true"/>
-            <Sense senseidx="02" lexid="02" checked_synset="" lexfile="" sensekey="benevolent%5:NaN:02::NaN" id="ewn-benevolent-s-01375875-02" n="1" synset="ewn-01375875-s" dc:identifier="benevolent%5:00:00:kind:00" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-openhanded-s">
-            <Lemma writtenForm="openhanded" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="openhanded%5:00:00:generous:00" id="ewn-openhanded-s-01115129-09" n="0" synset="ewn-01115129-s" dc:identifier="openhanded%5:00:00:generous:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-openhandedness-n-04839947-05"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-unstinted-s">
-            <Lemma writtenForm="unstinted" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115676-s" lexfile="adj.all" sensekey="unstinted%5:00:00:generous:00" id="ewn-unstinted-s-01115676-06" n="0" synset="ewn-01115676-s" dc:identifier="unstinted%5:00:00:generous:01" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-magnanimous-s">
-            <Lemma writtenForm="magnanimous" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="02" checked_synset="ewn-01118400-s" lexfile="adj.all" sensekey="magnanimous%5:00:02:generous:01" id="ewn-magnanimous-s-01118400-03" n="1" synset="ewn-01118400-s" dc:identifier="magnanimous%5:00:00:generous:02" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-magnanimousness-n-04877535-03"/>
-                <SenseRelation relType="derivation" target="ewn-magnanimity-n-04839947-04"/>
-            </Sense>
-            <Sense senseidx="01" lexid="01" checked_synset="" lexfile="" sensekey="magnanimous%5:NaN:01::NaN" id="ewn-magnanimous-s-01593452-02" n="0" synset="ewn-01593452-s" dc:identifier="magnanimous%5:00:00:noble:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-magnanimousness-n-04877535-03"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-liberal-s">
-            <Lemma writtenForm="liberal" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="01" checked_synset="ewn-00287703-s" lexfile="adj.all" sensekey="liberal%5:00:01::NaN" id="ewn-liberal-s-00287703-03" n="0" synset="ewn-00287703-s" dc:identifier="liberal%5:00:00:broad-minded:00" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-liberalness-n-06214555-02"/>
-            </Sense>
-            <Sense senseidx="01" lexid="05" checked_synset="" lexfile="" sensekey="liberal%5:NaN:05::NaN" id="ewn-liberal-s-00919313-03" n="4" synset="ewn-00919313-s" dc:identifier="liberal%5:00:00:inexact:00" lexicalized="true"/>
-            <Sense senseidx="02" lexid="04" checked_synset="ewn-01115129-s" lexfile="adj.all" sensekey="liberal%5:00:04:generous:00" id="ewn-liberal-s-01115129-08" n="3" synset="ewn-01115129-s" dc:identifier="liberal%5:00:00:generous:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-liberalness-n-04839749-02"/>
-                <SenseRelation relType="derivation" target="ewn-liberality-n-04839749-01"/>
-            </Sense>
-            <Sense senseidx="03" lexid="02" checked_synset="" lexfile="" sensekey="liberal%5:NaN:02::NaN" id="ewn-liberal-s-02038880-01" n="1" synset="ewn-02038880-s" dc:identifier="liberal%5:00:00:left:02" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-liberalness-n-06214555-02"/>
-                <SenseRelation relType="derivation" target="ewn-liberality-n-06214555-01"/>
-            </Sense>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-unstinting-s">
-            <Lemma writtenForm="unstinting" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115676-s" lexfile="adj.all" sensekey="unstinting%5:00:00:generous:00" id="ewn-unstinting-s-01115676-07" n="0" synset="ewn-01115676-s" dc:identifier="unstinting%5:00:00:generous:01" lexicalized="true"/>
-        </LexicalEntry>
-        <LexicalEntry id="ewn-munificent-s">
-            <Lemma writtenForm="munificent" partOfSpeech="s"/>
-            <Sense senseidx="00" lexid="00" checked_synset="ewn-01115676-s" lexfile="adj.all" sensekey="munificent%5:00:00:generous:00" id="ewn-munificent-s-01115676-02" n="0" synset="ewn-01115676-s" dc:identifier="munificent%5:00:00:generous:01" lexicalized="true">
-                <SenseRelation relType="derivation" target="ewn-munificence-n-04839947-01"/>
-            </Sense>
-        </LexicalEntry>
-        <!-- ample -->
-        <Synset id="ewn-00106545-a" ili="i560" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>more than enough in size or scope or capacity</Definition>
-            <SynsetRelation relType="also" target="ewn-00013906-a"/>
-            <!-- abundant -->
-            <SynsetRelation relType="also" target="ewn-02343832-a"/>
-            <!-- sufficient -->
-            <SynsetRelation relType="attribute" target="ewn-05119909-n"/>
-            <!-- sufficiency, adequacy -->
-            <SynsetRelation relType="similar" target="ewn-00106819-s"/>
-            <!-- good, full -->
-            <SynsetRelation relType="similar" target="ewn-00106981-s"/>
-            <!-- generous -->
-            <SynsetRelation relType="similar" target="ewn-00107089-s"/>
-            <!-- full, wide-cut, wide -->
-            <Example>"had ample food for the party"</Example>
-            <Example>"an ample supply"</Example>
-        </Synset>
-        <!-- generous -->
-        <Synset id="ewn-00106981-s" ili="i562" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>more than is usual or necessary</Definition>
-            <SynsetRelation relType="similar" target="ewn-00106545-a"/>
-            <!-- ample -->
-            <Example>"a generous portion"</Example>
-        </Synset>
-        <!-- large-minded, tolerant, liberal, broad -->
-        <Synset id="ewn-00287703-s" ili="i1593" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>showing or characterized by broad-mindedness</Definition>
-            <SynsetRelation relType="similar" target="ewn-00287444-a"/>
-            <!-- broad-minded -->
-            <Example>"a broad political stance"</Example>
-            <Example>"generous and broad sympathies"</Example>
-            <Example>"a liberal newspaper"</Example>
-            <Example>"tolerant of his opponent's opinions"</Example>
-        </Synset>
-        <!-- charitable -->
-        <Synset id="ewn-00360539-a" ili="i1994" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>full of love and generosity</Definition>
-            <SynsetRelation relType="also" target="ewn-01114727-a"/>
-            <!-- generous -->
-            <SynsetRelation relType="similar" target="ewn-00360725-s"/>
-            <!-- eleemosynary, philanthropic, beneficent, benevolent -->
-            <Example>"charitable to the poor"</Example>
-            <Example>"a charitable trust"</Example>
-        </Synset>
-        <!-- uncharitable -->
-        <Synset id="ewn-00360942-a" ili="i1996" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>lacking love and generosity</Definition>
-            <SynsetRelation relType="also" target="ewn-01118823-a"/>
-            <!-- ungenerous, meanspirited -->
-            <SynsetRelation relType="also" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-            <Example>"all pious words and uncharitable deeds"- Charles Reade</Example>
-        </Synset>
-        <!-- generous -->
-        <Synset id="ewn-01114727-a" ili="i6102" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>willing to give and share unstintingly</Definition>
-            <SynsetRelation relType="also" target="ewn-00360539-a"/>
-            <!-- charitable -->
-            <SynsetRelation relType="also" target="ewn-01118176-a"/>
-            <!-- generous -->
-            <SynsetRelation relType="also" target="ewn-02106299-a"/>
-            <!-- unselfish -->
-            <SynsetRelation relType="attribute" target="ewn-04838958-n"/>
-            <!-- generosity, generousness -->
-            <SynsetRelation relType="similar" target="ewn-01115023-s"/>
-            <!-- freehearted, benevolent -->
-            <SynsetRelation relType="similar" target="ewn-01115129-s"/>
-            <!-- bounteous, openhanded, freehanded, bighearted, big, liberal, giving, bountiful, handsome -->
-            <SynsetRelation relType="similar" target="ewn-01115676-s"/>
-            <!-- unsparing, unstinting, too-generous, lavish, unstinted, overgenerous, munificent -->
-            <SynsetRelation relType="similar" target="ewn-01116182-s"/>
-            <!-- unselfish -->
-            <Example>"a generous donation"</Example>
-        </Synset>
-        <!-- freehearted, benevolent -->
-        <Synset id="ewn-01115023-s" ili="i6103" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>generous in providing aid to others</Definition>
-            <SynsetRelation relType="similar" target="ewn-01114727-a"/>
-            <!-- generous -->
-        </Synset>
-        <!-- bounteous, openhanded, freehanded, bighearted, big, liberal, giving, bountiful, handsome -->
-        <Synset id="ewn-01115129-s" ili="i6104" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>given or giving freely</Definition>
-            <SynsetRelation relType="similar" target="ewn-01114727-a"/>
-            <!-- generous -->
-            <Example>"was a big tipper"</Example>
-            <Example>"the bounteous goodness of God"</Example>
-            <Example>"bountiful compliments"</Example>
-            <Example>"a freehanded host"</Example>
-            <Example>"a handsome allowance"</Example>
-            <Example>"Saturday's child is loving and giving"</Example>
-            <Example>"a liberal backer of the arts"</Example>
-            <Example>"a munificent gift"</Example>
-            <Example>"her fond and openhanded grandfather"</Example>
-        </Synset>
-        <!-- unsparing, unstinting, too-generous, lavish, unstinted, overgenerous, munificent -->
-        <Synset id="ewn-01115676-s" ili="i6105" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>very generous</Definition>
-            <SynsetRelation relType="similar" target="ewn-01114727-a"/>
-            <!-- generous -->
-            <Example>"distributed gifts with a lavish hand"</Example>
-            <Example>"the critics were lavish in their praise"</Example>
-            <Example>"a munificent gift"</Example>
-            <Example>"his father gave him a half-dollar and his mother a quarter and he thought them munificent"</Example>
-            <Example>"unsparing generosity"</Example>
-            <Example>"his unstinted devotion"</Example>
-            <Example>"called for unstinting aid to Britain"</Example>
-            <Example>"lavish praise"</Example>
-        </Synset>
-        <!-- unselfish -->
-        <Synset id="ewn-01116182-s" ili="i6106" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>not greedy</Definition>
-            <SynsetRelation relType="similar" target="ewn-01114727-a"/>
-            <!-- generous -->
-        </Synset>
-        <!-- stingy, ungenerous -->
-        <Synset id="ewn-01116284-a" ili="i6107" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>unwilling to spend (money, time, resources, etc.)</Definition>
-            <SynsetRelation relType="also" target="ewn-02105605-a"/>
-            <!-- selfish -->
-            <SynsetRelation relType="also" target="ewn-00360942-a"/>
-            <!-- uncharitable -->
-            <SynsetRelation relType="also" target="ewn-01118823-a"/>
-            <!-- ungenerous, meanspirited -->
-            <SynsetRelation relType="attribute" target="ewn-04838958-n"/>
-            <!-- generosity, generousness -->
-            <SynsetRelation relType="similar" target="ewn-01116711-s"/>
-            <!-- mean, beggarly -->
-            <SynsetRelation relType="similar" target="ewn-01116856-s"/>
-            <!-- cheap, chintzy, chinchy -->
-            <SynsetRelation relType="similar" target="ewn-01116967-s"/>
-            <!-- skinny, cheeseparing, penny-pinching, near, close -->
-            <SynsetRelation relType="similar" target="ewn-01117247-s"/>
-            <!-- hardfisted, closefisted, tightfisted -->
-            <SynsetRelation relType="similar" target="ewn-01117378-s"/>
-            <!-- grudging, scrimy, niggardly -->
-            <SynsetRelation relType="similar" target="ewn-01117549-s"/>
-            <!-- mean, miserly, mingy, tight -->
-            <SynsetRelation relType="similar" target="ewn-01117858-s"/>
-            <!-- penurious, parsimonious -->
-            <Example>"she practices economy without being stingy"</Example>
-            <Example>"an ungenerous response to the appeal for funds"</Example>
-        </Synset>
-        <!-- mean, beggarly -->
-        <Synset id="ewn-01116711-s" ili="i6108" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>(used of sums of money) so small in amount as to deserve contempt</Definition>
-            <SynsetRelation relType="similar" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-        </Synset>
-        <!-- cheap, chintzy, chinchy -->
-        <Synset id="ewn-01116856-s" ili="i6109" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>embarrassingly stingy</Definition>
-            <SynsetRelation relType="similar" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-        </Synset>
-        <!-- skinny, cheeseparing, penny-pinching, near, close -->
-        <Synset id="ewn-01116967-s" ili="i6110" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>giving or spending with reluctance</Definition>
-            <SynsetRelation relType="similar" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-            <Example>"our cheeseparing administration"</Example>
-            <Example>"very close (or near) with his money"</Example>
-            <Example>"a penny-pinching miserly old man"</Example>
-        </Synset>
-        <!-- hardfisted, closefisted, tightfisted -->
-        <Synset id="ewn-01117247-s" ili="i6111" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>unwilling to part with money</Definition>
-            <SynsetRelation relType="similar" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-        </Synset>
-        <!-- grudging, scrimy, niggardly -->
-        <Synset id="ewn-01117378-s" ili="i6112" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>petty or reluctant in giving or spending</Definition>
-            <SynsetRelation relType="similar" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-            <Example>"a niggardly tip"</Example>
-        </Synset>
-        <!-- mean, miserly, mingy, tight -->
-        <Synset id="ewn-01117549-s" ili="i6113" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>(used of persons or behavior) characterized by or indicative of lack of generosity</Definition>
-            <SynsetRelation relType="similar" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-            <Example>"a mean person"</Example>
-            <Example>"he left a miserly tip"</Example>
-        </Synset>
-        <!-- penurious, parsimonious -->
-        <Synset id="ewn-01117858-s" ili="i6114" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>excessively unwilling to spend</Definition>
-            <SynsetRelation relType="similar" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-            <Example>"parsimonious thrift relieved by few generous impulses"</Example>
-            <Example>"lived in a most penurious manner--denying himself every indulgence"</Example>
-        </Synset>
-        <!-- generous -->
-        <Synset id="ewn-01118176-a" ili="i6115" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>not petty in character and mind</Definition>
-            <SynsetRelation relType="also" target="ewn-01114727-a"/>
-            <!-- generous -->
-            <SynsetRelation relType="similar" target="ewn-01118400-s"/>
-            <!-- large, magnanimous, big -->
-            <SynsetRelation relType="similar" target="ewn-01118715-s"/>
-            <!-- ungrudging -->
-            <Example>"unusually generous in his judgment of people"</Example>
-        </Synset>
-        <!-- large, magnanimous, big -->
-        <Synset id="ewn-01118400-s" ili="i6116" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>generous and understanding and tolerant</Definition>
-            <SynsetRelation relType="similar" target="ewn-01118176-a"/>
-            <!-- generous -->
-            <Example>"a heart big enough to hold no grudges"</Example>
-            <Example>"that's very big of you to be so forgiving"</Example>
-            <Example>"a large and generous spirit"</Example>
-            <Example>"a large heart"</Example>
-            <Example>"magnanimous toward his enemies"</Example>
-        </Synset>
-        <!-- ungrudging -->
-        <Synset id="ewn-01118715-s" ili="i6117" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>without envy or reluctance</Definition>
-            <SynsetRelation relType="similar" target="ewn-01118176-a"/>
-            <!-- generous -->
-            <Example>"ungrudging admiration"</Example>
-        </Synset>
-        <!-- ungenerous, meanspirited -->
-        <Synset id="ewn-01118823-a" ili="i6118" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>lacking in magnanimity</Definition>
-            <SynsetRelation relType="also" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-            <Example>"it seems ungenerous to end this review of a splendid work of scholarship on a critical note"- Times Litt. Sup.</Example>
-            <Example>"a meanspirited man unwilling to forgive"</Example>
-        </Synset>
-        <Synset id="ewn-02105605-a" ili="i11502" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>concerned chiefly or only with yourself and your advantage to the exclusion of others</Definition>
-            <SynsetRelation relType="also" target="ewn-00102561-a"/>
-            <!-- egocentric, egoistic, self-centred, egoistical, self-centered -->
-            <SynsetRelation relType="also" target="ewn-00642378-a"/>
-            <!-- inconsiderate -->
-            <SynsetRelation relType="also" target="ewn-01116284-a"/>
-            <!-- stingy, ungenerous -->
-            <SynsetRelation relType="similar" target="ewn-02105974-s"/>
-            <!-- narcissistic, self-loving, egotistic, egotistical -->
-            <SynsetRelation relType="similar" target="ewn-02106198-s"/>
-            <!-- self-seeking, self-serving -->
-            <Example>"Selfish men were...trying to make capital for themselves out of the sacred cause of civil rights"- Maria Weston Chapman</Example>
-        </Synset>
-        <!-- narcissistic, self-loving, egotistic, egotistical -->
-        <Synset id="ewn-02105974-s" ili="i11503" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>characteristic of those having an inflated idea of their own importance</Definition>
-            <SynsetRelation relType="similar" target="ewn-02105605-a"/>
-            <!-- selfish -->
-        </Synset>
-        <!-- self-seeking, self-serving -->
-        <Synset id="ewn-02106198-s" ili="i11504" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>interested only in yourself</Definition>
-            <SynsetRelation relType="similar" target="ewn-02105605-a"/>
-            <!-- selfish -->
-        </Synset>
-        <!-- unselfish -->
-        <Synset id="ewn-02106299-a" ili="i11505" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
-            <Definition>disregarding your own advantages and welfare over those of others</Definition>
-            <SynsetRelation relType="also" target="ewn-00102370-a"/>
-            <!-- altruistic, selfless -->
-            <SynsetRelation relType="also" target="ewn-00642003-a"/>
-            <!-- considerate -->
-            <SynsetRelation relType="also" target="ewn-01114727-a"/>
-            <!-- generous -->
-            <SynsetRelation relType="similar" target="ewn-02106583-s"/>
-            <!-- public-spirited -->
-            <SynsetRelation relType="similar" target="ewn-02106722-s"/>
-            <!-- self-giving, self-denying, self-sacrificing -->
-            <SynsetRelation relType="similar" target="ewn-02106841-s"/>
-            <!-- self-forgetful -->
-            <SynsetRelation relType="similar" target="ewn-02106931-s"/>
-            <!-- sharing -->
-        </Synset>
-        <!-- plentiful, bountiful -->
-        <Synset id="ewn-01084588-s" ili="i5932" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
-            <Definition>producing in abundance</Definition>
-            <SynsetRelation relType="similar" target="ewn-01083985-a"/>
-            <!-- fruitful -->
-            <Example>"the bountiful earth"</Example>
-            <Example>"a plentiful year"</Example>
-        </Synset>
-    </Lexicon>
+<?xml version="1.0" encoding="UTF-8"?>
+<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<Lexicon id="ewn" label="English WordNet" language="en" email="john@mccr.ae" license="https://wordnet.princeton.edu/license-and-commercial-use"
+		version="2019" url="https://github.com/globalwordnet/english-wordnet" confidenceScore="1.0">
+
+		<LexicalEntry id="ewn-generous-a">
+			<Lemma writtenForm="generous" partOfSpeech="a" />
+			<Sense id="ewn-generous-a-01114727-01" n="0" synset="ewn-01114727-a" dc:identifier="generous%3:00:01::" lexicalized="true"></Sense>
+			<Sense id="ewn-generous-a-01118176-01" n="1" synset="ewn-01118176-a" dc:identifier="generous%3:00:02::" lexicalized="true"></Sense>
+		</LexicalEntry>
+
+		<LexicalEntry id="ewn-unstinting-s">
+			<Lemma writtenForm="unstinting" partOfSpeech="s" />
+			<Sense id="ewn-unstinting-s-01115676-07" n="0" synset="ewn-01115676-s" dc:identifier="unstinting%5:00:00:generous:01" lexicalized="true" />
+		</LexicalEntry>
+		
+		<LexicalEntry id="ewn-munificent-s">
+			<Lemma writtenForm="munificent" partOfSpeech="s" />
+			<Sense id="ewn-munificent-s-01115676-02" n="0" synset="ewn-01115676-s" dc:identifier="munificent%5:00:00:generous:01" lexicalized="true">
+			</Sense>
+		</LexicalEntry>
+		
+
+	<!-- GENEROUS -->
+
+		<!-- generous -->
+		<Synset id="ewn-01114727-a" ili="i6102" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
+			<Definition>willing to give and share unstintingly</Definition>
+			<Example>"a generous donation"</Example>
+		</Synset>
+		
+		<!-- similar: freehearted, benevolent -->
+		<Synset id="ewn-01115023-s" ili="i6103" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
+			<Definition>generous in providing aid to others</Definition>
+			<SynsetRelation relType="similar" target="ewn-01114727-a" />
+			<!-- generous -->
+		</Synset>
+		
+		<!-- similar: bounteous, openhanded, freehanded, bighearted, big, liberal, giving, bountiful, handsome -->
+		<Synset id="ewn-01115129-s" ili="i6104" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
+			<Definition>given or giving freely</Definition>
+			<SynsetRelation relType="similar" target="ewn-01114727-a" />
+			<!-- generous -->
+			<Example>"was a big tipper"</Example>
+			<Example>"the bounteous goodness of God"</Example>
+			<Example>"bountiful compliments"</Example>
+			<Example>"a freehanded host"</Example>
+			<Example>"a handsome allowance"</Example>
+			<Example>"Saturday's child is loving and giving"</Example>
+			<Example>"a liberal backer of the arts"</Example>
+			<Example>"a munificent gift"</Example>
+			<Example>"her fond and openhanded grandfather"</Example>
+		</Synset>
+		
+		<!-- similar: unsparing, unstinting, too-generous, lavish, unstinted, overgenerous, munificent -->
+		<Synset id="ewn-01115676-s" ili="i6105" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
+			<Definition>very generous</Definition>
+			<SynsetRelation relType="similar" target="ewn-01114727-a" />
+			<!-- generous -->
+			<Example>"distributed gifts with a lavish hand"</Example>
+			<Example>"the critics were lavish in their praise"</Example>
+			<Example>"a munificent gift"</Example>
+			<Example>"his father gave him a half-dollar and his mother a quarter and he thought them munificent"</Example>
+			<Example>"unsparing generosity"</Example>
+			<Example>"his unstinted devotion"</Example>
+			<Example>"called for unstinting aid to Britain"</Example>
+			<Example>"lavish praise"</Example>
+		</Synset>
+		
+		<!-- similar: unselfish -->
+		<Synset id="ewn-01116182-s" ili="i6106" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
+			<Definition>not greedy</Definition>
+			<SynsetRelation relType="similar" target="ewn-01114727-a" />
+			<!-- generous -->
+		</Synset>
+
+		<!-- generous -->
+		<Synset id="ewn-01118176-a" ili="i6115" partOfSpeech="a" dc:subject="adj.all" lexicalized="true">
+			<Definition>not petty in character and mind</Definition>
+			<Example>"unusually generous in his judgment of people"</Example>
+		</Synset>
+		
+		<!-- similar: large, magnanimous, big -->
+		<Synset id="ewn-01118400-s" ili="i6116" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
+			<Definition>generous and understanding and tolerant</Definition>
+			<SynsetRelation relType="similar" target="ewn-01118176-a" />
+			<!-- generous -->
+			<Example>"a heart big enough to hold no grudges"</Example>
+			<Example>"that's very big of you to be so forgiving"</Example>
+			<Example>"a large and generous spirit"</Example>
+			<Example>"a large heart"</Example>
+			<Example>"magnanimous toward his enemies"</Example>
+		</Synset>
+		
+		<!-- similar:ungrudging -->
+		<Synset id="ewn-01118715-s" ili="i6117" partOfSpeech="s" dc:subject="adj.all" lexicalized="true">
+			<Definition>without envy or reluctance</Definition>
+			<SynsetRelation relType="similar" target="ewn-01118176-a" />
+			<!-- generous -->
+			<Example>"ungrudging admiration"</Example>
+		</Synset>
+
+	</Lexicon>
 </LexicalResource>
