@@ -3,7 +3,7 @@
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
-	<!-- <xsl:variable name='debug' select='false()' /> -->
+	<xsl:variable name='debug' select='false()' />
 
 	<!-- L E X I D F A C T O R Y -->
 
@@ -36,7 +36,11 @@
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="99" />
+				<message terminate='yes'>
+					<xsl:text>&#xa;[E] Unknown or unspecified lexid method '</xsl:text>
+					<xsl:value-of select="$method" />
+					<xsl:text>'</xsl:text>
+				</message>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

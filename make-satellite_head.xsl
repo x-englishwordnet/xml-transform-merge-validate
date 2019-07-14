@@ -3,14 +3,22 @@
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
-	<xsl:import href = 'lib-satellite_head.xsl' />
+	<xsl:import href='lib-satellite_head.xsl' />
 	<xsl:strip-space elements="*" />
 	<xsl:output method="text" indent="yes" />
 
 	<xsl:variable name='debug' select='false()' />
+	<xsl:variable name='restrict' select="''" />
 
 	<xsl:template match="/">
-		<xsl:apply-templates select="//Sense" />
+		<xsl:choose>
+			<xsl:when test="$restrict != ''">
+				<xsl:apply-templates select="//Sense[@dc:identifier=$restrict]" />
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:apply-templates select="//Sense" />
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="Sense">
@@ -23,14 +31,15 @@
 			<xsl:call-template name="make-satellite-head">
 				<xsl:with-param name="sensenode" select="." />
 				<xsl:with-param name="pos" select="../Lemma/@partOfSpeech" />
+				<xsl:with-param name="method" select="'idx'" />
 			</xsl:call-template>
 		</xsl:variable>
 
 		<xsl:text>&#xa;legacy sensekey </xsl:text>
 		<xsl:value-of select="./@dc:identifier" />
-		<xsl:text>&#xa;legacy satellite </xsl:text>
+		<xsl:text>&#xa;legacy satellite head </xsl:text>
 		<xsl:value-of select="$legacy_satellite" />
-		<xsl:text>&#xa;satellite        </xsl:text>
+		<xsl:text>&#xa;satellite head        </xsl:text>
 		<xsl:value-of select="$satellite" />
 
 		<xsl:text>&#xa;</xsl:text>

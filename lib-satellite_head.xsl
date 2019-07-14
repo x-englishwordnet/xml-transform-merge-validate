@@ -5,7 +5,7 @@
 
 	<xsl:import href='lib-lexid.xsl' />
 
-	<!-- <xsl:variable name='debug' select='false()' /> -->
+	<xsl:variable name='debug' select='false()' />
 
 	<!-- S A T E L L I T E - H E A D - F A C T O R Y -->
 

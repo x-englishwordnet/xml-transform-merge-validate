@@ -6,7 +6,7 @@
 	<xsl:import href='lib-lexid.xsl' />
 	<xsl:import href='lib-satellite_head.xsl' />
 
-	<!-- <xsl:variable name='debug' select='false()' /> -->
+	<xsl:variable name='debug' select='false()' />
 
 	<!-- S E N S E K E Y - F A C T O R Y -->
 
