@@ -4,25 +4,21 @@
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<xsl:output method="text" indent="yes" />
 
-	<!--  -->
+	<!-- -->
 	<xsl:comment>
-	ID methods require &lt;!DOCTYPE LexicalResource SYSTEM "http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.0.dtd"&gt;
+		ID methods require &lt;!DOCTYPE LexicalResource SYSTEM "http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.0.dtd"&gt;
 	</xsl:comment>
-	
+
 	<xsl:variable name='debug' select='true()' />
 
 	<xsl:key name='find-synset' match='//Synset' use='@id'></xsl:key>
 
 	<xsl:template match="/">
 		<xsl:call-template name="get-synset-by-id">
-			<xsl:with-param name='synset_id'>
-				<xsl:value-of select="'ewn-01115676-s'" />
-			</xsl:with-param>
+			<xsl:with-param name='synset_id' select="'ewn-01115676-s'" />
 		</xsl:call-template>
 		<xsl:call-template name="get-synset-by-key">
-			<xsl:with-param name='synset_id'>
-				<xsl:value-of select="'ewn-01115676-s'" />
-			</xsl:with-param>
+			<xsl:with-param name='synset_id' select="'ewn-01115676-s'" />
 		</xsl:call-template>
 	</xsl:template>
 

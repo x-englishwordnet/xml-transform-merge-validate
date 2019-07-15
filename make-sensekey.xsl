@@ -19,14 +19,10 @@
 		<xsl:variable name="senseidx">
 			<xsl:number />
 		</xsl:variable>
-		<xsl:variable name="nth">
-			<xsl:value-of select="./@n" />
-		</xsl:variable>
+		<xsl:variable name="nth" select="./@n" />
 
 		<!--  legacy -->
-		<xsl:variable name="legacy_lexid">
-			<xsl:value-of select="substring-before(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
-		</xsl:variable>
+		<xsl:variable name="legacy_lexid" select="substring-before(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
 		<xsl:variable name="legacy_sensekey">
 			<xsl:call-template name="make-sensekey">
 				<xsl:with-param name="sensenode" select="." />

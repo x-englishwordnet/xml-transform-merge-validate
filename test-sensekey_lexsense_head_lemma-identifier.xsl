@@ -2,6 +2,9 @@
 <!-- ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>. -->
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+	<xsl:import href='lib-diff.xsl' />
+
 	<xsl:strip-space elements="*" />
 	<xsl:output method="text" indent="no" />
 
@@ -10,22 +13,15 @@
 	</xsl:template>
 
 	<xsl:template match="Sense">
-		<xsl:variable name="var1">
-			<xsl:value-of select="substring-before(substring-after(substring-after(substring-after(substring-after(./@sensekey,'%'),':'),':'),':'),':')" />
-		</xsl:variable>
-		<xsl:variable name="var2">
-			<xsl:value-of select="substring-before(substring-after(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':'),':')" />
-		</xsl:variable>
-		<xsl:if test="./@dc:identifier !='' and $var1 != $var2">
-			<xsl:text>@@@</xsl:text>
-			<xsl:value-of select="$var1" />
-			<xsl:text>&#xa;</xsl:text>
-			<xsl:text>---</xsl:text>
-			<xsl:value-of select="./@dc:identifier" />
-			<xsl:text>&#xa;</xsl:text>
-			<xsl:text>+++</xsl:text>
-			<xsl:value-of select="./@sensekey" />
-			<xsl:text>&#xa;&#xa;</xsl:text>
+		<xsl:variable name="var0" select="./@dc:identifier" />
+		<xsl:variable name="var1" select="substring-before(substring-after(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':'),':')" />
+		<xsl:variable name="var2" select="substring-before(substring-after(substring-after(substring-after(substring-after(./@sensekey,'%'),':'),':'),':'),':')" />
+
+		<xsl:if test="$var0 !='' and $var1 != $var2">
+			<xsl:call-template name="sense-node-diff">
+				<xsl:with-param name="var1" select="$var1" />
+				<xsl:with-param name="var2" select="$var2" />
+			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
 

@@ -16,9 +16,7 @@
 
 	<xsl:template match="Sense">
 
-		<xsl:variable name="legacy_satellite">
-			<xsl:value-of select="substring-after(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
-		</xsl:variable>
+		<xsl:variable name="legacy_satellite" select="substring-after(substring-after(substring-after(substring-after(./@dc:identifier,'%'),':'),':'),':')" />
 
 		<xsl:variable name="satellite">
 			<xsl:call-template name="make-satellite-head">
