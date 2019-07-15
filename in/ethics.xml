@@ -7,19 +7,12 @@
 		<LexicalEntry id="ewn-ethics-n">
 			<Lemma writtenForm="ethics" partOfSpeech="n" />
 			<Sense id="ewn-ethics-n-09206590-02" n="0" synset="ewn-09206590-n" dc:identifier="wn31ethics%1:16:00::">
-				<SenseRelation relType="derivation" target="ewn-ethical-s-02042493-01" /> <!-- honorable, honourable, ethical -->
-				<SenseRelation relType="derivation" target="ewn-ethical-a-00908608-01" /> <!-- ethical -->
-				<SenseRelation relType="derivation" target="ewn-ethicist-n-10084873-01" /> <!-- ethicist, ethician -->
-				<SenseRelation relType="derivation" target="ewn-ethician-n-10084873-02" /> <!-- ethicist, ethician -->
-			</Sense>
-			<Sense id="ewn-ethics-n-09206599-02" n="0" synset="ewn-09206599-n" dc:identifier="wn31ethics%1:16:01:somehead:07">
 			</Sense>
 		</LexicalEntry>
 
 		<LexicalEntry id="ewn-morality-n">
 			<Lemma writtenForm="morality" partOfSpeech="n" />
 			<Sense id="ewn-morality-n-09206590-04" n="1" synset="ewn-09206590-n" dc:identifier="wn31morality%1:16:00::">
-				<SenseRelation relType="derivation" target="ewn-moralistic-s-01553074-01" /> <!-- moralistic -->
 			</Sense>
 		</LexicalEntry>
 
@@ -36,10 +29,6 @@
 		<!-- morality, morals, ethics, ethical motive -->
 		<Synset id="ewn-09206590-n" ili="i84906" partOfSpeech="n" dc:subject="noun.motive">
 			<Definition>motivation based on ideas of right and wrong</Definition>
-			<SynsetRelation relType="hypernym" target="ewn-00023953-n" /> <!-- need, motive, motivation -->
-			<SynsetRelation relType="hyponym" target="ewn-09206868-n" /> <!-- hedonism -->
-			<SynsetRelation relType="hyponym" target="ewn-09207033-n" /> <!-- scruples, moral sense, sense of right and wrong, conscience -->
-			<SynsetRelation relType="hyponym" target="ewn-09207565-n" /> <!-- Christ Within, Light Within, Light, Inner Light -->
 		</Synset>
 	</Lexicon>
 </LexicalResource>

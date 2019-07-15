@@ -8,17 +8,10 @@
 	<xsl:output method="text" indent="yes" />
 
 	<xsl:variable name='debug' select='false()' />
-	<xsl:variable name='restrict' select="''" />
+	<xsl:variable name='sensenodes' select="//Sense" />
 
 	<xsl:template match="/">
-		<xsl:choose>
-			<xsl:when test="$restrict != ''">
-				<xsl:apply-templates select="//Sense[@dc:identifier=$restrict]" />
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:apply-templates select="//Sense" />
-			</xsl:otherwise>
-		</xsl:choose>
+		<xsl:apply-templates select="$sensenodes" />
 	</xsl:template>
 
 	<xsl:template match="Sense">
