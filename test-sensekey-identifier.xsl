@@ -17,7 +17,9 @@
 			</xsl:call-template>
 		</xsl:for-each>
 		<xsl:value-of select="count($diff_scope)" />
-		<xsl:text> diffs&#xa;</xsl:text>
+		<xsl:text> diffs / </xsl:text>
+		<xsl:value-of select="count(//Sense)" />
+		<xsl:text> senses&#xa;</xsl:text>
 	</xsl:template>
 
 </xsl:transform>

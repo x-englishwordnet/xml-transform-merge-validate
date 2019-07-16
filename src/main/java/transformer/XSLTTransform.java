@@ -108,9 +108,12 @@ public class XSLTTransform
 				}
 			}
 		}
-		catch (final Throwable e)
+		catch (final ArrayIndexOutOfBoundsException e)
 		{
 			System.err.println("Usage: <xslt file> <result> (-dir)(-suffix suffix) (-html|-xml|-text) (-doctype_system id) (-doctype_public id) <source file>*");
+		}
+		catch (final Throwable e)
+		{
 			e.printStackTrace();
 		}
 		System.err.println("Done");
