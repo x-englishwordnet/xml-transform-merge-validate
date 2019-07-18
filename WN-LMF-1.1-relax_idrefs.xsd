@@ -14,7 +14,7 @@
 
 	<!-- T Y P Ë S -->
 
-	<xsd:simpleType name='LexIDType'>
+	<xsd:simpleType name='LexicalEntryIDType'>
 		<xsd:restriction base='xsd:ID'>
 			<xsd:pattern value='&lexid;' />
 		</xsd:restriction>
@@ -276,7 +276,7 @@
 				<xsd:element ref='SyntacticBehaviour' minOccurs='0' maxOccurs='unbounded' />
 			</xsd:sequence>
 
-			<xsd:attribute name='id' type='LexIDType' use='required' />
+			<xsd:attribute name='id' type='LexicalEntryIDType' use='required' />
 			<xsd:attributeGroup ref='Meta' />
 		</xsd:complexType>
 	</xsd:element>
