@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./run.sh addSensekey.xsl - $*
+./run.sh add-sensekey.xsl - $*

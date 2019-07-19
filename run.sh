@@ -9,8 +9,15 @@ shift
 echo "XSL: $XSL" 1>&2;
 
 OUT="$1"
-echo "OUT: $OUT" 1>&2;
 shift
+echo "OUT: $OUT" 1>&2;
+
+ISDIR=
+if [ "$1" == "-dir" ]; then
+	shift
+	ISDIR="-dir"
+	echo "OUT: is directory"
+fi
 
 if [ -z "$*" ]; then
 	echo "Null Source"
@@ -19,5 +26,4 @@ fi
 echo "SRC: $*" 1>&2;
 
 MEM=-Xmx1G
-echo java $MEM -jar transformer.jar $XSL $OUT $*
-java $MEM -jar transformer.jar $XSL $OUT $*
+java $MEM -jar transformer.jar $XSL $OUT $ISDIR $*
