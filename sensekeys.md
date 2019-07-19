@@ -36,50 +36,50 @@ Since the lex_id is lost or may be absent we use
 
 
 
-lexicographer file|entry    |n|sense                 |lid|sensekey                 |LID|SENSEKEY
-------------------|---------|-|----------------------|---|-------------------------|---|-------------------------
-verb possession 40|abandon1 |2|forsake,leave behind  |0  |abandon%2:40:00::        | 1 |abandon%2:40:01::
-verb.possession 40|abandon  |1|give up ...           |1  |abandon%2:40:01::        | 2 |abandon%2:40:02::
-verb.motion 38    |abandon  |3|leave behind empty    |0  |abandon%2:38:00::        | 0 |abandon%2:38:00::
-verb.cognition 31 |abandon1 |4|stop maintaining      |1  |abandon%2:31:01::        | 1 |abandon%2:40:01::
-verb.cognition 31 |abandon  |5|leave someone         |0  |abandon%2:31:00::        | 2 |abandon%2:40:02::
-adj.all 00        |GENEROUS1|1|willing to give       |1  |generous%3:00:01::       | 1 |generous%3:00:01::
-adj.all 00        |GENEROUS2|2|not petty in character|2  |generous%3:00:02::       | 2 |generous%3:00:02::
-adj.all 00        |generous |3|more than enough      |0  |generous%5:00:00:ample:00| 0 |generous%5:00:00:ample:00
+lexicographer file|entry    |n|sense                 |lid|sensekey                 |IDX|LID|SENSEKEY
+------------------|---------|-|----------------------|---|-------------------------|---|---|-------------------------
+verb possession 40|abandon1 |2|forsake,leave behind  |0  |abandon%2:40:00::        | 1 | 2 |abandon%2:40:02::
+verb.possession 40|abandon  |1|give up ...           |1  |abandon%2:40:01::        | 0 | 1 |abandon%2:40:01::
+verb.motion 38    |abandon  |3|leave behind empty    |0  |abandon%2:38:00::        | 0 | 0 |abandon%2:38:00::
+verb.cognition 31 |abandon1 |4|stop maintaining      |1  |abandon%2:31:01::        | 0 | 1 |abandon%2:40:01::
+verb.cognition 31 |abandon  |5|leave someone         |0  |abandon%2:31:00::        | 1 | 2 |abandon%2:40:02::
+adj.all 00        |GENEROUS1|1|willing to give       |1  |generous%3:00:01::       | 0 | 1 |generous%3:00:01::
+adj.all 00        |GENEROUS2|2|not petty in character|2  |generous%3:00:02::       | 1 | 2 |generous%3:00:02::
+adj.all 00        |generous |3|more than enough      |0  |generous%5:00:00:ample:00| 0 | 0 |generous%5:00:00:ample:00
 
-current lex_id and sensekey/PROPOSED LEX_ID and SENSEKEY
+current lex_id and sensekey in Wordnet 3.1 / PROPOSED LEX_ID, IDX and SENSEKEY
 
 # Sample lexicographer files
 
-## verb.possession
+### verb.possession
 2
 >{ [ abandon1, noun.act:abandonment3,+ ] give_up, ... (give up with the intent of never claiming again; ...) }
 
 1
 >{ [ abandon, noun.act:abandonment2,+ ] discard,@ ... (forsake, leave behind;...) }
 
-## verb.motion
+### verb.motion
 3
 >{ [ vacate, adj.all:empty^vacant1,+ ] empty, abandon, leave1,@ ... (leave behind empty; move out of; ...) }
 
-## verb.cognition
+### verb.cognition
 4
 >{ [ abandon1, noun.act:abandonment3,+ ] give_up, verb.motion:give13,$ verb.motion:give,$ ... (stop maintaining or insisting on; of ideas or claims; ...) }
 
 5
->{ [ abandon, noun.act:abandonment1,+ ] [ forsake, noun.act:forsaking1,+ ] [ desolate, noun.feeling:desolation2,+ ] [ desert, noun.act:desertion,+ noun.person:deserter1,+ noun.person:deserter,+ ] leave5,@ ... (leave someone who needs or counts on you; leave in the lurch; ...) }
+>{ [ abandon, noun.act:abandonment1,+ ] \[ forsake, noun.act:forsaking1,+ ] \[ desolate, noun.feeling:desolation2,+ ] \[ desert, noun.act:desertion,+ noun.person:deserter1,+ noun.person:deserter,+ ] leave5,@ ... (leave someone who needs or counts on you; leave in the lurch; ...) }
 
 
-## adj.all
+### adj.all
 
 1
 >[{ [ GENEROUS1, noun.attribute:generousness,+ noun.act:generosity,+ STINGY,!] CHARITABLE,^ GENEROUS2,^ UNSELFISH,^ noun.attribute:generosity,= (willing to give and share unstintingly; ...) }
 
 >{ benevolent, freehearted, (generous in providing aid to others) }
 
->{ big, [ bighearted, noun.attribute:bigheartedness,+ ] [ bounteous, noun.attribute:bounty1,+ noun.attribute:bounteousness,+ ] [ bountiful, noun.attribute:bountifulness,+ ] freehanded, handsome, giving, [ liberal, noun.attribute:liberalness,+ noun.attribute:liberality,+ ] [ openhanded, noun.attribute:openhandedness,+ ] (given or giving freely; ...) }
+>{ big, [ bighearted, noun.attribute:bigheartedness,+ ] \[ bounteous, noun.attribute:bounty1,+ noun.attribute:bounteousness,+ ] \[ bountiful, noun.attribute:bountifulness,+ ] freehanded, handsome, giving, [ liberal, noun.attribute:liberalness,+ noun.attribute:liberality,+ ] \[ openhanded, noun.attribute:openhandedness,+ ] (given or giving freely; ...) }
 
->{ [ lavish, noun.attribute:lavishness,+ noun.act:lavishness,+ ] [ munificent, noun.attribute:munificence,+ ] overgenerous, too-generous, unsparing, unstinted, unstinting, (very generous; ...) }
+>{ [ lavish, noun.attribute:lavishness,+ noun.act:lavishness,+ ] \[ munificent, noun.attribute:munificence,+ ] overgenerous, too-generous, unsparing, unstinted, unstinting, (very generous; ...) }
 
 >{ [ unselfish, noun.attribute:unselfishness,+ noun.act:unselfishness,+ ] (not greedy) }
 
