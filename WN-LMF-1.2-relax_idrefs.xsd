@@ -38,6 +38,12 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<xsd:simpleType name='LocalSynsetIDREFType'>
+		<xsd:restriction base='xsd:IDREF'>
+			<xsd:pattern value='&synsetid;' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
 	<xsd:simpleType name='SynsetIDREFType'>
 		<!-- <xsd:restriction base='xsd:IDREF'> -->
 		<xsd:restriction base='xsd:NCName'>
@@ -49,6 +55,21 @@
 		<!-- <xsd:restriction base='xsd:IDREF'> -->
 		<xsd:restriction base='xsd:NCName'>
 			<xsd:pattern value='&senseid;' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name='LocalSynsetIDREFSType'>
+		<xsd:restriction>
+			<xsd:simpleType>
+				<xsd:list>
+					<xsd:simpleType>
+						<xsd:restriction base='xsd:IDREF'>
+							<xsd:pattern value='&synsetid;' />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:list>
+			</xsd:simpleType>
+			<xsd:minLength value='1' />
 		</xsd:restriction>
 	</xsd:simpleType>
 
@@ -343,7 +364,7 @@
 			</xsd:sequence>
 
 			<xsd:attribute name='id' type='SenseIDType' use='required' />
-			<xsd:attribute name='synset' type='SynsetIDREFType' use='required' />
+			<xsd:attribute name='synset' type='LocalSynsetIDREFType' use='required' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute name='n' type='NType' use='optional' />
 			<xsd:attribute name='idx' type='IdxType' use='required' />
@@ -375,7 +396,7 @@
 	<xsd:element name='Definition'>
 		<xsd:complexType mixed='true'>
 			<xsd:attribute name='language' type='xsd:string' use='optional' />
-			<xsd:attribute name='sourceSense' type='SynsetIDREFType' use='optional' />
+			<xsd:attribute name='sourceSense' type='LocalSynsetIDREFType' use='optional' />
 			<xsd:attributeGroup ref='Meta' />
 		</xsd:complexType>
 	</xsd:element>
