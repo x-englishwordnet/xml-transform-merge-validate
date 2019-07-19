@@ -4,7 +4,7 @@
 <!ENTITY synsetid "ewn\-\d{8}\-[nvars]">
 <!ENTITY senseid "ewn\-.*\-[nvars]\-\d{8}\-\d{2}">
 <!ENTITY senseid_ns "ewn\-.*\-[nvars]\-\d{8}\-\d{2}|ewn\-.*\-[nvars]\-ewn\-\d{8}\-\d{2}">
-<!ENTITY word "[a-zA-Z0-9 '!,/\-\.]+">
+<!ENTITY word "[a-zA-Z0-9 '!,:/\-\.]+">
 <!ENTITY lemma "[a-zA-Z0-9_'/\-\.]+">
 <!ENTITY nullable_lemma "[a-zA-Z0-9_'/\-\.]*">
 <!ENTITY lexsense_sstype "\d">
