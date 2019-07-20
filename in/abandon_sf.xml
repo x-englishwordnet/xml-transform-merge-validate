@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LexicalResource SYSTEM "http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.0.dtd">
+<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+	<Lexicon id="ewn" label="English WordNet" language="en" email="john@mccr.ae" license="https://wordnet.princeton.edu/license-and-commercial-use"
+		version="2019" url="https://github.com/globalwordnet/english-wordnet">
+
+		<SyntacticBehaviour id="ewn-sf-1" subcategorizationFrame="The children %s to the playground" />
+		<SyntacticBehaviour id="ewn-sf-2" subcategorizationFrame="The banks %s the check" />
+		<SyntacticBehaviour id="ewn-sf-3" subcategorizationFrame="The checks %s" />
+		<SyntacticBehaviour id="ewn-sf-4" subcategorizationFrame="The children %s the ball" />
+		<SyntacticBehaviour id="ewn-sf-5" subcategorizationFrame="The balls %s" />
+		<SyntacticBehaviour id="ewn-sf-6" subcategorizationFrame="The girls %s the wooden sticks" />
+		<SyntacticBehaviour id="ewn-sf-7" subcategorizationFrame="The wooden sticks %s" />
+		<SyntacticBehaviour id="ewn-sf-8" subcategorizationFrame="The coins %s" />
+		<SyntacticBehaviour id="ewn-sf-9" subcategorizationFrame="They %s the coin" />
+		<SyntacticBehaviour id="ewn-sf-10" subcategorizationFrame="The cars %s down the avenue" />
+		<SyntacticBehaviour id="ewn-sf-11" subcategorizationFrame="They %s the car down the avenue" />
+		<SyntacticBehaviour id="ewn-sf-12" subcategorizationFrame="They %s the glass tubes" />
+		<SyntacticBehaviour id="ewn-sf-13" subcategorizationFrame="The glass tubes %s" />
+		<SyntacticBehaviour id="ewn-sf-14" subcategorizationFrame="Sam and Sue %s" />
+		<SyntacticBehaviour id="ewn-sf-15" subcategorizationFrame="Sam cannot %s Sue" />
+		<SyntacticBehaviour id="ewn-sf-16" subcategorizationFrame="The ropes %s" />
+		<SyntacticBehaviour id="ewn-sf-17" subcategorizationFrame="The strong winds %s the rope" />
+		<SyntacticBehaviour id="ewn-sf-18" subcategorizationFrame="They %s the sheets" />
+		<SyntacticBehaviour id="ewn-sf-19" subcategorizationFrame="The sheets didn't %s" />
+		<SyntacticBehaviour id="ewn-sf-20" subcategorizationFrame="The horses %s across the field" />
+		<SyntacticBehaviour id="ewn-sf-21" subcategorizationFrame="They %s the bags on the table" />
+		<SyntacticBehaviour id="ewn-sf-22" subcategorizationFrame="The men %s the horses across the field" />
+		<SyntacticBehaviour id="ewn-sf-23" subcategorizationFrame="Our properties %s at this point" />
+		<SyntacticBehaviour id="ewn-sf-24" subcategorizationFrame="His fields %s mine at this point" />
+		<SyntacticBehaviour id="ewn-sf-25" subcategorizationFrame="They %s the hill" />
+		<SyntacticBehaviour id="ewn-sf-26" subcategorizationFrame="They %s up the hill" />
+		<SyntacticBehaviour id="ewn-sf-27" subcategorizationFrame="They %s the river" />
+		<SyntacticBehaviour id="ewn-sf-28" subcategorizationFrame="They %s down the river" />
+		<SyntacticBehaviour id="ewn-sf-29" subcategorizationFrame="They %s the countryside" />
+		<SyntacticBehaviour id="ewn-sf-30" subcategorizationFrame="They %s in the countryside" />
+		<SyntacticBehaviour id="ewn-sf-31" subcategorizationFrame="These men %s across the river" />
+		<SyntacticBehaviour id="ewn-sf-32" subcategorizationFrame="These men %s the river" />
+		<SyntacticBehaviour id="ewn-sf-33" subcategorizationFrame="They %s the food to the people" />
+		<SyntacticBehaviour id="ewn-sf-34" subcategorizationFrame="They %s the people the food" />
+		<SyntacticBehaviour id="ewn-sf-35" subcategorizationFrame="They %s more bread" />
+		<SyntacticBehaviour id="ewn-sf-36" subcategorizationFrame="They %s the object in the water" />
+		<SyntacticBehaviour id="ewn-sf-37" subcategorizationFrame="The men %s the bookshelves" />
+		<SyntacticBehaviour id="ewn-sf-38" subcategorizationFrame="They %s the money in the closet" />
+		<SyntacticBehaviour id="ewn-sf-39" subcategorizationFrame="The lights %s from the ceiling" />
+		<SyntacticBehaviour id="ewn-sf-40" subcategorizationFrame="They %s the lights from the ceiling" />
+		<SyntacticBehaviour id="ewn-sf-41" subcategorizationFrame="They %s their rifles on the cabinet" />
+		<SyntacticBehaviour id="ewn-sf-42" subcategorizationFrame="The chairs %s in the corner" />
+		<SyntacticBehaviour id="ewn-sf-43" subcategorizationFrame="The men %s the chairs" />
+		<SyntacticBehaviour id="ewn-sf-44" subcategorizationFrame="The women %s water into the bowl" />
+		<SyntacticBehaviour id="ewn-sf-45" subcategorizationFrame="Water and oil %s into the bowl" />
+		<SyntacticBehaviour id="ewn-sf-46" subcategorizationFrame="They %s the wire around the stick" />
+		<SyntacticBehaviour id="ewn-sf-47" subcategorizationFrame="The wires %s around the stick" />
+		<SyntacticBehaviour id="ewn-sf-48" subcategorizationFrame="They %s the bread with melted butter" />
+		<SyntacticBehaviour id="ewn-sf-49" subcategorizationFrame="They %s the cart with boxes" />
+		<SyntacticBehaviour id="ewn-sf-50" subcategorizationFrame="They %s the books into the box" />
+		<SyntacticBehaviour id="ewn-sf-51" subcategorizationFrame="They %s sugar over the cake" />
+		<SyntacticBehaviour id="ewn-sf-52" subcategorizationFrame="They %s the cake with sugar" />
+		<SyntacticBehaviour id="ewn-sf-53" subcategorizationFrame="They %s the fruit with a chemical" />
+		<SyntacticBehaviour id="ewn-sf-54" subcategorizationFrame="They %s a chemical into the fruit" />
+		<SyntacticBehaviour id="ewn-sf-55" subcategorizationFrame="They %s the field with rye" />
+		<SyntacticBehaviour id="ewn-sf-56" subcategorizationFrame="They %s rye in the field" />
+		<SyntacticBehaviour id="ewn-sf-57" subcategorizationFrame="They %s notices on the doors" />
+		<SyntacticBehaviour id="ewn-sf-58" subcategorizationFrame="They %s the doors with notices" />
+		<SyntacticBehaviour id="ewn-sf-59" subcategorizationFrame="They %s money on their grandchild" />
+		<SyntacticBehaviour id="ewn-sf-60" subcategorizationFrame="They %s their grandchild with money" />
+		<SyntacticBehaviour id="ewn-sf-61" subcategorizationFrame="They %s coins on the image" />
+		<SyntacticBehaviour id="ewn-sf-62" subcategorizationFrame="They %s the image with coins" />
+		<SyntacticBehaviour id="ewn-sf-63" subcategorizationFrame="They %s butter on the bread" />
+		<SyntacticBehaviour id="ewn-sf-64" subcategorizationFrame="They %s the lake with fish" />
+		<SyntacticBehaviour id="ewn-sf-65" subcategorizationFrame="The children %s the paper with grease" />
+		<SyntacticBehaviour id="ewn-sf-66" subcategorizationFrame="The children %s grease onto the paper" />
+		<SyntacticBehaviour id="ewn-sf-67" subcategorizationFrame="They %s papers over the floor" />
+		<SyntacticBehaviour id="ewn-sf-68" subcategorizationFrame="They %s the floor with papers" />
+		<SyntacticBehaviour id="ewn-sf-69" subcategorizationFrame="They %s the money" />
+		<SyntacticBehaviour id="ewn-sf-70" subcategorizationFrame="They %s the newspapers" />
+		<SyntacticBehaviour id="ewn-sf-71" subcategorizationFrame="They %s the goods" />
+		<SyntacticBehaviour id="ewn-sf-72" subcategorizationFrame="The men %s the boat" />
+		<SyntacticBehaviour id="ewn-sf-73" subcategorizationFrame="They %s the animals" />
+		<SyntacticBehaviour id="ewn-sf-74" subcategorizationFrame="The books %s the box" />
+		<SyntacticBehaviour id="ewn-sf-75" subcategorizationFrame="They %s the halls with holly" />
+		<SyntacticBehaviour id="ewn-sf-76" subcategorizationFrame="Holly flowers %s the halls" />
+		<SyntacticBehaviour id="ewn-sf-77" subcategorizationFrame="The wind storms %s the area with dust and dirt" />
+		<SyntacticBehaviour id="ewn-sf-78" subcategorizationFrame="Dust and dirt %s the area" />
+		<SyntacticBehaviour id="ewn-sf-79" subcategorizationFrame="The swollen rivers %s the area with water" />
+		<SyntacticBehaviour id="ewn-sf-80" subcategorizationFrame="The waters %s the area" />
+		<SyntacticBehaviour id="ewn-sf-81" subcategorizationFrame="They %s the cloth with water and alcohol" />
+		<SyntacticBehaviour id="ewn-sf-82" subcategorizationFrame="Water and alcohol %s the cloth" />
+		<SyntacticBehaviour id="ewn-sf-83" subcategorizationFrame="They %s the snow from the path" />
+		<SyntacticBehaviour id="ewn-sf-84" subcategorizationFrame="They %s the path of the snow" />
+		<SyntacticBehaviour id="ewn-sf-85" subcategorizationFrame="They %s the water from the sink" />
+		<SyntacticBehaviour id="ewn-sf-86" subcategorizationFrame="They %s the sink of water" />
+		<SyntacticBehaviour id="ewn-sf-87" subcategorizationFrame="They %s the parcel to their parents" />
+		<SyntacticBehaviour id="ewn-sf-88" subcategorizationFrame="They %s them the parcel" />
+		<SyntacticBehaviour id="ewn-sf-89" subcategorizationFrame="They %s cars to the tourists" />
+		<SyntacticBehaviour id="ewn-sf-90" subcategorizationFrame="They %s the tourists their cars" />
+		<SyntacticBehaviour id="ewn-sf-91" subcategorizationFrame="They %s the money to them" />
+		<SyntacticBehaviour id="ewn-sf-92" subcategorizationFrame="They %s them the money" />
+		<SyntacticBehaviour id="ewn-sf-93" subcategorizationFrame="They %s them the information" />
+		<SyntacticBehaviour id="ewn-sf-94" subcategorizationFrame="They %s the information to them" />
+		<SyntacticBehaviour id="ewn-sf-95" subcategorizationFrame="The parents %s a French poem to the children" />
+		<SyntacticBehaviour id="ewn-sf-96" subcategorizationFrame="The parents %s the children a French poem" />
+		<SyntacticBehaviour id="ewn-sf-97" subcategorizationFrame="They %s" />
+		<SyntacticBehaviour id="ewn-sf-98" subcategorizationFrame="They %s themselves" />
+		<SyntacticBehaviour id="ewn-sf-99" subcategorizationFrame="These balls %s easily" />
+		<SyntacticBehaviour id="ewn-sf-100" subcategorizationFrame="These glasses %s easily" />
+		<SyntacticBehaviour id="ewn-sf-101" subcategorizationFrame="These fabrics %s easily" />
+		<SyntacticBehaviour id="ewn-sf-102" subcategorizationFrame="They %s their earnings this year" />
+		<SyntacticBehaviour id="ewn-sf-103" subcategorizationFrame="Their earnings %s this year" />
+		<SyntacticBehaviour id="ewn-sf-104" subcategorizationFrame="The water %ss" />
+		<SyntacticBehaviour id="ewn-sf-105" subcategorizationFrame="They %s the water" />
+		<SyntacticBehaviour id="ewn-sf-106" subcategorizationFrame="The animals %s" />
+		<SyntacticBehaviour id="ewn-sf-107" subcategorizationFrame="They %s a long time" />
+		<SyntacticBehaviour id="ewn-sf-108" subcategorizationFrame="The car %ss the tree" />
+		<SyntacticBehaviour id="ewn-sf-109" subcategorizationFrame="John will %s angry" />
+		<SyntacticBehaviour id="ewn-sf-110" subcategorizationFrame="They %s in the city" />
+		<SyntacticBehaviour id="ewn-sf-111" subcategorizationFrame="They won't %s the story" />
+		<SyntacticBehaviour id="ewn-sf-112" subcategorizationFrame="They %s that there was a traffic accident" />
+		<SyntacticBehaviour id="ewn-sf-113" subcategorizationFrame="They %s whether there was a traffic accident" />
+		<SyntacticBehaviour id="ewn-sf-114" subcategorizationFrame="They %s her vice president" />
+		<SyntacticBehaviour id="ewn-sf-115" subcategorizationFrame="Did he %s his major works over a short period of time?" />
+		<SyntacticBehaviour id="ewn-sf-116" subcategorizationFrame="The chefs %s the vegetables" />
+		<SyntacticBehaviour id="ewn-sf-117" subcategorizationFrame="They %s the cape" />
+		<SyntacticBehaviour id="ewn-sf-118" subcategorizationFrame="The food does %s good" />
+		<SyntacticBehaviour id="ewn-sf-119" subcategorizationFrame="The music does %s good" />
+		<SyntacticBehaviour id="ewn-sf-120" subcategorizationFrame="The cool air does %s good" />
+		<SyntacticBehaviour id="ewn-sf-121" subcategorizationFrame="This food does %s well" />
+		<SyntacticBehaviour id="ewn-sf-122" subcategorizationFrame="It was %sing all day long" />
+		<SyntacticBehaviour id="ewn-sf-123" subcategorizationFrame="They %s him to write the letter" />
+		<SyntacticBehaviour id="ewn-sf-124" subcategorizationFrame="They %s him into writing the letter" />
+		<SyntacticBehaviour id="ewn-sf-125" subcategorizationFrame="They %s him from writing the letter" />
+		<SyntacticBehaviour id="ewn-sf-126" subcategorizationFrame="The bad news will %s him" />
+		<SyntacticBehaviour id="ewn-sf-127" subcategorizationFrame="The good news will %s her" />
+		<SyntacticBehaviour id="ewn-sf-128" subcategorizationFrame="The chef wants to %s the eggs" />
+		<SyntacticBehaviour id="ewn-sf-129" subcategorizationFrame="Sam wants to %s with Sue" />
+		<SyntacticBehaviour id="ewn-sf-130" subcategorizationFrame="The fighter managed to %s his opponent" />
+		<SyntacticBehaviour id="ewn-sf-131" subcategorizationFrame="These cars won't %s" />
+		<SyntacticBehaviour id="ewn-sf-132" subcategorizationFrame="The branches %s from the trees" />
+		<SyntacticBehaviour id="ewn-sf-133" subcategorizationFrame="The stock market is going to %s" />
+		<SyntacticBehaviour id="ewn-sf-134" subcategorizationFrame="The moon will soon %s" />
+		<SyntacticBehaviour id="ewn-sf-135" subcategorizationFrame="The business is going to %s" />
+		<SyntacticBehaviour id="ewn-sf-136" subcategorizationFrame="The airplane is sure to %s" />
+		<SyntacticBehaviour id="ewn-sf-137" subcategorizationFrame="They %s to move" />
+		<SyntacticBehaviour id="ewn-sf-138" subcategorizationFrame="They %s moving" />
+		<SyntacticBehaviour id="ewn-sf-139" subcategorizationFrame="Sam and Sue %s the movie" />
+		<SyntacticBehaviour id="ewn-sf-140" subcategorizationFrame="They want to %s the prisoners" />
+		<SyntacticBehaviour id="ewn-sf-141" subcategorizationFrame="They want to %s the doors" />
+		<SyntacticBehaviour id="ewn-sf-142" subcategorizationFrame="The doors %s" />
+		<SyntacticBehaviour id="ewn-sf-143" subcategorizationFrame="Did he %s his foot?" />
+		<SyntacticBehaviour id="ewn-sf-144" subcategorizationFrame="Did his feet %s?" />
+		<SyntacticBehaviour id="ewn-sf-145" subcategorizationFrame="They will %s the duet" />
+		<SyntacticBehaviour id="ewn-sf-146" subcategorizationFrame="They %s their hair" />
+		<SyntacticBehaviour id="ewn-sf-147" subcategorizationFrame="They %s the trees" />
+		<SyntacticBehaviour id="ewn-sf-148" subcategorizationFrame="They %s him of all his money" />
+		<SyntacticBehaviour id="ewn-sf-149" subcategorizationFrame="Lights %s on the horizon" />
+		<SyntacticBehaviour id="ewn-sf-150" subcategorizationFrame="The horizon is %sing with lights" />
+		<SyntacticBehaviour id="ewn-sf-151" subcategorizationFrame="The crowds %s in the streets" />
+		<SyntacticBehaviour id="ewn-sf-152" subcategorizationFrame="The streets %s with crowds" />
+		<SyntacticBehaviour id="ewn-sf-153" subcategorizationFrame="Cars %s in the streets" />
+		<SyntacticBehaviour id="ewn-sf-154" subcategorizationFrame="The streets %s with cars" />
+		<SyntacticBehaviour id="ewn-sf-155" subcategorizationFrame="You can hear animals %s in the meadows" />
+		<SyntacticBehaviour id="ewn-sf-156" subcategorizationFrame="The meadows %s with animals" />
+		<SyntacticBehaviour id="ewn-sf-157" subcategorizationFrame="The birds %s in the woods" />
+		<SyntacticBehaviour id="ewn-sf-158" subcategorizationFrame="The woods %s with many kinds of birds" />
+		<SyntacticBehaviour id="ewn-sf-159" subcategorizationFrame="The performance is likely to %s Sue" />
+		<SyntacticBehaviour id="ewn-sf-160" subcategorizationFrame="Sam and Sue %s over the results of the experiment" />
+		<SyntacticBehaviour id="ewn-sf-161" subcategorizationFrame="In the summer they like to go out and %s" />
+		<SyntacticBehaviour id="ewn-sf-162" subcategorizationFrame="The children %s in the rocking chair" />
+		<SyntacticBehaviour id="ewn-sf-163" subcategorizationFrame="There %s some children in the rocking chair" />
+		<SyntacticBehaviour id="ewn-sf-164" subcategorizationFrame="Some big birds %s in the tree" />
+		<SyntacticBehaviour id="ewn-sf-165" subcategorizationFrame="There %s some big birds in the tree" />
+		<SyntacticBehaviour id="ewn-sf-166" subcategorizationFrame="The men %s the area for animals" />
+		<SyntacticBehaviour id="ewn-sf-167" subcategorizationFrame="The men %s for animals in the area" />
+		<SyntacticBehaviour id="ewn-sf-168" subcategorizationFrame="The customs agents %s the bags for drugs" />
+		<SyntacticBehaviour id="ewn-sf-169" subcategorizationFrame="They %s him as chairman" />
+		<SyntacticBehaviour id="ewn-sf-170" subcategorizationFrame="They %s him 'Bobby'" />
+
+		<!-- LEX POSSESSION -->
+
+		<LexicalEntry id="ewn-abandon.poss-v">
+			<Lemma writtenForm="abandon" partOfSpeech="v" />
+
+			<Sense id="ewn-abandon-v-02232523-01" n="1" synset="ewn-02232523-v" dc:identifier="abandon%2:40:01::"> <!-- 2 give up with the intent of never claiming again -->
+			</Sense>
+
+			<Sense id="ewn-abandon-v-02232813-01" n="0" synset="ewn-02232813-v" dc:identifier="abandon%2:40:00::"> <!-- 1 forsake, leave behind -->
+			</Sense>
+
+			<SyntacticBehaviour subcategorizationFrame="They %s the car down the avenue" senses="ewn-abandon-v-02080923-03" />
+			<SyntacticBehaviour subcategorizationFrame="The cars %s down the avenue" senses="ewn-abandon-v-00615748-01" />
+			<SyntacticBehaviour subcategorizationFrame="The coins %s"
+				senses="ewn-abandon-v-00614907-01 ewn-abandon-v-00615748-01 ewn-abandon-v-02080923-03 ewn-abandon-v-02232523-01 ewn-abandon-v-02232813-01" />
+			<SyntacticBehaviour subcategorizationFrame="They %s the coin"
+				senses="ewn-abandon-v-00615748-01 ewn-abandon-v-02232523-01 ewn-abandon-v-02232813-01" />
+		</LexicalEntry>
+
+
+		<!-- LEX MOTION -->
+
+		<LexicalEntry id="ewn-abandon.motion-v">
+			<Lemma writtenForm="abandon" partOfSpeech="v" />
+			<Sense id="ewn-abandon-v-02080923-03" n="2" synset="ewn-02080923-v" dc:identifier="abandon%2:38:00::" /> <!-- 3 leave behind empty; move out of -->
+			<SyntacticBehaviour subcategorizationFrame="They %s the car down the avenue" senses="ewn-abandon-v-02080923-03" />
+			<SyntacticBehaviour subcategorizationFrame="The cars %s down the avenue" senses="ewn-abandon-v-00615748-01" />
+			<SyntacticBehaviour subcategorizationFrame="The coins %s"
+				senses="ewn-abandon-v-00614907-01 ewn-abandon-v-00615748-01 ewn-abandon-v-02080923-03 ewn-abandon-v-02232523-01 ewn-abandon-v-02232813-01" />
+			<SyntacticBehaviour subcategorizationFrame="They %s the coin"
+				senses="ewn-abandon-v-00615748-01 ewn-abandon-v-02232523-01 ewn-abandon-v-02232813-01" />
+		</LexicalEntry>
+
+
+		<!-- LEX COGNITION -->
+
+		<LexicalEntry id="ewn-abandon.cognition-v">
+			<Lemma writtenForm="abandon" partOfSpeech="v" />
+
+			<Sense id="ewn-abandon-v-00614907-01" n="3" synset="ewn-00614907-v" dc:identifier="abandon%2:31:01::"> <!-- 4 stop maintaining or insisting on; of ideas or claims -->
+			</Sense>
+
+			<Sense id="ewn-abandon-v-00615748-01" n="4" synset="ewn-00615748-v" dc:identifier="abandon%2:31:00::"> <!-- 5 leave someone who needs or counts on you; leave in the lurch -->
+			</Sense>
+
+		</LexicalEntry>
+
+
+
+
+		<!-- SYNSET POSSESSION -->
+
+		<!-- 2 give up, abandon -->
+		<Synset id="ewn-02232523-v" ili="i32883" partOfSpeech="v" dc:subject="verb.possession">
+			<Definition>give up with the intent of never claiming again</Definition>
+			<Example>&quot;Abandon your life to God&quot;</Example>
+			<Example>&quot;She gave up her children to her ex-husband when she moved to Tahiti&quot;</Example>
+			<Example>&quot;We gave the drowning victim up for dead&quot;</Example>
+		</Synset>
+
+		<!-- 1 abandon -->
+		<Synset id="ewn-02232813-v" ili="i32884" partOfSpeech="v" dc:subject="verb.possession">
+			<Definition>forsake, leave behind</Definition>
+			<Example>&quot;We abandoned the old car in the empty parking lot&quot;</Example>
+		</Synset>
+
+
+		<!-- SYNSET MOTION -->
+
+		<!-- 3 empty, vacate, abandon -->
+		<Synset id="ewn-02080923-v" ili="i32128" partOfSpeech="v" dc:subject="verb.motion">
+			<Definition>leave behind empty; move out of</Definition>
+			<Example>&quot;You must vacate your office by tonight&quot;</Example>
+		</Synset>
+
+
+		<!-- SYNSET COGNITION -->
+
+		<!-- 4 give up, abandon -->
+		<Synset id="ewn-00614907-v" ili="i24825" partOfSpeech="v" dc:subject="verb.cognition">
+			<Definition>stop maintaining or insisting on; of ideas or claims</Definition>
+			<Example>&quot;He abandoned the thought of asking for her hand in marriage&quot;</Example>
+			<Example>&quot;Both sides have to give up some claims in these negotiations&quot;</Example>
+		</Synset>
+
+		<!-- 5 forsake, abandon, desert, desolate -->
+		<Synset id="ewn-00615748-v" ili="i24827" partOfSpeech="v" dc:subject="verb.cognition">
+			<Definition>leave someone who needs or counts on you; leave in the lurch</Definition>
+			<Example>&quot;The mother deserted her children&quot;</Example>
+		</Synset>
+
+	</Lexicon>
+</LexicalResource>
