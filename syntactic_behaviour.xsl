@@ -16,7 +16,7 @@
 	</xsl:template>
 
 	<xsl:template match="SyntacticBehaviour">
-		<xsl:variable name="frame" select="@subcategorizationFrame" />
+		<xsl:variable name="frame" select="normalize-space(@subcategorizationFrame)" />
 		<xsl:variable name="sb" select="key('find-syntactic_behaviour-by-frame', $frame)" />
 		<xsl:variable name="sbid">
 			<xsl:for-each select="$sb">
