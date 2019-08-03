@@ -14,6 +14,8 @@
 
 	<!-- T Y P Ë S -->
 
+	<!-- id -->
+
 	<xsd:simpleType name='LexicalEntryIDType'>
 		<xsd:restriction base='xsd:ID'>
 			<xsd:pattern value='&lexid;' />
@@ -32,6 +34,8 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<!-- idref -->
+	
 	<xsd:simpleType name='SynsetIDREFType'>
 		<!-- <xsd:restriction base='xsd:IDREF'> -->
 		<xsd:restriction base='xsd:NCName'>
@@ -39,10 +43,9 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:simpleType name='SenseIDREFType'>
-		<!-- <xsd:restriction base='xsd:IDREF'> -->
-		<xsd:restriction base='xsd:NCName'>
-			<xsd:pattern value='&senseid;' />
+	<xsd:simpleType name='LocalSynsetIDREFType'>
+		<xsd:restriction base='xsd:IDREF'>
+			<xsd:pattern value='&synsetid;' />
 		</xsd:restriction>
 	</xsd:simpleType>
 
@@ -62,6 +65,34 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<xsd:simpleType name='LocalSynsetIDREFSType'>
+		<xsd:restriction>
+			<xsd:simpleType>
+				<xsd:list>
+					<xsd:simpleType>
+						<xsd:restriction base='xsd:IDREF'>
+							<xsd:pattern value='&synsetid;' />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:list>
+			</xsd:simpleType>
+			<xsd:minLength value='1' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name='SenseIDREFType'>
+		<!-- <xsd:restriction base='xsd:IDREF'> -->
+		<xsd:restriction base='xsd:NCName'>
+			<xsd:pattern value='&senseid;' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name='LocalSenseIDREFType'>
+		<xsd:restriction base='xsd:IDREF'>
+			<xsd:pattern value='&senseid;' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
 	<xsd:simpleType name='SenseIDREFSType'>
 		<xsd:restriction>
 			<xsd:simpleType>
@@ -78,6 +109,23 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<xsd:simpleType name='LocalSenseIDREFSType'>
+		<xsd:restriction>
+			<xsd:simpleType>
+				<xsd:list>
+					<xsd:simpleType>
+						<xsd:restriction base='xsd:IDREF'>
+							<xsd:pattern value='&senseid;' />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:list>
+			</xsd:simpleType>
+			<xsd:minLength value='1' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- form types -->
+
 	<xsd:simpleType name='WrittenFormType'>
 		<xsd:restriction base='xsd:string'>
 			<xsd:pattern value='&word;' />
@@ -90,11 +138,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:simpleType name='ILIType'>
-		<xsd:restriction base='xsd:string'>
-			<xsd:pattern value='&ili;' />
-		</xsd:restriction>
-	</xsd:simpleType>
+	<!-- category types -->
 
 	<xsd:simpleType name='PartOfSpeechType'>
 		<xsd:restriction base='xsd:string'>
@@ -110,6 +154,8 @@
 			<xsd:enumeration value='u' />
 		</xsd:restriction>
 	</xsd:simpleType>
+
+	<!-- relation types -->
 
 	<xsd:simpleType name='SynsetRelationType'>
 		<xsd:restriction base='xsd:string'>
@@ -205,6 +251,16 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<!-- index types -->
+
+	<xsd:simpleType name='NType'>
+		<xsd:restriction base='xsd:integer'>
+			<xsd:minInclusive value='0' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- meta types -->
+
 	<xsd:simpleType name='ConfidenceScoreType'>
 		<xsd:restriction base='xsd:float'>
 			<xsd:minInclusive value='0.0' />
@@ -212,9 +268,11 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:simpleType name='NType'>
-		<xsd:restriction base='xsd:integer'>
-			<xsd:minInclusive value='0' />
+	<!-- foreign types -->
+
+	<xsd:simpleType name='ILIType'>
+		<xsd:restriction base='xsd:string'>
+			<xsd:pattern value='&ili;' />
 		</xsd:restriction>
 	</xsd:simpleType>
 
@@ -386,6 +444,8 @@
 		<xsd:complexType>
 			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='required' />
 			<xsd:attribute name='senses' type='SenseIDREFSType' use='optional' />
+			<!-- FAILS -->
+			<!-- <xsd:attribute name='senses' type='LocalSenseIDREFSType' use='optional' /> -->
 		</xsd:complexType>
 	</xsd:element>
 

@@ -3,7 +3,7 @@
 <!ENTITY lexid "ewn\-[a-zA-Z0-9_\.\-]*-(n|v|a|r|s)">
 <!ENTITY synsetid "ewn\-\d{8}\-[nvars]">
 <!ENTITY senseid "ewn\-.*\-[nvars]\-\d{8}\-\d{2}">
-<!ENTITY senseid_ns "ewn\-.*\-[nvars]\-\d{8}\-\d{2}|ewn\-.*\-[nvars]\-ewn\-\d{8}\-\d{2}">
+<!ENTITY syntacticbehaviourid "ewn\-sb\-\d{1,3}">
 <!ENTITY word "[a-zA-Z0-9 '!,:/\-\.]+">
 <!ENTITY lemma "[a-zA-Z0-9_'/\-\.]+">
 <!ENTITY nullable_lemma "[a-zA-Z0-9_'/\-\.]*">
@@ -40,11 +40,23 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<xsd:simpleType name='SyntacticBehaviourIDType'>
+		<xsd:restriction base='xsd:ID'>
+			<xsd:pattern value='&syntacticbehaviourid;' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
 	<!-- idref -->
 	
 	<xsd:simpleType name='SynsetIDREFType'>
+		<!-- <xsd:restriction base='xsd:IDREF'> -->
+		<xsd:restriction base='xsd:NCName'>
+			<xsd:pattern value='&synsetid;' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name='LocalSynsetIDREFType'>
 		<xsd:restriction base='xsd:IDREF'>
-		<!-- <xsd:restriction base='xsd:NCName'> -->
 			<xsd:pattern value='&synsetid;' />
 		</xsd:restriction>
 	</xsd:simpleType>
@@ -54,8 +66,23 @@
 			<xsd:simpleType>
 				<xsd:list>
 					<xsd:simpleType>
+						<!-- <xsd:restriction base='xsd:IDREF'> -->
+						<xsd:restriction base='xsd:NCName'>
+							<xsd:pattern value='&synsetid;' />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:list>
+			</xsd:simpleType>
+			<xsd:minLength value='1' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name='LocalSynsetIDREFSType'>
+		<xsd:restriction>
+			<xsd:simpleType>
+				<xsd:list>
+					<xsd:simpleType>
 						<xsd:restriction base='xsd:IDREF'>
-						<!-- <xsd:restriction base='xsd:NCName'> -->
 							<xsd:pattern value='&synsetid;' />
 						</xsd:restriction>
 					</xsd:simpleType>
@@ -66,8 +93,14 @@
 	</xsd:simpleType>
 
 	<xsd:simpleType name='SenseIDREFType'>
+		<!-- <xsd:restriction base='xsd:IDREF'> -->
+		<xsd:restriction base='xsd:NCName'>
+			<xsd:pattern value='&senseid;' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name='LocalSenseIDREFType'>
 		<xsd:restriction base='xsd:IDREF'>
-		<!-- <xsd:restriction base='xsd:NCName'> -->
 			<xsd:pattern value='&senseid;' />
 		</xsd:restriction>
 	</xsd:simpleType>
@@ -77,8 +110,23 @@
 			<xsd:simpleType>
 				<xsd:list>
 					<xsd:simpleType>
+						<!-- <xsd:restriction base='xsd:IDREF'> -->
+						<xsd:restriction base='xsd:NCName'>
+							<xsd:pattern value='&senseid;' />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:list>
+			</xsd:simpleType>
+			<xsd:minLength value='1' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name='LocalSenseIDREFSType'>
+		<xsd:restriction>
+			<xsd:simpleType>
+				<xsd:list>
+					<xsd:simpleType>
 						<xsd:restriction base='xsd:IDREF'>
-						<!-- <xsd:restriction base='xsd:NCName'> -->
 							<xsd:pattern value='&senseid;' />
 						</xsd:restriction>
 					</xsd:simpleType>
@@ -293,6 +341,7 @@
 	<xsd:element name='Lexicon'>
 		<xsd:complexType>
 			<xsd:sequence>
+				<xsd:element ref='SyntacticBehaviour' minOccurs='0' maxOccurs='unbounded' />
 				<xsd:element ref='LexicalEntry' minOccurs='0' maxOccurs='unbounded' />
 				<xsd:element ref='Synset' minOccurs='0' maxOccurs='unbounded' />
 			</xsd:sequence>
@@ -361,7 +410,7 @@
 			</xsd:sequence>
 
 			<xsd:attribute name='id' type='SenseIDType' use='required' />
-			<xsd:attribute name='synset' type='SynsetIDREFType' use='required' />
+			<xsd:attribute name='synset' type='LocalSynsetIDREFType' use='required' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute name='n' type='NType' use='optional' />
 			<xsd:attribute name='idx' type='IdxType' use='required' />
@@ -393,7 +442,7 @@
 	<xsd:element name='Definition'>
 		<xsd:complexType mixed='true'>
 			<xsd:attribute name='language' type='xsd:string' use='optional' />
-			<xsd:attribute name='sourceSense' type='SynsetIDREFType' use='optional' />
+			<xsd:attribute name='sourceSense' type='LocalSynsetIDREFType' use='optional' />
 			<xsd:attributeGroup ref='Meta' />
 		</xsd:complexType>
 	</xsd:element>
@@ -429,7 +478,8 @@
 
 	<xsd:element name='SyntacticBehaviour'>
 		<xsd:complexType>
-			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='required' />
+			<xsd:attribute name='id' type='SyntacticBehaviourIDType' use='optional' />
+			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='optional' />
 			<xsd:attribute name='senses' type='SenseIDREFSType' use='optional' />
 		</xsd:complexType>
 	</xsd:element>
