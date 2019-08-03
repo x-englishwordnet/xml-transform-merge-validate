@@ -5,11 +5,11 @@
 
 	<xsl:import href='lib-sensekey.xsl' />
 	<xsl:import href='lib-lexid.xsl' />
-		
+
 	<xsl:output omit-xml-declaration="no" standalone="no" method="xml" version="1.1" encoding="UTF-8" indent="yes" />
 	<!-- doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.2.dtd" -->
 	<xsl:strip-space elements="*" />
-		
+
 	<xsl:variable name="lexid_method" select="'idx'" />
 
 	<xsl:template match="/">
