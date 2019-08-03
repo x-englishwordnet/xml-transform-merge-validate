@@ -20,7 +20,7 @@
 	<xsl:template match="Sense">
 		<xsl:value-of select="@sensekey" />
 		<xsl:text> </xsl:text>
-		<xsl:value-of select="normalize-space(translate(@syntactic_behaviour,'ewn-sb-',''))" />
+		<xsl:value-of select="translate(normalize-space(translate(@syntactic_behaviour,'ewn-sb-','')),' ',',')" />
 		<xsl:text>&#xa;</xsl:text>
 	</xsl:template>
 
