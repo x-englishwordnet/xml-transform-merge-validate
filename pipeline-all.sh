@@ -1,7 +1,7 @@
 #!/bin/bash
 
-FROMDIR=lexfiles
-TODIR=lexfiles2
+FROMDIR=in/lexfiles
+TODIR=out/lexfiles2
 
 adj="
 wn-adj.all.xml
@@ -61,7 +61,14 @@ wn-verb.weather.xml
 "
 
 mkdir -p $TODIR
-for f in $noun $verb $adj $adv ; do
+
+for f in $verb ; do
+	echo $f
+	./pipeline-verb.sh $FROMDIR/$f > $TODIR/$f
+done
+
+for f in $noun $adj $adv ; do
 	echo $f
 	./pipeline.sh $FROMDIR/$f > $TODIR/$f
 done
+
