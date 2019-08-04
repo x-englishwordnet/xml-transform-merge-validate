@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-	echo "Null XSL"
+	echo "XSL: null" 1>&2;
 	exit
 fi
 XSL="$1"
@@ -16,11 +16,11 @@ ISDIR=
 if [ "$1" == "-dir" ]; then
 	shift
 	ISDIR="-dir"
-	echo "OUT: is directory"
+	echo "OUT: is directory" 1>&2;
 fi
 
 if [ -z "$*" ]; then
-	echo "Null Source"
+	echo "SRC: null" 1>&2;
 	exit
 fi
 echo "SRC: $*" 1>&2;
