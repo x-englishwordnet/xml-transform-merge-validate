@@ -1,2 +1,5 @@
+/target/
 /.classpath
 /.project
+/in/lexfiles2
+/out
