@@ -108,15 +108,6 @@
 					</xsl:merge-action>
 				</xsl:merge>
 
-				<xsl:merge>
-					<xsl:merge-source for-each-item="$docs" sort-before-merge="true" select="/LexicalResource/Lexicon/LexicalEntry">
-						<xsl:merge-key select="@id" order="ascending" />
-					</xsl:merge-source>
-					<xsl:merge-action>
-						<xsl:sequence select="current-merge-group()" />
-					</xsl:merge-action>
-				</xsl:merge>
-
 			</Lexicon>
 		</LexicalResource>
 	</xsl:template>
