@@ -1,23 +1,28 @@
-<xsl:transform version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsl:transform version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:map="http://www.w3.org/2005/xpath-functions/map">
 	<xsl:output method="xml" indent="yes" />
 
 	<xsl:param name="dir" as="xs:string" required="yes" />
 
 	<xsl:variable name="path">
-		<xsl:value-of select="concat($dir,'?select=*.xml;recurse=yes;on-error=warning')" />
+		<xsl:value-of select="concat($dir,'?select=*.xml;recurse=no;on-error=warning')" />
 	</xsl:variable>
 	<xsl:variable name="docs" select="collection($path)" />
 
-	<xsl:variable name='debug' select='false()' />
+	<xsl:variable name='debug' select='true()' />
 
 	<xsl:template match="/">
 		<xsl:message>
 			<xsl:text>dir: </xsl:text>
 			<xsl:value-of select="$dir" />
 			<xsl:text>&#xa;</xsl:text>
-			<xsl:text>doc: </xsl:text>
+			<xsl:text>docs:</xsl:text>
 			<xsl:value-of select="count($docs)" />
 			<xsl:text> files &#xa;</xsl:text>
+			<xsl:for-each select="$docs">
+				<xsl:value-of select="base-uri(.)" />
+				<xsl:text>&#xa;</xsl:text>
+			</xsl:for-each>
 		</xsl:message>
 
 		<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -71,6 +76,9 @@
 									<xsl:message>
 										<xsl:text>Multiply defined </xsl:text>
 										<xsl:value-of select="current-merge-key()" />
+										<xsl:text> (</xsl:text>
+										<xsl:value-of select="count($group)" />
+										<xsl:text> sources)</xsl:text>
 									</xsl:message>
 								</xsl:if>
 
