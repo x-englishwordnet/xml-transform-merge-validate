@@ -10,6 +10,7 @@
 	<xsl:variable name="docs" select="collection($path)" />
 
 	<xsl:variable name='debug' select='true()' />
+	<xsl:variable name='fromtag' select='true()' />
 
 	<xsl:template match="/">
 		<xsl:message>
@@ -78,7 +79,12 @@
 										<xsl:value-of select="current-merge-key()" />
 										<xsl:text> (</xsl:text>
 										<xsl:value-of select="count($group)" />
-										<xsl:text> sources)</xsl:text>
+										<xsl:text> sources:</xsl:text>
+										<xsl:for-each select="$group">
+											<xsl:text> </xsl:text>
+											<xsl:value-of select="substring-after(substring-before(replace(base-uri(.), '.*/', '') , '.xml'),'wn-')" />
+										</xsl:for-each>
+										<xsl:text>)</xsl:text>
 									</xsl:message>
 								</xsl:if>
 
@@ -86,7 +92,22 @@
 									<xsl:attribute name="id"><xsl:value-of select="current-merge-key()" /></xsl:attribute>
 									<xsl:copy-of select="$first/Lemma" />
 									<xsl:copy-of select="$first/Form" />
-									<xsl:sequence select="$group/Sense" />
+									<xsl:choose>
+										<xsl:when test='$fromtag = true()'>
+											<xsl:for-each select="$group/Sense">
+												<xsl:copy select=".">
+													<xsl:attribute name="from">
+														<xsl:value-of select="substring-after(substring-before(replace(base-uri(.), '.*/', '') , '.xml'),'wn-')" />
+													</xsl:attribute>
+													<xsl:copy-of select="./@*" />
+													<xsl:copy-of select="./*" />
+												</xsl:copy>
+											</xsl:for-each>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:sequence select="$group/Sense" />
+										</xsl:otherwise>
+									</xsl:choose>
 								</xsl:element>
 							</xsl:otherwise>
 
