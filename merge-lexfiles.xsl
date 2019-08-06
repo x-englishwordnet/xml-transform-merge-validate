@@ -1,5 +1,4 @@
-<xsl:transform version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:map="http://www.w3.org/2005/xpath-functions/map">
+<xsl:transform version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xsl:output method="xml" indent="yes" />
 
 	<xsl:param name="dir" as="xs:string" required="yes" />
@@ -26,8 +25,10 @@
 			</xsl:for-each>
 		</xsl:message>
 
-		<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation="https://1313ou.github.io/ewn-validation/WN-LMF-1.5-relax_idrefs.xsd">
+		<LexicalResource 
+			xmlns:dc="http://purl.org/dc/elements/1.1/" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.5-relax_idrefs.xsd">
 			<Lexicon id="ewn" label="English WordNet" language="en" email="john@mccr.ae" license="https://wordnet.princeton.edu/license-and-commercial-use"
 				version="2019" url="https://github.com/globalwordnet/english-wordnet" confidenceScore="1.0">
 
@@ -96,7 +97,7 @@
 										<xsl:when test='$fromtag = true()'>
 											<xsl:for-each select="$group/Sense">
 												<xsl:copy select=".">
-													<xsl:attribute name="from">
+													<xsl:attribute name="lexfile">
 														<xsl:value-of select="substring-after(substring-before(replace(base-uri(.), '.*/', '') , '.xml'),'wn-')" />
 													</xsl:attribute>
 													<xsl:copy-of select="./@*" />
