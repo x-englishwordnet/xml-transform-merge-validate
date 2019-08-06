@@ -8,7 +8,7 @@
 <!ENTITY ili "i\d+|in">
 ]>
 
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:t='http://www.w3.org/namespace/' xmlns:dc='http://purl.org/dc/elements/1.1/'>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dc='http://purl.org/dc/elements/1.1/'>
 
 	<xsd:import namespace='http://purl.org/dc/elements/1.1/' schemaLocation='dc.xsd' />
 
