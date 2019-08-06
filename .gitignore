@@ -3,3 +3,6 @@
 /.project
 /in/lexfiles2
 /out
+/in/
+/merge-lexfiles_abandon.xsl
+/run_abandon.sh
