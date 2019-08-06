@@ -1,7 +1,16 @@
 #!/bin/bash
 
-FROMDIR=in/lexfiles
-TODIR=out/lexfiles2
+FROMDIR=$1
+if [ -z "$FROMDIR" ] ; then
+	FROMDIR=in/lexfiles
+fi
+echo "PIPE IN:  $FROMDIR" 1>&2;
+
+TODIR=$2
+if [ -z "$TODIR" ] ; then
+	TODIR=out/lexfiles2
+fi
+echo "PIPE OUT: $TODIR" 1>&2;
 
 adj="
 wn-adj.all.xml

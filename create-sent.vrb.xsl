@@ -17,7 +17,7 @@
 
 		<xsl:message>
 			<xsl:value-of select="count($items)" />
-			<xsl:text> processed / </xsl:text>
+			<xsl:text> processed</xsl:text>
 		</xsl:message>
 	</xsl:template>
 
