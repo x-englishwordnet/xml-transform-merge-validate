@@ -10,6 +10,8 @@
 	<xsl:param name="updateFileName" select="'adjpositions-update.xml'" />
 	<xsl:param name="updates" select="document($updateFileName)" />
 
+	<xsl:variable name='debug' select='false()' />
+
 	<xsl:template match="/">
 		<xsl:copy>
 			<xsl:apply-templates select="@*|node()" />
@@ -17,8 +19,10 @@
 	</xsl:template>
 
 	<xsl:template match="LexicalResource">
-		<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation="https://1313ou.github.io/ewn-validation/WN-LMF-1.6-relax_idrefs.xsd">
+		<LexicalResource 
+			xmlns:dc="http://purl.org/dc/elements/1.1/" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.6-relax_idrefs.xsd">
 			<xsl:apply-templates select="./*" />
 		</LexicalResource>
 	</xsl:template>
@@ -31,7 +35,7 @@
 		<xsl:variable name="row" select="$updates/DATA/ROW[starts-with($senseid,senseid)]" />
 		<xsl:variable name="adjposition" select="$row/position" />
 
-<!-- 		<xsl:if test="$adjposition"> -->
+		<xsl:if test="$adjposition">
 			<xsl:message>
 				<xsl:text> senseid=</xsl:text>
 				<xsl:value-of select="$senseid" />
@@ -44,11 +48,11 @@
 				<xsl:text> - position=</xsl:text>
 				<xsl:value-of select="$adjposition" />
 			</xsl:message>
-<!-- 		</xsl:if> -->
+		</xsl:if>
 
 		<xsl:copy>
 			<xsl:if test="$adjposition">
-				<xsl:attribute name="position">
+				<xsl:attribute name="adj_position">
 					<xsl:value-of select="$adjposition" />
 				</xsl:attribute>
 			</xsl:if>

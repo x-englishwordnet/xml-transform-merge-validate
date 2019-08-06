@@ -72,12 +72,17 @@ wn-verb.weather.xml
 mkdir -p $TODIR
 
 for f in $verb ; do
-	echo "PIP: $f (v)" 1>&2;
+	echo "PIPE: $f (v)" 1>&2;
 	./pipeline-verb.sh $FROMDIR/$f > $TODIR/$f
 done
 
-for f in $noun $adj $adv ; do
-	echo "PIP: $f" 1>&2;
+for f in $adj ; do
+	echo "PIPE: $f (a)" 1>&2;
+	./pipeline-adj.sh $FROMDIR/$f > $TODIR/$f
+done
+
+for f in $noun $adv ; do
+	echo "PIPE: $f" 1>&2;
 	./pipeline.sh $FROMDIR/$f > $TODIR/$f
 done
 

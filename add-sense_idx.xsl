@@ -14,8 +14,10 @@
 	</xsl:template>
 
 	<xsl:template match="LexicalResource">
-		<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation="https://1313ou.github.io/ewn-validation/WN-LMF-1.1.1-relax_idrefs.xsd">
+		<LexicalResource 
+			xmlns:dc="http://purl.org/dc/elements/1.1/" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.1.1-relax_idrefs.xsd">
 			<xsl:apply-templates select="./*" />
 		</LexicalResource>
 	</xsl:template>
@@ -27,7 +29,7 @@
 		</xsl:variable>
 
 		<xsl:copy>
-			<xsl:attribute name="idx">
+			<xsl:attribute name="lexidx">
 				<xsl:value-of select="format-number($idx - 1,'00')" />
 			</xsl:attribute>
 
