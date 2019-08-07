@@ -19,10 +19,8 @@
 	</xsl:template>
 
 	<xsl:template match="LexicalResource">
-		<LexicalResource 
-			xmlns:dc="http://purl.org/dc/elements/1.1/" 
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.6-relax_idrefs.xsd">
+		<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.2-relax_idrefs.xsd">
 			<xsl:apply-templates select="./*" />
 		</LexicalResource>
 	</xsl:template>
@@ -35,19 +33,21 @@
 		<xsl:variable name="row" select="$updates/DATA/ROW[starts-with($senseid,senseid)]" />
 		<xsl:variable name="adjposition" select="$row/position" />
 
-		<xsl:if test="$adjposition">
-			<xsl:message>
-				<xsl:text> senseid=</xsl:text>
-				<xsl:value-of select="$senseid" />
-				<xsl:text> lemma=</xsl:text>
-				<xsl:value-of select="$lemma" />
-				<xsl:text> synsetid=</xsl:text>
-				<xsl:value-of select="$synsetid" />
-				<xsl:text> pos=</xsl:text>
-				<xsl:value-of select="$pos" />
-				<xsl:text> - position=</xsl:text>
-				<xsl:value-of select="$adjposition" />
-			</xsl:message>
+		<xsl:if test="$debug=true()">
+			<xsl:if test="$adjposition">
+				<xsl:message>
+					<xsl:text> senseid=</xsl:text>
+					<xsl:value-of select="$senseid" />
+					<xsl:text> lemma=</xsl:text>
+					<xsl:value-of select="$lemma" />
+					<xsl:text> synsetid=</xsl:text>
+					<xsl:value-of select="$synsetid" />
+					<xsl:text> pos=</xsl:text>
+					<xsl:value-of select="$pos" />
+					<xsl:text> - position=</xsl:text>
+					<xsl:value-of select="$adjposition" />
+				</xsl:message>
+			</xsl:if>
 		</xsl:if>
 
 		<xsl:copy>
