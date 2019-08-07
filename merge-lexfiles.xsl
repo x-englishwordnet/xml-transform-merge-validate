@@ -8,7 +8,7 @@
 	</xsl:variable>
 	<xsl:variable name="docs" select="collection($path)" />
 
-	<xsl:variable name='debug' select='true()' />
+	<xsl:variable name='debug' select='false()' />
 	<xsl:variable name='fromtag' select='true()' />
 
 	<xsl:template match="/">
@@ -25,10 +25,8 @@
 			</xsl:for-each>
 		</xsl:message>
 
-		<LexicalResource 
-			xmlns:dc="http://purl.org/dc/elements/1.1/" 
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.5-relax_idrefs.xsd">
+		<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.5.xsd">
 			<Lexicon id="ewn" label="English WordNet" language="en" email="john@mccr.ae" license="https://wordnet.princeton.edu/license-and-commercial-use"
 				version="2019" url="https://github.com/globalwordnet/english-wordnet" confidenceScore="1.0">
 
@@ -70,7 +68,28 @@
 										<xsl:value-of select="current-merge-key()" />
 									</xsl:message>
 								</xsl:if>
-								<xsl:copy-of select="$first" />
+
+								<xsl:choose>
+									<xsl:when test='$fromtag = true()'>
+										<xsl:element name="LexicalEntry">
+											<xsl:attribute name="id"><xsl:value-of select="current-merge-key()" /></xsl:attribute>
+											<xsl:copy-of select="$first/Lemma" />
+											<xsl:copy-of select="$first/Form" />
+											<xsl:for-each select="$group/Sense">
+												<xsl:copy select=".">
+													<xsl:attribute name="lexfile">
+														<xsl:value-of select="substring-after(substring-before(replace(base-uri(.), '.*/', '') , '.xml'),'wn-')" />
+													</xsl:attribute>
+													<xsl:copy-of select="./@*" />
+													<xsl:copy-of select="./*" />
+												</xsl:copy>
+											</xsl:for-each>
+										</xsl:element>
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:copy-of select="$first" />
+									</xsl:otherwise>
+								</xsl:choose>
 							</xsl:when>
 
 							<xsl:otherwise>
