@@ -7,7 +7,7 @@
  	xmlns:dc='http://purl.org/dc/elements/1.1/'>
 
 	<xsd:import namespace='http://purl.org/dc/elements/1.1/' schemaLocation='dc.xsd' />
-	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.5-relax_idrefs.xsd' />
+	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.5.xsd' />
 
 	<!-- E L E M E N T S -->
 

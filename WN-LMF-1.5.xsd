@@ -7,7 +7,7 @@
  	xmlns:dc='http://purl.org/dc/elements/1.1/'>
 
 	<xsd:import namespace='http://purl.org/dc/elements/1.1/' schemaLocation='dc.xsd' />
-	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.5-relax_idrefs.xsd' />
+	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.5.xsd' />
 
 	<!-- E L E M E N T S -->
 
@@ -45,7 +45,6 @@
 				<xsd:element ref='Lemma' minOccurs='1' maxOccurs='1' />
 				<xsd:element ref='Form' minOccurs='0' maxOccurs='unbounded' />
 				<xsd:element ref='Sense' minOccurs='1' maxOccurs='unbounded' />
-				<xsd:element ref='SyntacticBehaviourRef' minOccurs='0' maxOccurs='unbounded' />
 			</xsd:sequence>
 
 			<xsd:attribute name='id' type='ewn:LexicalEntryIDType' use='required' />
@@ -97,6 +96,7 @@
 			<xsd:attribute name='lexidx' type='ewn:LexIdxType' use='optional' />
 			<xsd:attribute name='lexid' type='ewn:LexIdType' use='optional' />
 			<xsd:attribute name='sensekey' type='ewn:SensekeyType' use='required' />
+			<xsd:attribute name='syntactic_behaviour' type='ewn:LocalSyntacticBehaviourIDREFSType' use='optional' />
 			<xsd:attribute name='adj_position' type='ewn:AdjPositionType' use='optional' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute ref='dc:identifier' use='optional' /> <!-- sensekey -->
@@ -163,13 +163,6 @@
 		<xsd:complexType>
 			<xsd:attribute name='id' type='ewn:SyntacticBehaviourIDType' use='optional' />
 			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='optional' />
-		</xsd:complexType>
-	</xsd:element>
-
-	<xsd:element name='SyntacticBehaviourRef'>
-		<xsd:complexType>
-			<xsd:attribute name='idref' type='ewn:LocalSyntacticBehaviourIDREFType' use='optional' />
-			<xsd:attribute name='senses' type='ewn:SenseIDREFSType' use='optional' />
 		</xsd:complexType>
 	</xsd:element>
 
