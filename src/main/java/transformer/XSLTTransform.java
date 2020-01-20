@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.xml.transform.stream.StreamResult;
 
@@ -20,7 +21,16 @@ public class XSLTTransform
 		String suffix = null;
 		boolean toDir = false;
 
-		try
+	    int leftLimit = 'A';
+	    int rightLimit = 'Z';
+	    int targetStringLength = 5;
+	    Random random = new Random();
+	    String pipelineId = random.ints(leftLimit, rightLimit + 1)
+	      .limit(targetStringLength)
+	      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+	      .toString();
+
+	    try
 		{
 			xsltFilePath = args[0];
 			result = args[1];
@@ -62,15 +72,15 @@ public class XSLTTransform
 			}
 
 			final DomTransformer transformer = new DomTransformer(outputMethod, docTypeSystem, docTypePublic);
-			System.err.println("XSLT: " + xsltFilePath);
-			System.err.println("METH: " + (outputMethod == null ? "default" : outputMethod));
+			System.err.print("\n" + pipelineId + " XSLT: " + xsltFilePath);
+			System.err.print("\n" + pipelineId + " METH: " + (outputMethod == null ? "default" : outputMethod));
 
 			if (toDir && !"-".equals(result))
 			{
 				final File dir = new File(result);
 				if (!dir.exists())
 					dir.mkdirs();
-				System.err.println("DIR:  " + dir);
+				System.err.print("\n" + pipelineId + " DIR:  " + dir);
 				for (String sourceFilePath : inputs)
 				{
 					String destFileName = new File(sourceFilePath).getName();
@@ -83,13 +93,13 @@ public class XSLTTransform
 					}
 
 					final String destFilePath = new File(dir, destFileName).getCanonicalPath();
-					System.err.println("XFRM: " + sourceFilePath + " -> " + destFilePath);
+					System.err.print("\n" + pipelineId + " XFRM: " + sourceFilePath + " -> " + destFilePath);
 					transformer.fileToFile(sourceFilePath, destFilePath, xsltFilePath);
 				}
 			}
 			else
 			{
-				System.err.println("OUT:  " + result);
+				System.err.print("\n" + pipelineId + " OUT:  " + result);
 
 				// out
 				final boolean isFile = !"-".equals(result);
@@ -103,7 +113,7 @@ public class XSLTTransform
 				final StreamResult streamResult = isFile ? new StreamResult(new FileWriter(result)) : new StreamResult(System.out);
 				for (String sourceFilePath : inputs)
 				{
-					System.err.println("XFRM: " + sourceFilePath + " -> " + result);
+					System.err.println("\n" + pipelineId + " XFRM: " + sourceFilePath + " -> " + result);
 					transformer.fileToStreamResult(sourceFilePath, streamResult, xsltFilePath);
 				}
 			}
@@ -116,6 +126,6 @@ public class XSLTTransform
 		{
 			e.printStackTrace();
 		}
-		System.err.println("Done");
+		System.err.println("\n" + pipelineId + " Done\n");
 	}
 }

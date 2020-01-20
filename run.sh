@@ -1,29 +1,39 @@
 #!/bin/bash
 
+RED='\u001b[31m'
+GREEN='\u001b[32m'
+YELLOW='\u001b[33m'
+BLUE='\u001b[34m'
+MAGENTA='\u001b[35m'
+CYAN='\u001b[36m'
+RESET='\u001b[0m'
+
 if [ -z "$1" ]; then
-	echo "XSL: null" 1>&2;
+	echo "${RED}XSL: null${RESET}" 1>&2;
 	exit
 fi
 XSL="$1"
 shift
-echo "XSL: $XSL" 1>&2;
+echo -e "${MAGENTA}XSL: $XSL${RESET}" 1>&2;
 
 OUT="$1"
 shift
-echo "OUT: $OUT" 1>&2;
+echo -e "${MAGENTA}OUT: $OUT${RESET}" 1>&2;
 
 ISDIR=
 if [ "$1" == "-dir" ]; then
 	shift
 	ISDIR="-dir"
-	echo "OUT: is directory" 1>&2;
+	echo -e "${MAGENTA}OUT: is directory${RESET}" 1>&2;
 fi
 
 if [ -z "$*" ]; then
-	echo "SRC: null" 1>&2;
+	echo  -e"${RED}SRC: null${RESET}" 1>&2;
 	exit
 fi
-echo "SRC: $*" 1>&2;
+echo -e "${MAGENTA}SRC: $*${RESET}" 1>&2;
+echo 1>&2;
 
 MEM=-Xmx1G
+MEM=
 java $MEM -jar transformer.jar $XSL $OUT $ISDIR $*

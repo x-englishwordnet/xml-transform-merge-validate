@@ -29,8 +29,8 @@
 		</xsl:variable>
 
 		<xsl:copy>
-			<xsl:attribute name="lexidx">
-				<xsl:value-of select="format-number($idx - 1,'00')" />
+			<xsl:attribute name="senseidx">
+				<xsl:value-of select="format-number($idx - 1,'#0')" />
 			</xsl:attribute>
 
 			<xsl:apply-templates select="@*|node()" />

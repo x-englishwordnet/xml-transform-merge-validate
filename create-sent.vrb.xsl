@@ -7,11 +7,11 @@
 	<xsl:output method="text" indent="no" />
 
 	<xsl:template match="/">
-		<xsl:variable name="items" select="/LexicalResource/Lexicon/SyntacticBehaviour" />
+		<xsl:variable name="items" select="/LexicalResource/Lexicon/SyntacticBehaviour[@sentenceTemplate != '']" />
 		<xsl:for-each select="$items">
 			<xsl:value-of select="position()" />
 			<xsl:text> </xsl:text>
-			<xsl:value-of select="@subcategorizationFrame" />
+			<xsl:value-of select="@sentenceTemplate" />
 			<xsl:text>&#xa;</xsl:text>
 		</xsl:for-each>
 

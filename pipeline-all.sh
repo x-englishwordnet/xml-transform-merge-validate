@@ -1,5 +1,26 @@
 #!/bin/bash
 
+# add-sensekey.xsl 				(n,v,a,r)
+#	lib-lexid.xsl
+#	lib-sensekey.xsl
+#		lib-lexid.xsl
+#		lib-satellite_head.xsl
+#			lib-lexid.xsl
+# add-verb_frames_entity.xsl 	(v)
+# add-verb_frames.xsl 			(v)
+# add-verb_frames-attr.xsl 		(v)
+# add-verb_templates_entity.xsl (v)
+# add-verb_templates.xsl 		(v)
+# add-adj_position.xsl 			(a)
+
+RED='\u001b[31m'
+GREEN='\u001b[32m'
+YELLOW='\u001b[33m'
+BLUE='\u001b[34m'
+MAGENTA='\u001b[35m'
+CYAN='\u001b[36m'
+RESET='\u001b[0m'
+
 FROMDIR=$1
 if [ -z "$FROMDIR" ] ; then
 	FROMDIR=in/lexfiles
@@ -72,17 +93,17 @@ wn-verb.weather.xml
 mkdir -p $TODIR
 
 for f in $verb ; do
-	echo "PIPE: $f (v)" 1>&2;
+	echo -e "${YELLOW}PIPE: $f (v)${RESET}" 1>&2;
 	./pipeline-verb.sh $FROMDIR/$f > $TODIR/$f
 done
 
 for f in $adj ; do
-	echo "PIPE: $f (a)" 1>&2;
+	echo -e "${YELLOW}PIPE: $f (a)${RESET}" 1>&2;
 	./pipeline-adj.sh $FROMDIR/$f > $TODIR/$f
 done
 
 for f in $noun $adv ; do
-	echo "PIPE: $f" 1>&2;
+	echo -e "${YELLOW}PIPE: $f${RESET}" 1>&2;
 	./pipeline.sh $FROMDIR/$f > $TODIR/$f
 done
 

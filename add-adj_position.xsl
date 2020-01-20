@@ -7,7 +7,7 @@
 	<!-- doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.2.dtd" -->
 	<xsl:strip-space elements="*" />
 
-	<xsl:param name="updateFileName" select="'adjpositions-update.xml'" />
+	<xsl:param name="updateFileName" select="'data/adjpositions.xml'" />
 	<xsl:param name="updates" select="document($updateFileName)" />
 
 	<xsl:variable name='debug' select='false()' />
@@ -30,7 +30,7 @@
 		<xsl:variable name="lemma" select="translate(../Lemma/@writtenForm,' ','_')" />
 		<xsl:variable name="synsetid" select="substring-before(substring-after(@synset,'ewn-'),'-')" />
 		<xsl:variable name="pos" select="../Lemma/@partOfSpeech" />
-		<xsl:variable name="row" select="$updates/DATA/ROW[starts-with($senseid,senseid)]" />
+		<xsl:variable name="row" select="$updates/adjpositions/adjposition[starts-with($senseid,senseid)]" />
 		<xsl:variable name="adjposition" select="$row/position" />
 
 		<xsl:if test="$debug=true()">

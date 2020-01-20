@@ -1,0 +1,172 @@
+<DATA>
+<ROW><id>1</id><sentence>The children %s to the playground</sentence></ROW>
+<ROW><id>2</id><sentence>The banks %s the check</sentence></ROW>
+<ROW><id>3</id><sentence>The checks %s</sentence></ROW>
+<ROW><id>4</id><sentence>The children %s the ball</sentence></ROW>
+<ROW><id>5</id><sentence>The balls %s</sentence></ROW>
+<ROW><id>6</id><sentence>The girls %s the wooden sticks</sentence></ROW>
+<ROW><id>7</id><sentence>The wooden sticks %s</sentence></ROW>
+<ROW><id>8</id><sentence>The coins %s</sentence></ROW>
+<ROW><id>9</id><sentence>They %s the coin</sentence></ROW>
+<ROW><id>10</id><sentence>The cars %s down the avenue</sentence></ROW>
+<ROW><id>11</id><sentence>They %s the car down the avenue</sentence></ROW>
+<ROW><id>12</id><sentence>They %s the glass tubes</sentence></ROW>
+<ROW><id>13</id><sentence>The glass tubes %s</sentence></ROW>
+<ROW><id>14</id><sentence>Sam and Sue %s</sentence></ROW>
+<ROW><id>15</id><sentence>Sam cannot %s Sue</sentence></ROW>
+<ROW><id>16</id><sentence>The ropes %s</sentence></ROW>
+<ROW><id>17</id><sentence>The strong winds %s the rope</sentence></ROW>
+<ROW><id>18</id><sentence>They %s the sheets</sentence></ROW>
+<ROW><id>19</id><sentence>The sheets didn't %s</sentence></ROW>
+<ROW><id>20</id><sentence>The horses %s across the field</sentence></ROW>
+<ROW><id>21</id><sentence>They %s the bags on the table</sentence></ROW>
+<ROW><id>22</id><sentence>The men %s the horses across the field</sentence></ROW>
+<ROW><id>23</id><sentence>Our properties %s at this point</sentence></ROW>
+<ROW><id>24</id><sentence>His fields %s mine at this point</sentence></ROW>
+<ROW><id>25</id><sentence>They %s the hill</sentence></ROW>
+<ROW><id>26</id><sentence>They %s up the hill</sentence></ROW>
+<ROW><id>27</id><sentence>They %s the river</sentence></ROW>
+<ROW><id>28</id><sentence>They %s down the river</sentence></ROW>
+<ROW><id>29</id><sentence>They %s the countryside</sentence></ROW>
+<ROW><id>30</id><sentence>They %s in the countryside</sentence></ROW>
+<ROW><id>31</id><sentence>These men %s across the river</sentence></ROW>
+<ROW><id>32</id><sentence>These men %s the river</sentence></ROW>
+<ROW><id>33</id><sentence>They %s the food to the people</sentence></ROW>
+<ROW><id>34</id><sentence>They %s the people the food</sentence></ROW>
+<ROW><id>35</id><sentence>They %s more bread</sentence></ROW>
+<ROW><id>36</id><sentence>They %s the object in the water</sentence></ROW>
+<ROW><id>37</id><sentence>The men %s the bookshelves</sentence></ROW>
+<ROW><id>38</id><sentence>They %s the money in the closet</sentence></ROW>
+<ROW><id>39</id><sentence>The lights %s from the ceiling</sentence></ROW>
+<ROW><id>40</id><sentence>They %s the lights from the ceiling</sentence></ROW>
+<ROW><id>41</id><sentence>They %s their rifles on the cabinet</sentence></ROW>
+<ROW><id>42</id><sentence>The chairs %s in the corner</sentence></ROW>
+<ROW><id>43</id><sentence>The men %s the chairs</sentence></ROW>
+<ROW><id>44</id><sentence>The women %s water into the bowl</sentence></ROW>
+<ROW><id>45</id><sentence>Water and oil %s into the bowl</sentence></ROW>
+<ROW><id>46</id><sentence>They %s the wire around the stick</sentence></ROW>
+<ROW><id>47</id><sentence>The wires %s around the stick</sentence></ROW>
+<ROW><id>48</id><sentence>They %s the bread with melted butter</sentence></ROW>
+<ROW><id>49</id><sentence>They %s the cart with boxes</sentence></ROW>
+<ROW><id>50</id><sentence>They %s the books into the box</sentence></ROW>
+<ROW><id>51</id><sentence>They %s sugar over the cake</sentence></ROW>
+<ROW><id>52</id><sentence>They %s the cake with sugar</sentence></ROW>
+<ROW><id>53</id><sentence>They %s the fruit with a chemical</sentence></ROW>
+<ROW><id>54</id><sentence>They %s a chemical into the fruit</sentence></ROW>
+<ROW><id>55</id><sentence>They %s the field with rye</sentence></ROW>
+<ROW><id>56</id><sentence>They %s rye in the field</sentence></ROW>
+<ROW><id>57</id><sentence>They %s notices on the doors</sentence></ROW>
+<ROW><id>58</id><sentence>They %s the doors with notices</sentence></ROW>
+<ROW><id>59</id><sentence>They %s money on their grandchild</sentence></ROW>
+<ROW><id>60</id><sentence>They %s their grandchild with money</sentence></ROW>
+<ROW><id>61</id><sentence>They %s coins on the image</sentence></ROW>
+<ROW><id>62</id><sentence>They %s the image with coins</sentence></ROW>
+<ROW><id>63</id><sentence>They %s butter on the bread</sentence></ROW>
+<ROW><id>64</id><sentence>They %s the lake with fish</sentence></ROW>
+<ROW><id>65</id><sentence>The children %s the paper with grease</sentence></ROW>
+<ROW><id>66</id><sentence>The children %s grease onto the paper</sentence></ROW>
+<ROW><id>67</id><sentence>They %s papers over the floor</sentence></ROW>
+<ROW><id>68</id><sentence>They %s the floor with papers</sentence></ROW>
+<ROW><id>69</id><sentence>They %s the money</sentence></ROW>
+<ROW><id>70</id><sentence>They %s the newspapers</sentence></ROW>
+<ROW><id>71</id><sentence>They %s the goods</sentence></ROW>
+<ROW><id>72</id><sentence>The men %s the boat</sentence></ROW>
+<ROW><id>73</id><sentence>They %s the animals</sentence></ROW>
+<ROW><id>74</id><sentence>The books %s the box</sentence></ROW>
+<ROW><id>75</id><sentence>They %s the halls with holly</sentence></ROW>
+<ROW><id>76</id><sentence>Holly flowers %s the halls</sentence></ROW>
+<ROW><id>77</id><sentence>The wind storms %s the area with dust and dirt</sentence></ROW>
+<ROW><id>78</id><sentence>Dust and dirt %s the area</sentence></ROW>
+<ROW><id>79</id><sentence>The swollen rivers %s the area with water</sentence></ROW>
+<ROW><id>80</id><sentence>The waters %s the area</sentence></ROW>
+<ROW><id>81</id><sentence>They %s the cloth with water and alcohol</sentence></ROW>
+<ROW><id>82</id><sentence>Water and alcohol %s the cloth</sentence></ROW>
+<ROW><id>83</id><sentence>They %s the snow from the path</sentence></ROW>
+<ROW><id>84</id><sentence>They %s the path of the snow</sentence></ROW>
+<ROW><id>85</id><sentence>They %s the water from the sink</sentence></ROW>
+<ROW><id>86</id><sentence>They %s the sink of water</sentence></ROW>
+<ROW><id>87</id><sentence>They %s the parcel to their parents</sentence></ROW>
+<ROW><id>88</id><sentence>They %s them the parcel</sentence></ROW>
+<ROW><id>89</id><sentence>They %s cars to the tourists</sentence></ROW>
+<ROW><id>90</id><sentence>They %s the tourists their cars</sentence></ROW>
+<ROW><id>91</id><sentence>They %s the money to them</sentence></ROW>
+<ROW><id>92</id><sentence>They %s them the money</sentence></ROW>
+<ROW><id>93</id><sentence>They %s them the information</sentence></ROW>
+<ROW><id>94</id><sentence>They %s the information to them</sentence></ROW>
+<ROW><id>95</id><sentence>The parents %s a French poem to the children</sentence></ROW>
+<ROW><id>96</id><sentence>The parents %s the children a French poem</sentence></ROW>
+<ROW><id>97</id><sentence>They %s</sentence></ROW>
+<ROW><id>98</id><sentence>They %s themselves</sentence></ROW>
+<ROW><id>99</id><sentence>These balls %s easily</sentence></ROW>
+<ROW><id>100</id><sentence>These glasses %s easily</sentence></ROW>
+<ROW><id>101</id><sentence>These fabrics %s easily</sentence></ROW>
+<ROW><id>102</id><sentence>They %s their earnings this year</sentence></ROW>
+<ROW><id>103</id><sentence>Their earnings %s this year</sentence></ROW>
+<ROW><id>104</id><sentence>The water %ss</sentence></ROW>
+<ROW><id>105</id><sentence>They %s the water</sentence></ROW>
+<ROW><id>106</id><sentence>The animals %s</sentence></ROW>
+<ROW><id>107</id><sentence>They %s a long time</sentence></ROW>
+<ROW><id>108</id><sentence>The car %ss the tree</sentence></ROW>
+<ROW><id>109</id><sentence>John will %s angry</sentence></ROW>
+<ROW><id>110</id><sentence>They %s in the city</sentence></ROW>
+<ROW><id>111</id><sentence>They won't %s the story</sentence></ROW>
+<ROW><id>112</id><sentence>They %s that there was a traffic accident</sentence></ROW>
+<ROW><id>113</id><sentence>They %s whether there was a traffic accident</sentence></ROW>
+<ROW><id>114</id><sentence>They %s her vice president</sentence></ROW>
+<ROW><id>115</id><sentence>Did he %s his major works over a short period of time?</sentence></ROW>
+<ROW><id>116</id><sentence>The chefs %s the vegetables</sentence></ROW>
+<ROW><id>117</id><sentence>They %s the cape</sentence></ROW>
+<ROW><id>118</id><sentence>The food does %s good</sentence></ROW>
+<ROW><id>119</id><sentence>The music does %s good</sentence></ROW>
+<ROW><id>120</id><sentence>The cool air does %s good</sentence></ROW>
+<ROW><id>121</id><sentence>This food does %s well</sentence></ROW>
+<ROW><id>122</id><sentence>It was %sing all day long</sentence></ROW>
+<ROW><id>123</id><sentence>They %s him to write the letter</sentence></ROW>
+<ROW><id>124</id><sentence>They %s him into writing the letter</sentence></ROW>
+<ROW><id>125</id><sentence>They %s him from writing the letter</sentence></ROW>
+<ROW><id>126</id><sentence>The bad news will %s him</sentence></ROW>
+<ROW><id>127</id><sentence>The good news will %s her</sentence></ROW>
+<ROW><id>128</id><sentence>The chef wants to %s the eggs</sentence></ROW>
+<ROW><id>129</id><sentence>Sam wants to %s with Sue</sentence></ROW>
+<ROW><id>130</id><sentence>The fighter managed to %s his opponent</sentence></ROW>
+<ROW><id>131</id><sentence>These cars won't %s</sentence></ROW>
+<ROW><id>132</id><sentence>The branches %s from the trees</sentence></ROW>
+<ROW><id>133</id><sentence>The stock market is going to %s</sentence></ROW>
+<ROW><id>134</id><sentence>The moon will soon %s</sentence></ROW>
+<ROW><id>135</id><sentence>The business is going to %s</sentence></ROW>
+<ROW><id>136</id><sentence>The airplane is sure to %s</sentence></ROW>
+<ROW><id>137</id><sentence>They %s to move</sentence></ROW>
+<ROW><id>138</id><sentence>They %s moving</sentence></ROW>
+<ROW><id>139</id><sentence>Sam and Sue %s the movie</sentence></ROW>
+<ROW><id>140</id><sentence>They want to %s the prisoners</sentence></ROW>
+<ROW><id>141</id><sentence>They want to %s the doors</sentence></ROW>
+<ROW><id>142</id><sentence>The doors %s</sentence></ROW>
+<ROW><id>143</id><sentence>Did he %s his foot?</sentence></ROW>
+<ROW><id>144</id><sentence>Did his feet %s?</sentence></ROW>
+<ROW><id>145</id><sentence>They will %s the duet</sentence></ROW>
+<ROW><id>146</id><sentence>They %s their hair</sentence></ROW>
+<ROW><id>147</id><sentence>They %s the trees</sentence></ROW>
+<ROW><id>148</id><sentence>They %s him of all his money</sentence></ROW>
+<ROW><id>149</id><sentence>Lights %s on the horizon</sentence></ROW>
+<ROW><id>150</id><sentence>The horizon is %sing with lights</sentence></ROW>
+<ROW><id>151</id><sentence>The crowds %s in the streets</sentence></ROW>
+<ROW><id>152</id><sentence>The streets %s with crowds</sentence></ROW>
+<ROW><id>153</id><sentence>Cars %s in the streets</sentence></ROW>
+<ROW><id>154</id><sentence>The streets %s with cars</sentence></ROW>
+<ROW><id>155</id><sentence>You can hear animals %s in the meadows</sentence></ROW>
+<ROW><id>156</id><sentence>The meadows %s with animals</sentence></ROW>
+<ROW><id>157</id><sentence>The birds %s in the woods</sentence></ROW>
+<ROW><id>158</id><sentence>The woods %s with many kinds of birds</sentence></ROW>
+<ROW><id>159</id><sentence>The performance is likely to %s Sue</sentence></ROW>
+<ROW><id>160</id><sentence>Sam and Sue %s over the results of the experiment</sentence></ROW>
+<ROW><id>161</id><sentence>In the summer they like to go out and %s</sentence></ROW>
+<ROW><id>162</id><sentence>The children %s in the rocking chair</sentence></ROW>
+<ROW><id>163</id><sentence>There %s some children in the rocking chair</sentence></ROW>
+<ROW><id>164</id><sentence>Some big birds %s in the tree</sentence></ROW>
+<ROW><id>165</id><sentence>There %s some big birds in the tree</sentence></ROW>
+<ROW><id>166</id><sentence>The men %s the area for animals</sentence></ROW>
+<ROW><id>167</id><sentence>The men %s for animals in the area</sentence></ROW>
+<ROW><id>168</id><sentence>The customs agents %s the bags for drugs</sentence></ROW>
+<ROW><id>169</id><sentence>They %s him as chairman</sentence></ROW>
+<ROW><id>170</id><sentence>They %s him 'Bobby'</sentence></ROW>
+</DATA>

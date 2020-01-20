@@ -9,7 +9,7 @@
 	<xsl:variable name='debug' select='false()' />
 
 	<xsl:template match="/">
-		<xsl:variable name="items" select="//Sense[@syntactic_behaviour != '']" />
+		<xsl:variable name="items" select="//Sense[@sentence_template != '']" />
 		<xsl:message>
 			<xsl:value-of select="count($items)" />
 			<xsl:text> processed</xsl:text>
@@ -20,7 +20,7 @@
 	<xsl:template match="Sense">
 		<xsl:value-of select="@sensekey" />
 		<xsl:text> </xsl:text>
-		<xsl:value-of select="translate(normalize-space(translate(@syntactic_behaviour,'ewn-sb-','')),' ',',')" />
+		<xsl:value-of select="translate(normalize-space(translate(@sentence_template,'ewn-st-','')),' ',',')" />
 		<xsl:text>&#xa;</xsl:text>
 	</xsl:template>
 
