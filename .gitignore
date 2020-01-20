@@ -1,4 +1,9 @@
-/target/
-/out/
-/in/lexfiles
+/.settings
+/target
+/scripts
+/xsl-debug
+/xsl-tests
+/xsl-misc
+/data
+/in
 /out
