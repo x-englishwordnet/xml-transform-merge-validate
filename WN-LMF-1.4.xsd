@@ -93,8 +93,8 @@
 			<xsd:attribute name='id' type='ewn:SenseIDType' use='required' />
 			<xsd:attribute name='synset' type='ewn:LocalSynsetIDREFType' use='required' />
 			<xsd:attribute name='n' type='ewn:NType' use='optional' />
+			<xsd:attribute name='senseidx' type='ewn:SenseIdxType' use='optional' />
 			<xsd:attribute name='lexfile' type='ewn:LexFileType' use='optional' />
-			<xsd:attribute name='lexidx' type='ewn:LexIdxType' use='optional' />
 			<xsd:attribute name='lexid' type='ewn:LexIdType' use='optional' />
 			<xsd:attribute name='sensekey' type='ewn:SensekeyType' use='required' />
 			<xsd:attribute name='adj_position' type='ewn:AdjPositionType' use='optional' />

@@ -329,7 +329,7 @@
 
 	<!-- lex file types -->
 
-	<xsd:simpleType name='LexIdxType'>
+	<xsd:simpleType name='SenseIdxType'>
 		<xsd:restriction base='xsd:integer'>
 			<xsd:minInclusive value='0' />
 		</xsd:restriction>
