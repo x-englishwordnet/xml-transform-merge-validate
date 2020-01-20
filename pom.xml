@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.gwn</groupId>
 	<artifactId>xmlmerger</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>xmlmerger</name>
 	<description>XML merge</description>
 
@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>net.sf.saxon</groupId>
 			<artifactId>Saxon-HE</artifactId>
-			<version>9.9.1-4</version>
+			<version>9.9.1-6</version>
 		</dependency>
 	</dependencies>
 

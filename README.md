@@ -9,7 +9,7 @@ A XSL are provided to do the merging with a Saxon parser supporting XSLT 3.0
 
 * run.sh
 
-* Saxon-HE-9.9.1-4.jar
+* Saxon-HE-9.9.1-6.jar
 
 * merge-lexfiles.xsl
 

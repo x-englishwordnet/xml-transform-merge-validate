@@ -18,4 +18,4 @@ fi
 MEM=-Xmx2G
 OPTIONS=
 
-java -jar Saxon-HE-9.9.1-4.jar $OPTIONS -s:source.xml $OUT -xsl:$XSL dir=$DIR
+java -jar Saxon-HE-9.9.1-6.jar $OPTIONS -s:source.xml $OUT -xsl:$XSL dir=$DIR

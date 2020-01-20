@@ -1,8 +1,6 @@
+/.settings/
 /target/
-/.classpath
-/.project
-/in/lexfiles2
+/misc
+/in
 /out
 /in/
-/merge-lexfiles_abandon.xsl
-/run_abandon.sh
