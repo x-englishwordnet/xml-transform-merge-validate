@@ -99,10 +99,9 @@ public class XSLTTransform
 			}
 			else
 			{
-				System.err.print("\n" + pipelineId + " OUT:  " + result);
-
 				// out
 				final boolean isFile = !"-".equals(result);
+				System.err.print("\n" + pipelineId + " OUT:  " + result + (isFile? " (file)" : " (stdout)"));
 				if (isFile)
 				{
 					File file = new File(result);

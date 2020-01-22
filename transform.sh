@@ -35,5 +35,4 @@ echo -e "${MAGENTA}SRC: $*${RESET}" 1>&2;
 echo 1>&2;
 
 MEM=-Xmx1G
-MEM=
 java $MEM -jar transformer.jar $XSL $OUT $ISDIR $*

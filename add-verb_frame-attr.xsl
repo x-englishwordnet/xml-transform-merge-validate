@@ -59,14 +59,14 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<!-- <xsl:template match="SyntacticBehaviour"> -->
-	<!-- </xsl:template> -->
+	<xsl:template match="SyntacticBehaviour">
+	</xsl:template>
 
 	<xsl:template match="SyntacticBehaviourRef">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()" />
-		</xsl:copy>
-		<!-- remove -->
+<!-- 		<xsl:copy> -->
+<!-- 			<xsl:apply-templates select="@*|node()" /> -->
+<!-- 		</xsl:copy> -->
+
 		<xsl:variable name="frameid" select="@idref" />  
 		<xsl:variable name="frame" select="//SyntacticBehaviour[@id=$frameid]" />  
 		<xsl:element name="SyntacticBehaviour">

@@ -7,7 +7,7 @@
 	<!-- doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.2.dtd" -->
 	<xsl:strip-space elements="*" />
 
-	<xsl:param name="updateFileName" select="'data/sentencemap.xml'" />
+	<xsl:param name="updateFileName" select="'data-verbtemplates.xml'" />
 	<xsl:param name="updates" select="document($updateFileName)" />
 
 	<xsl:variable name='debug' select='false()' />

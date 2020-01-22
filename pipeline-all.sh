@@ -35,7 +35,7 @@ echo "PIPE OUT: $TODIR" 1>&2;
 
 adj="
 wn-adj.all.xml
-wn-adj.pert.xml4
+wn-adj.pert.xml
 wn-adj.ppl.xml
 "
 
