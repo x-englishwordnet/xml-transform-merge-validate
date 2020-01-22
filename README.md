@@ -11,11 +11,13 @@ Two XSD's are provided:
 
 * java runtime >= 8
 
-* run.sh
+* transform.sh
 
 * validator.jar
 
-* WN-LMF-1.0[-relax_idrefs].xsd
+* WN-LMF-1.X[-relax_idrefs].xsd
+
+* types-1.X.xsd
 
 * dc.xsd
 
@@ -23,7 +25,7 @@ Two XSD's are provided:
 *How to run:*
 
 ```
-./run.sh (-strict) (dir) 
+./validate.sh (-strict) (dir) 
 ```
 
 dir is by default the current dir
