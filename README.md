@@ -7,7 +7,7 @@ A XSL are provided to do the merging with a Saxon parser supporting XSLT 3.0
 
 * java runtime >= 8
 
-* run.sh
+* merge.sh
 
 * Saxon-HE-9.9.1-6.jar
 
@@ -17,7 +17,7 @@ A XSL are provided to do the merging with a Saxon parser supporting XSLT 3.0
 *How to run:*
 
 ```
-./run.sh dir (merged_file) 
+./merge.sh dir (merged_file) 
 ```
 
 dir is where the lex files are
