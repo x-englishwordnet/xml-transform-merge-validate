@@ -25,7 +25,7 @@ public class XSLTTransform
 	    int rightLimit = 'Z';
 	    int targetStringLength = 5;
 	    Random random = new Random();
-	    String pipelineId = random.ints(leftLimit, rightLimit + 1)
+	    String pipelineId = "PIPE_" + random.ints(leftLimit, rightLimit + 1)
 	      .limit(targetStringLength)
 	      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
 	      .toString();
