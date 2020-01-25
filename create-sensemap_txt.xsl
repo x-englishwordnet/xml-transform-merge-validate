@@ -4,14 +4,13 @@
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 	<xsl:strip-space elements="*" />
-	<xsl:output method="xml" indent="yes" />
+	<xsl:output method="text" indent="yes" />
 
 	<xsl:variable name='debug' select='false()' />
 
 	<xsl:template match="/">
-		<xsl:element name="sensemap">
-			<xsl:apply-templates select="//Sense" />
-		</xsl:element>
+		<xsl:text># senseid sensekey sensekey31 (dc:identifier)&#xa;</xsl:text>
+		<xsl:apply-templates select="//Sense" />
 	</xsl:template>
 
 	<xsl:template match="Sense">
@@ -27,11 +26,12 @@
 				<xsl:value-of select="$sensekey31" />
 			</xsl:message>
 		</xsl:if>
-		<xsl:element name="sense">
-			<xsl:attribute name="id"><xsl:value-of select="$id" /></xsl:attribute>
-			<xsl:attribute name="sensekey"><xsl:value-of select="$sensekey" /></xsl:attribute>
-			<xsl:attribute name="sensekey31"><xsl:value-of select="$sensekey31" /></xsl:attribute>
-		</xsl:element>
+		<xsl:value-of select="$id" />
+		<xsl:text> </xsl:text>
+		<xsl:value-of select="$sensekey" />
+		<xsl:text> </xsl:text>
+		<xsl:value-of select="$sensekey31" />
+		<xsl:text>&#xa;</xsl:text>
 	</xsl:template>
 
 </xsl:transform>

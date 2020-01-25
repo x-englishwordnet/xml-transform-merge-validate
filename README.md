@@ -40,6 +40,7 @@ n,v,a,r|                           | lib-sensekey |                |
 n,v,a,r|                           |              | lib-lexid      |           
 n,v,a,r|                           |              | satellite_head |           
 n,v,a,r|                           |              |                | lib-lexid 
+n,v,a,r| add-tag_count             |              |                |           
 v      | add-verb_frames_entity    |              |                |           
 v      | add-verb_frames           |              |                |           
 v      | add-verb_frames-attr      |              |                |           
