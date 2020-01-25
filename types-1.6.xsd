@@ -399,6 +399,14 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<!-- tag count type -->
+
+	<xsd:simpleType name='TagCntType'>
+		<xsd:restriction base='xsd:integer'>
+			<xsd:minInclusive value='0' />
+		</xsd:restriction>
+	</xsd:simpleType>
+
 	<!-- meta types -->
 
 	<xsd:simpleType name='ConfidenceScoreType'>
