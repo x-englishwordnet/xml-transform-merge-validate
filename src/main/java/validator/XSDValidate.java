@@ -7,7 +7,6 @@ import java.util.Arrays;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -74,10 +73,8 @@ public class XSDValidate
 	 *             exception
 	 * @throws IOException
 	 *             exception
-	 * @throws TransformerException
-	 *             exception
 	 */
-	public static void validate(final Validator validator, final Source source) throws SAXException, IOException, TransformerException
+	public static void validate(final Validator validator, final Source source) throws SAXException, IOException
 	{
 		validator.setErrorHandler(new ErrorHandler()
 		{
@@ -99,7 +96,6 @@ public class XSDValidate
 				System.err.println("fatal " + e);
 				throw e;
 			}
-
 		});
 		validator.validate(source);
 	}
@@ -115,12 +111,10 @@ public class XSDValidate
 	 *             exception
 	 * @throws IOException
 	 *             exception
-	 * @throws TransformerException
-	 *             exception
 	 */
-	public static void validate(final Validator validator, final String filename) throws SAXException, IOException, TransformerException
+	public static void validate(final Validator validator, final String filename) throws SAXException, IOException
 	{
-		System.out.println("validate " + filename);
+		System.out.println("XML: " + filename);
 		validate(validator, new StreamSource(filename));
 	}
 
@@ -135,10 +129,8 @@ public class XSDValidate
 	 *             exception
 	 * @throws IOException
 	 *             exception
-	 * @throws TransformerException
-	 *             exception
 	 */
-	public static void validateOne(final String xsd, final String filename) throws SAXException, IOException, TransformerException
+	public static void validateOne(final String xsd, final String filename) throws SAXException, IOException
 	{
 		final Validator validator = makeValidator(xsd);
 		validate(validator, filename);
@@ -159,25 +151,15 @@ public class XSDValidate
 		final Validator validator = makeValidator(xsd);
 		for (final String filename : filenames)
 		{
-			System.out.println("\n*** validating " + filename);
+			System.out.println("\n* validating " + filename);
 			try
 			{
 				validate(validator, filename);
 			}
-			catch (final SAXException e)
+			catch (final SAXException | IOException e)
 			{
 				System.out.println("->fail");
 				System.err.println(e.getMessage());
-			}
-			catch (final IOException e)
-			{
-				System.out.println("->fail");
-				System.err.println(e);
-			}
-			catch (final TransformerException e)
-			{
-				System.out.println("->fail");
-				System.err.println(e);
 			}
 		}
 	}
@@ -190,16 +172,9 @@ public class XSDValidate
 	 * @throws SAXException
 	 *             exception
 	 */
-	public static void main(final String[] args)
+	public static void main(final String[] args) throws SAXException
 	{
-		try
-		{
-			validateAll(args[0], Arrays.copyOfRange(args, 1, args.length));
-		}
-		catch (SAXException e)
-		{
-			e.printStackTrace();
-		}
+		validateAll(args[0], Arrays.copyOfRange(args, 1, args.length));
 		System.out.println("Done");
 	}
 }
