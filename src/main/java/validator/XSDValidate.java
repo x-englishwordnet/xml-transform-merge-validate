@@ -151,7 +151,7 @@ public class XSDValidate
 		final Validator validator = makeValidator(xsd);
 		for (final String filename : filenames)
 		{
-			System.out.println("\n* validating " + filename);
+			//System.out.println("\n* validating " + filename);
 			try
 			{
 				validate(validator, filename);
