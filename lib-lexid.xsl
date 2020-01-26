@@ -7,12 +7,14 @@
 
 	<!-- L E X I D F A C T O R Y -->
 
+	<!-- Make lexid, dispatch as per one of three methods {legacy, nbased, idx} -->
 	<xsl:template name="make-lexid">
 		<xsl:param name="sensenode" />
 		<xsl:param name="method" />
 		<xsl:choose>
 			<xsl:when test="$method = 'legacy'">
 				<xsl:if test='$debug = true()'>
+					<!-- 1x values -->
 					<xsl:value-of select="1" />
 				</xsl:if>
 				<xsl:call-template name='make-lexid-from-legacy'>
@@ -21,6 +23,7 @@
 			</xsl:when>
 			<xsl:when test="$method = 'nbased'">
 				<xsl:if test='$debug = true()'>
+					<!-- 2x values -->
 					<xsl:value-of select="2" />
 				</xsl:if>
 				<xsl:call-template name='make-lexid-from-n'>
@@ -29,6 +32,7 @@
 			</xsl:when>
 			<xsl:when test="$method = 'idx'">
 				<xsl:if test='$debug = true()'>
+					<!-- 3x values -->
 					<xsl:value-of select="3" />
 				</xsl:if>
 				<xsl:call-template name='make-lexid-from-idx'>
@@ -46,7 +50,7 @@
 	</xsl:template>
 
 	<!-- Make lexid -->
-	<!-- based on ordering of 'n' attribute, floored to min value of n -->
+	<!-- based on extraction of lexid from legacy sensekey (dc:identifier) formatted as ss_type:lex_filenum:lex_id -->
 
 	<xsl:template name="make-lexid-from-legacy">
 		<xsl:param name="sensenode" />
@@ -71,7 +75,7 @@
 	</xsl:template>
 
 	<!-- Make lexid -->
-	<!-- based on ordering of 'n' attribute, floored to min value of n -->
+	<!-- based on ordering of 'n' attribute, floored to min value of n in lexicographer file -->
 
 	<xsl:template name="make-lexid-from-n">
 		<xsl:param name="sensenode" />
@@ -107,7 +111,7 @@
 	</xsl:template>
 
 	<!-- Make lexid -->
-	<!-- based on ordering of senses: 0 if there is a single sense, otherwise index of sense 1, 2, .. -->
+	<!-- based on ordering of senses: 0 if there is a single sense, otherwise 1-based index of sense: 1, 2, .. -->
 
 	<xsl:template name="make-lexid-from-idx">
 		<xsl:param name="sensenode" />

@@ -17,7 +17,7 @@
 		<xsl:variable name="id" select="./@id" />
 		<xsl:variable name="sensekey" select="./@sensekey" />
 		<xsl:variable name="sensekey31" select="./@dc:identifier" />
-		<xsl:if test="$sensekey != $sensekey31">
+		<xsl:if test="$debug = true() and $sensekey != $sensekey31">
 			<xsl:message>
 				<xsl:text>&#xa; </xsl:text>
 				<xsl:text>diff </xsl:text>
