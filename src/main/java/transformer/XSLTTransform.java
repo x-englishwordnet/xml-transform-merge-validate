@@ -12,6 +12,9 @@ public class XSLTTransform
 {
 	public static void main(final String[] args)
 	{
+		// Timing
+		final long startTime = System.currentTimeMillis();
+
 		String xsltFilePath = null;
 		String outputMethod = null;
 		String docTypeSystem = null;
@@ -125,6 +128,9 @@ public class XSLTTransform
 		{
 			e.printStackTrace();
 		}
-		System.err.println("\n" + pipelineId + " Done\n");
+
+	    // Done
+		final long endTime = System.currentTimeMillis();
+		System.err.println("\n" + pipelineId + " Done " + ((endTime - startTime) / 1000) + "s\n");
 	}
 }

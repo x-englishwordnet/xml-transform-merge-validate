@@ -67,16 +67,16 @@
 <!-- 			<xsl:apply-templates select="@*|node()" /> -->
 <!-- 		</xsl:copy> -->
 
-		<xsl:variable name="frameid" select="@idref" />  
-		<xsl:variable name="frame" select="//SyntacticBehaviour[@id=$frameid]" />  
-		<xsl:element name="SyntacticBehaviour">
-			<xsl:attribute name="subcategorizationFrame">
-				<xsl:value-of select="$frame/@subcategorizationFrame" />
-			</xsl:attribute>
-			<xsl:attribute name="senses">
-				<xsl:value-of select="@senses" />
-			</xsl:attribute>
-		</xsl:element>
+<!-- 		<xsl:variable name="frameid" select="@idref" />   -->
+<!-- 		<xsl:variable name="frame" select="//SyntacticBehaviour[@id=$frameid]" />   -->
+<!-- 		<xsl:element name="SyntacticBehaviour"> -->
+<!-- 			<xsl:attribute name="subcategorizationFrame"> -->
+<!-- 				<xsl:value-of select="$frame/@subcategorizationFrame" /> -->
+<!-- 			</xsl:attribute> -->
+<!-- 			<xsl:attribute name="senses"> -->
+<!-- 				<xsl:value-of select="@senses" /> -->
+<!-- 			</xsl:attribute> -->
+<!-- 		</xsl:element> -->
 	</xsl:template>
 
 	<xsl:template match="@*|node()">
