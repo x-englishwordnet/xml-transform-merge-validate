@@ -15,11 +15,12 @@ The XSLT transformer that performs transformation on files.
 
 
 **How to run:**
-| dest      |command                                                           |
+
+| dest      | command                                                          |
 | --------- | ---------------------------------------------------------------- |
-| To stdout | `./transform.sh <transformation>.xsl - infile [infile]\*`          |
-| To file   | `./transform.sh <transformation>.xsl out.xml infile [infile]\*`    |
-| To dir    | `./transform.sh <transformation>.xsl outdir -dir infile [infile]*` |
+| To stdout | ./transform.sh <transformation>.xsl - infile [infile]\*           |
+| To file   | ./transform.sh <transformation>.xsl out.xml infile [infile]\*     |
+| To dir    | ./transform.sh <transformation>.xsl outdir -dir infile [infile]\* |
 
 
 **Pipeline**
