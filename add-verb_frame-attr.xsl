@@ -18,9 +18,9 @@
 
 	<xsl:template match="LexicalResource">
 		<LexicalResource 
-			xmlns:dc="http://purl.org/dc/elements/1.1/" 
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.5-relax_idrefs.xsd">
+			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.6-relax_idrefs.xsd"
+			xmlns:dc="http://purl.org/dc/elements/1.1/">
 			<xsl:apply-templates select="./*" />
 		</LexicalResource>
 	</xsl:template>
