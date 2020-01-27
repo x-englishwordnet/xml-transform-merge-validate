@@ -5,7 +5,7 @@
 	xmlns:dc='http://purl.org/dc/elements/1.1/'>
 
 	<xsd:import namespace='http://purl.org/dc/elements/1.1/' schemaLocation='dc.xsd' />
-	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.5.xsd' />
+	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.6.xsd' />
 
 	<!-- E L E M E N T S -->
 
@@ -89,8 +89,8 @@
 
 			<xsd:attribute name='id' type='ewn:SenseIDType' use='required' />
 			<xsd:attribute name='synset' type='ewn:SynsetIDREFType' use='required' />
-			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute name='n' type='ewn:NType' use='optional' />
+			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute ref='dc:identifier' use='optional' /> <!-- sensekey -->
 			<xsd:attributeGroup ref='ewn:Meta' />
 		</xsd:complexType>

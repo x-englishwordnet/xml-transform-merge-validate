@@ -89,10 +89,10 @@
 
 			<xsd:attribute name='id' type='ewn:SenseIDType' use='required' />
 			<xsd:attribute name='synset' type='ewn:LocalSynsetIDREFType' use='required' />
-			<xsd:attribute name='n' type='ewn:NType' use='optional' />
-			<xsd:attribute name='senseidx' type='ewn:SenseIdxType' use='optional' />
-			<xsd:attribute name='lexfile' type='ewn:LexFileType' use='optional' />
-			<xsd:attribute name='lexid' type='ewn:LexIdType' use='optional' />
+			<xsd:attribute name='n' type='ewn:NType' use='required' />
+			<xsd:attribute name='senseidx' type='ewn:SenseIdxType' use='required' />
+			<xsd:attribute name='lexfile' type='ewn:LexFileType' use='required' />
+			<xsd:attribute name='lexid' type='ewn:LexIdType' use='required' />
 			<xsd:attribute name='sensekey' type='ewn:SensekeyType' use='required' />
 			<xsd:attribute name='syntactic_behaviour' type='ewn:LocalSyntacticBehaviourIDREFSType' use='optional' />
 			<xsd:attribute name='sentence_template' type='ewn:LocalSyntacticBehaviourIDREFSType' use='optional' />

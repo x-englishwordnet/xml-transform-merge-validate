@@ -5,7 +5,7 @@
 	xmlns:dc='http://purl.org/dc/elements/1.1/'>
 
 	<xsd:import namespace='http://purl.org/dc/elements/1.1/' schemaLocation='dc.xsd' />
-	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.6-relax_idrefs.xsd' />
+	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.6.xsd' />
 
 	<!-- E L E M E N T S -->
 
@@ -89,15 +89,15 @@
 
 			<xsd:attribute name='id' type='ewn:SenseIDType' use='required' />
 			<xsd:attribute name='synset' type='ewn:LocalSynsetIDREFType' use='required' />
-			<xsd:attribute name='n' type='ewn:NType' use='required' />
+			<xsd:attribute name='n' type='ewn:NType' use='optional' />
 			<xsd:attribute name='senseidx' type='ewn:SenseIdxType' use='required' />
-			<xsd:attribute name='lexfile' type='ewn:LexFileType' use='required' />
+			<xsd:attribute name='lexfile' type='ewn:LexFileType' use='optional' />
 			<xsd:attribute name='lexid' type='ewn:LexIdType' use='required' />
 			<xsd:attribute name='sensekey' type='ewn:SensekeyType' use='required' />
+			<xsd:attribute name='tagcnt' type='ewn:TagCntType' default='0' use='optional' />
+			<xsd:attribute name='adj_position' type='ewn:AdjPositionType' use='optional' />
 			<xsd:attribute name='syntactic_behaviour' type='ewn:LocalSyntacticBehaviourIDREFSType' use='optional' />
 			<xsd:attribute name='sentence_template' type='ewn:LocalSyntacticBehaviourIDREFSType' use='optional' />
-			<xsd:attribute name='adj_position' type='ewn:AdjPositionType' use='optional' />
-			<xsd:attribute name='tagcnt' type='ewn:TagCntType' default='0' use='optional' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute ref='dc:identifier' use='optional' /> <!-- sensekey -->
 			<xsd:attributeGroup ref='ewn:Meta' />
@@ -161,7 +161,7 @@
 
 	<xsd:element name='SyntacticBehaviour'>
 		<xsd:complexType>
-			<xsd:attribute name='id' type='ewn:SyntacticBehaviourIDType' use='required' />
+			<xsd:attribute name='id' type='ewn:SyntacticBehaviourIDType' use='optional' />
 			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='optional' />
 			<xsd:attribute name='sentenceTemplate' type='xsd:string' use='optional' />
 		</xsd:complexType>

@@ -5,7 +5,7 @@
 	xmlns:dc='http://purl.org/dc/elements/1.1/'>
 
 	<xsd:import namespace='http://purl.org/dc/elements/1.1/' schemaLocation='dc.xsd' />
-	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.5.xsd' />
+	<xsd:import namespace='https://github.com/globalwordnet/english-wordnet' schemaLocation='types-1.6.xsd' />
 
 	<!-- E L E M E N T S -->
 
@@ -91,11 +91,13 @@
 			<xsd:attribute name='id' type='ewn:SenseIDType' use='required' />
 			<xsd:attribute name='synset' type='ewn:LocalSynsetIDREFType' use='required' />
 			<xsd:attribute name='n' type='ewn:NType' use='optional' />
-			<xsd:attribute name='senseidx' type='ewn:SenseIdxType' use='optional' />
+			<xsd:attribute name='senseidx' type='ewn:SenseIdxType' use='required' />
 			<xsd:attribute name='lexfile' type='ewn:LexFileType' use='optional' />
-			<xsd:attribute name='lexid' type='ewn:LexIdType' use='optional' />
+			<xsd:attribute name='lexid' type='ewn:LexIdType' use='required' />
 			<xsd:attribute name='sensekey' type='ewn:SensekeyType' use='required' />
+			<xsd:attribute name='tagcnt' type='ewn:TagCntType' default='0' use='optional' />
 			<xsd:attribute name='adj_position' type='ewn:AdjPositionType' use='optional' />
+			<xsd:attribute name='syntactic_behaviour' type='ewn:LocalSyntacticBehaviourIDREFSType' use='optional' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute ref='dc:identifier' use='optional' /> <!-- sensekey -->
 			<xsd:attributeGroup ref='ewn:Meta' />
@@ -161,12 +163,13 @@
 		<xsd:complexType>
 			<xsd:attribute name='id' type='ewn:SyntacticBehaviourIDType' use='optional' />
 			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='optional' />
+			<xsd:attribute name='sentenceTemplate' type='xsd:string' use='optional' />
 		</xsd:complexType>
 	</xsd:element>
 
 	<xsd:element name='SyntacticBehaviourRef'>
 		<xsd:complexType>
-			<xsd:attribute name='idref' type='ewn:LocalSyntacticBehaviourIDREFType' use='optional' />
+			<xsd:attribute name='idref' type='ewn:SyntacticBehaviourIDREFType' use='optional' />
 			<xsd:attribute name='senses' type='ewn:SenseIDREFSType' use='optional' />
 		</xsd:complexType>
 	</xsd:element>
