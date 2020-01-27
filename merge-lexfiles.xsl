@@ -25,10 +25,19 @@
 			</xsl:for-each>
 		</xsl:message>
 
-		<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.5.xsd">
-			<Lexicon id="ewn" label="English WordNet" language="en" email="john@mccr.ae" license="https://wordnet.princeton.edu/license-and-commercial-use"
-				version="2019" url="https://github.com/globalwordnet/english-wordnet" confidenceScore="1.0">
+		<LexicalResource 
+			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.6.xsd"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<Lexicon 
+				id="ewn" 
+				label="English WordNet" 
+				version="2019" 
+				language="en" 
+				email="john@mccr.ae" 
+				license="https://wordnet.princeton.edu/license-and-commercial-use"
+				url="https://github.com/globalwordnet/english-wordnet" 
+				confidenceScore="1.0">
 
 				<!-- S Y N T A T I C B E H A V I O U R -->
 				<xsl:merge>
