@@ -7,5 +7,6 @@ for f in $*; do
 	./transform.sh add-verb_frame.xsl - - |
 	./transform.sh add-verb_frame-attr.xsl - - |
 	./transform.sh add-verb_template-entity.xsl - - |
-	./transform.sh add-verb_template-attr.xsl - - 
+	./transform.sh add-verb_template-attr.xsl - - |
+	./transform.sh remove-syntacticbehaviourref.xsl - - 
 done

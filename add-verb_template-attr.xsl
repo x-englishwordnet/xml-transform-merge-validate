@@ -4,7 +4,6 @@
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 	<xsl:output omit-xml-declaration="no" standalone="no" method="xml" version="1.1" encoding="UTF-8" indent="yes" />
-	<!-- doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.2.dtd" -->
 	<xsl:strip-space elements="*" />
 
 	<xsl:param name="updateFileName" select="'data-verbtemplates.xml'" />
@@ -19,8 +18,8 @@
 	</xsl:template>
 
 	<xsl:template match="LexicalResource">
-		<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.2-relax_idrefs.xsd">
+		<LexicalResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.5-relax_idrefs.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/">
 			<xsl:apply-templates select="./*" />
 		</LexicalResource>
 	</xsl:template>
