@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MEM=-Xmx2G
+
 RED='\u001b[31m'
 GREEN='\u001b[32m'
 YELLOW='\u001b[33m'
@@ -14,21 +16,15 @@ ISDIR="$3"
 
 echo -e "${MAGENTA}XSD: $XSD${RESET}" 1>&2;
 
-if [ -z "$DATA" ]; then
-	XML=.
-fi
-
 if [ "$ISDIR" == "-dir"  ]; then
 	shift # consume XSD
 	shift # consume dir
 	shift # consume -dir
-	DIR=$DATA
+	DIR="$DATA"
 	echo -e "${MAGENTA}DIR: $DIR${RESET}" 1>&2;
-	MEM=-Xmx2G
 	java -jar validator2-runnable.jar "$XSD" $DIR/*.xml $*
 else
 	shift # consume XSD
-	echo -e "${MAGENTA}XML: $DATA${RESET}" 1>&2;
-	MEM=-Xmx2G
+	echo -e "${MAGENTA}XML: $*{RESET}" 1>&2;
 	java -jar validator2-runnable.jar "$XSD" $*
 fi

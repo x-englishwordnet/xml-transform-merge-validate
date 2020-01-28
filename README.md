@@ -1,9 +1,9 @@
 # ewn-validation
-XML validation of English Wordnet
+XML validation of English Wordnet using FastXML Woodstox
 
 Two XSD's are provided:
 
-* one with IDREF validation (checks that each ID reference matches an existing ID, can be VERY long)
+* one with IDREF validation (checks that each ID reference matches an existing ID)
 
 * the other without (only checks that each ID is a well-formed NCName)
 
@@ -22,10 +22,14 @@ Two XSD's are provided:
 * dc.xsd
 
 
-*How to run:*
+*How to run on all files in a dir:*
 
 ```
-./validate.sh (-strict) (dir) 
+./validate2.sh [xsd] [indir] -dir
 ```
 
-dir is by default the current dir
+*How to run on a list of files:*
+
+```
+./validate2.sh [xsd] [xml]+
+```
