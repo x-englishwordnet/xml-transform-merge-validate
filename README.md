@@ -22,10 +22,14 @@ Two XSD's are provided:
 * dc.xsd
 
 
-*How to run:*
+*How to run on all files in a dir:*
 
 ```
-./validate.sh (-strict) (dir) 
+./validate.sh [xsd] [indir] -dir
 ```
 
-dir is by default the current dir
+*How to run on a list of files:*
+
+```
+./validate.sh [xsd] [xml]+
+```
