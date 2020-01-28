@@ -44,25 +44,26 @@ public abstract class BaseXSDValidate
 		URL xsdUrl;
 		try
 		{
+			// give it a try as resource
 			xsdUrl = BaseXSDValidate.class.getResource(xsd);
-			if (xsdUrl == null)
-				throw new RuntimeException("Null XSD resource file");
 		}
 		catch (final Exception e)
 		{
 			try
 			{
+				// give it a try as url
 				xsdUrl = new URL(xsd);
 			}
 			catch (final Exception e1)
 			{
 				try
 				{
+					// give it a try as file
 					xsdUrl = new File(xsd).toURI().toURL();
 				}
 				catch (final Exception e2)
 				{
-					throw new RuntimeException("No validator XSD file");
+					throw new RuntimeException("No validator XSD file " + xsd);
 				}
 			}
 		}
