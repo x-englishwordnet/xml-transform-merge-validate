@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MEM=-Xmx1G
+
 RED='\u001b[31m'
 GREEN='\u001b[32m'
 YELLOW='\u001b[33m'
@@ -34,5 +36,4 @@ fi
 echo -e "${MAGENTA}SRC: $*${RESET}" 1>&2;
 echo 1>&2;
 
-MEM=-Xmx1G
 java $MEM -jar transformer.jar $XSL $OUT $ISDIR $*

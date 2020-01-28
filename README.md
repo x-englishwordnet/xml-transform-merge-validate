@@ -16,11 +16,11 @@ The XSLT transformer that performs transformation on files.
 
 **How to run:**
 
-| dest      | command                                                          |
-| --------- | ---------------------------------------------------------------- |
-| To stdout | ./transform.sh <transformation>.xsl - infile [infile]\*           |
-| To file   | ./transform.sh <transformation>.xsl out.xml infile [infile]\*     |
-| To dir    | ./transform.sh <transformation>.xsl outdir -dir infile [infile]\* |
+| dest      | command                                       |
+| --------- | --------------------------------------------- |
+| To stdout | ./transform.sh [xsl] - [infile]\+             |
+| To file   | ./transform.sh [xsl] [outfile] [infile]\+     |
+| To dir    | ./transform.sh [xsl] [outdir] -dir [infile]\+ |
 
 
 **Pipeline**
