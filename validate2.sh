@@ -8,23 +8,27 @@ MAGENTA='\u001b[35m'
 CYAN='\u001b[36m'
 RESET='\u001b[0m'
 
-XSD="${1}"
+XSD="$1"
+DATA="$2"
+ISDIR="$3"
+
 echo -e "${MAGENTA}XSD: $XSD${RESET}" 1>&2;
 
-XML="$2"
-if [ -z "$XML" ]; then
+if [ -z "$DATA" ]; then
 	XML=.
 fi
 
-ISDIR="$3"
 if [ "$ISDIR" == "-dir"  ]; then
-	DIR=$XML
+	shift # consume XSD
+	shift # consume dir
+	shift # consume -dir
+	DIR=$DATA
 	echo -e "${MAGENTA}DIR: $DIR${RESET}" 1>&2;
 	MEM=-Xmx2G
-	java -jar validator2.jar "$XSD" $DIR/*.xml
+	java -jar validator2-runnable.jar "$XSD" $DIR/*.xml $*
 else
-	echo -e "${MAGENTA}XML: $XML${RESET}" 1>&2;
+	shift # consume XSD
+	echo -e "${MAGENTA}XML: $DATA${RESET}" 1>&2;
 	MEM=-Xmx2G
-	java -jar validator2.jar "$XSD" "$XML"
+	java -jar validator2-runnable.jar "$XSD" $*
 fi
-

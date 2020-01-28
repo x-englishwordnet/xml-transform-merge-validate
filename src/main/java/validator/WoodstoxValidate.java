@@ -2,11 +2,8 @@ package validator;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.xml.namespace.QName;
@@ -115,7 +112,7 @@ public class WoodstoxValidate
 
 	public long doValidateAll(final XMLStreamReader2 xmlReader) throws XMLStreamException
 	{
-		Map<Integer, Integer> distrib = new HashMap<>();
+		long[] stats = new long[15];
 
 		xmlReader.validateAgainst(this.schema);
 
@@ -123,24 +120,30 @@ public class WoodstoxValidate
 		while (xmlReader.hasNext())
 		{
 			int type = xmlReader.next();
-			distrib.put(type, (!distrib.containsKey(type) ? 0 : distrib.get(type)) + 1);
+			if (type < stats.length)
+				stats[type]++;
 			count++;
 		}
 		xmlReader.close();
-		for (Entry<Integer, Integer> entry : distrib.entrySet())
-			System.out.println(entry.getKey() + ": " + entry.getValue());
+		
+		System.out.println("start:		" + stats[XMLStreamConstants.START_ELEMENT]);
+		System.out.println("end:		" + stats[XMLStreamConstants.END_ELEMENT]);
+		System.out.println("comment:	" + stats[XMLStreamConstants.COMMENT]);
+		System.out.println("characters:	" + stats[XMLStreamConstants.CHARACTERS]);
+		System.out.println("spaces:		" + stats[XMLStreamConstants.SPACE]);
 		return count;
 	}
 
 	public long doValidateSome(final XMLStreamReader2 xmlReader, final Set<QName> qNames) throws XMLStreamException
 	{
-		Map<Integer, Integer> distrib = new HashMap<>();
+		long[] stats = new long[15];
 
 		long count = 0;
 		while (xmlReader.hasNext())
 		{
 			int type = xmlReader.next();
-			distrib.put(type, (!distrib.containsKey(type) ? 0 : distrib.get(type)) + 1);
+			if (type < stats.length)
+				stats[type]++;
 			switch (type)
 			{
 				case XMLStreamConstants.START_ELEMENT:
@@ -165,18 +168,27 @@ public class WoodstoxValidate
 					}
 					break;
 				}
-
-				default: // if (type == XMLStreamConstants.ATTRIBUTE)
+				
+				case XMLStreamConstants.ATTRIBUTE:
 				{
 					// xmlReader.validateAgainst(this.schema);
 					// xmlReader.stopValidatingAgainst(this.schema);
 					// count++;
+					break;
+				}
+
+				default:
+				{
 				}
 			}
 		}
 		xmlReader.close();
-		for (Entry<Integer, Integer> entry : distrib.entrySet())
-			System.out.println(entry.getKey() + ": " + entry.getValue());
+		
+		System.out.println("start:		" + stats[XMLStreamConstants.START_ELEMENT]);
+		System.out.println("end:		" + stats[XMLStreamConstants.END_ELEMENT]);
+		System.out.println("comment:	" + stats[XMLStreamConstants.COMMENT]);
+		System.out.println("characters:	" + stats[XMLStreamConstants.CHARACTERS]);
+		System.out.println("spaces:		" + stats[XMLStreamConstants.SPACE]);
 		return count;
 	}
 
