@@ -1,5 +1,8 @@
 #!/bin/bash
 
+MEM=-Xmx2G
+OPTIONS=
+
 RED='\u001b[31m'
 GREEN='\u001b[32m'
 YELLOW='\u001b[33m'
@@ -22,8 +25,5 @@ if [ ! -z "$OUT" ]; then
 	echo -e "${MAGENTA}OUT: $OUT${RESET}" 1>&2;
 	OUT="-o:$OUT"
 fi
-
-MEM=-Xmx2G
-OPTIONS=
 
 java -jar Saxon-HE-9.9.1-6.jar $OPTIONS -s:source.xml "$OUT" -xsl:"$XSL" dir="$DIR"
