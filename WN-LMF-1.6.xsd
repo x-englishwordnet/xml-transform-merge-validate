@@ -161,7 +161,7 @@
 
 	<xsd:element name='SyntacticBehaviour'>
 		<xsd:complexType>
-			<xsd:attribute name='id' type='ewn:SyntacticBehaviourIDType' use='optional' />
+			<xsd:attribute name='id' type='ewn:SyntacticBehaviourIDType' use='required' />
 			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='optional' />
 			<xsd:attribute name='sentenceTemplate' type='xsd:string' use='optional' />
 		</xsd:complexType>
