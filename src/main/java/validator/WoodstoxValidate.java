@@ -24,7 +24,14 @@ import com.ctc.wstx.stax.WstxInputFactory;
 
 public class WoodstoxValidate
 {
-	// [xml]* -e [LexicalResource|Lexicon|LexicalEntry|Sense|Synset|SenseRelation|SynsetRelation|...]*
+
+	/**
+	 * Main entry point Arguments: [xml]* -e [LexicalResource|Lexicon|LexicalEntry|Sense|Synset|SenseRelation|SynsetRelation|...]*
+	 * 
+	 * @param args
+	 *            command-line arguments
+	 * @throws XMLStreamException
+	 */
 	public static void main(final String... args) throws XMLStreamException
 	{
 		// Timing
@@ -65,8 +72,14 @@ public class WoodstoxValidate
 		System.err.println("\n" + "Done " + ((endTime - startTime) / 1000) + "s, " + count + " parsing events\n");
 	}
 
+	/**
+	 * Schema
+	 */
 	private final XMLValidationSchema schema;
 
+	/**
+	 * Validation handler (called when a problem is found)
+	 */
 	private ValidationProblemHandler handler = new ValidationProblemHandler()
 	{
 		public void reportProblem(XMLValidationProblem problem) throws XMLValidationException
@@ -75,6 +88,13 @@ public class WoodstoxValidate
 		}
 	};
 
+	/**
+	 * Constructor
+	 * 
+	 * @param xsd
+	 *            XSD file
+	 * @throws XMLStreamException
+	 */
 	public WoodstoxValidate(final String xsd) throws XMLStreamException
 	{
 		// schema
@@ -82,10 +102,20 @@ public class WoodstoxValidate
 		this.schema = factory.createSchema(new File(xsd));
 	}
 
+	/**
+	 * Validate data files
+	 * 
+	 * @param xmls
+	 *            data files
+	 * @param elements
+	 *            list of elements to validate, null for all
+	 * @return number of parse events
+	 * @throws XMLStreamException
+	 */
 	public long validate(final List<String> xmls, final List<String> elements) throws XMLStreamException
 	{
 		long count = 0;
-		Set<QName> qnames = makeVadidatableElements(elements);
+		Set<QName> qnames = makeValidatableElements(elements);
 
 		for (String xml : xmls)
 		{
@@ -110,6 +140,14 @@ public class WoodstoxValidate
 		return count;
 	}
 
+	/**
+	 * Full validation. Note that IDREF(s) are checked.
+	 * 
+	 * @param xmlReader
+	 *            xml reader
+	 * @return number of parse events
+	 * @throws XMLStreamException
+	 */
 	public long doValidateAll(final XMLStreamReader2 xmlReader) throws XMLStreamException
 	{
 		long[] stats = new long[15];
@@ -125,7 +163,7 @@ public class WoodstoxValidate
 			count++;
 		}
 		xmlReader.close();
-		
+
 		System.out.println("start:		" + stats[XMLStreamConstants.START_ELEMENT]);
 		System.out.println("end:		" + stats[XMLStreamConstants.END_ELEMENT]);
 		System.out.println("comment:	" + stats[XMLStreamConstants.COMMENT]);
@@ -134,6 +172,16 @@ public class WoodstoxValidate
 		return count;
 	}
 
+	/**
+	 * Partial validation of found qNames. Note that IDREF(s) are NOT checked.
+	 * 
+	 * @param xmlReader
+	 *            xml reader
+	 * @param qNames
+	 *            qNames that start validation when element start is found and stop it when element end is found
+	 * @return number of parse events
+	 * @throws XMLStreamException
+	 */
 	public long doValidateSome(final XMLStreamReader2 xmlReader, final Set<QName> qNames) throws XMLStreamException
 	{
 		long[] stats = new long[15];
@@ -148,8 +196,8 @@ public class WoodstoxValidate
 			{
 				case XMLStreamConstants.START_ELEMENT:
 				{
-					QName name = xmlReader.getName();
-					if (qNames.contains(name))
+					QName qName = xmlReader.getName();
+					if (qNames.contains(qName))
 					{
 						xmlReader.validateAgainst(this.schema);
 					}
@@ -168,7 +216,10 @@ public class WoodstoxValidate
 					}
 					break;
 				}
-				
+
+				//@formatter:off
+				/*
+				// Not called 
 				case XMLStreamConstants.ATTRIBUTE:
 				{
 					// xmlReader.validateAgainst(this.schema);
@@ -176,6 +227,8 @@ public class WoodstoxValidate
 					// count++;
 					break;
 				}
+				*/
+				//@formatter:on
 
 				default:
 				{
@@ -183,7 +236,7 @@ public class WoodstoxValidate
 			}
 		}
 		xmlReader.close();
-		
+
 		System.out.println("start:		" + stats[XMLStreamConstants.START_ELEMENT]);
 		System.out.println("end:		" + stats[XMLStreamConstants.END_ELEMENT]);
 		System.out.println("comment:	" + stats[XMLStreamConstants.COMMENT]);
@@ -192,6 +245,14 @@ public class WoodstoxValidate
 		return count;
 	}
 
+	/**
+	 * Make stream reader
+	 * 
+	 * @param xml
+	 *            xml file path
+	 * @return stream reader
+	 * @throws XMLStreamException
+	 */
 	private XMLStreamReader2 makeReader(final String xml) throws XMLStreamException
 	{
 		XMLInputFactory2 factory = new WstxInputFactory();
@@ -199,7 +260,14 @@ public class WoodstoxValidate
 		return factory.createXMLStreamReader(new File(xml));
 	}
 
-	private static Set<QName> makeVadidatableElements(final List<String> elements)
+	/**
+	 * Make set of validatable elements
+	 * 
+	 * @param elements
+	 *            list of element tags
+	 * @return set of qNames
+	 */
+	private static Set<QName> makeValidatableElements(final List<String> elements)
 	{
 		if (elements == null || elements.isEmpty())
 			return null;
@@ -207,8 +275,8 @@ public class WoodstoxValidate
 		Set<QName> qNames = new HashSet<>();
 		for (String element : elements)
 		{
-			QName qname = new QName(null, element);
-			qNames.add(qname);
+			QName qName = new QName(null, element);
+			qNames.add(qName);
 		}
 		System.out.println("qnames: " + qNames);
 		return qNames;
