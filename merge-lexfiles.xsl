@@ -85,6 +85,7 @@
 											<xsl:copy-of select="$first/Lemma" />
 											<xsl:copy-of select="$first/Form" />
 											<xsl:for-each select="$group/Sense">
+												<xsl:sort select="./@n" />
 												<xsl:copy select=".">
 													<xsl:attribute name="lexfile">
 														<xsl:value-of select="substring-after(substring-before(replace(base-uri(.), '.*/', '') , '.xml'),'wn-')" />
@@ -124,6 +125,7 @@
 									<xsl:choose>
 										<xsl:when test='$fromtag = true()'>
 											<xsl:for-each select="$group/Sense">
+											    <xsl:sort select="./@n" />
 												<xsl:copy select=".">
 													<xsl:attribute name="lexfile">
 														<xsl:value-of select="substring-after(substring-before(replace(base-uri(.), '.*/', '') , '.xml'),'wn-')" />
