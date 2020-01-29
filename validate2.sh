@@ -25,6 +25,6 @@ if [ "$ISDIR" == "-dir"  ]; then
 	java -jar validator2-runnable.jar "$XSD" $DIR/*.xml $*
 else
 	shift # consume XSD
-	echo -e "${MAGENTA}XML: $*{RESET}" 1>&2;
+	echo -e "${MAGENTA}XML: $*${RESET}" 1>&2;
 	java -jar validator2-runnable.jar "$XSD" $*
 fi
