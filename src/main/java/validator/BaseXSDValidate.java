@@ -46,6 +46,9 @@ public abstract class BaseXSDValidate
 		{
 			// give it a try as resource
 			xsdUrl = BaseXSDValidate.class.getResource(xsd);
+			// returns null if fails but does not raise exception
+			if (xsdUrl == null)
+				throw new IllegalArgumentException(xsd);
 		}
 		catch (final Exception e)
 		{
