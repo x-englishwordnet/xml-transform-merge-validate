@@ -16,13 +16,13 @@
             </manifest>
             <zipfileset src="jar-in-jar-loader.zip"/>
             <fileset dir="${dir.jarfile}/target/classes"/>
-            <zipfileset dir="/mnt/data2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1" includes="woodstox-core-asl-4.4.1.jar"/>
-            <zipfileset dir="/mnt/data2/repository/javax/xml/stream/stax-api/1.0-2" includes="stax-api-1.0-2.jar"/>
-            <zipfileset dir="/mnt/data2/repository/org/codehaus/woodstox/stax2-api/3.1.4" includes="stax2-api-3.1.4.jar"/>
-            <zipfileset dir="/mnt/data2/repository/net/java/dev/msv/msv-core/2013.6.1" includes="msv-core-2013.6.1.jar"/>
-            <zipfileset dir="/mnt/data2/repository/net/java/dev/msv/xsdlib/2013.6.1" includes="xsdlib-2013.6.1.jar"/>
-            <zipfileset dir="/mnt/data2/repository/relaxngDatatype/relaxngDatatype/20020414" includes="relaxngDatatype-20020414.jar"/>
-            <zipfileset dir="/mnt/data2/repository/com/sun/xml/bind/jaxb/isorelax/20090621" includes="isorelax-20090621.jar"/>
+            <fileset dir="/mnt/data2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1" includes="woodstox-core-asl-4.4.1.jar"/>
+            <fileset dir="/mnt/data2/repository/javax/xml/stream/stax-api/1.0-2" includes="stax-api-1.0-2.jar"/>
+            <fileset dir="/mnt/data2/repository/org/codehaus/woodstox/stax2-api/3.1.4" includes="stax2-api-3.1.4.jar"/>
+            <fileset dir="/mnt/data2/repository/net/java/dev/msv/msv-core/2013.6.1" includes="msv-core-2013.6.1.jar"/>
+            <fileset dir="/mnt/data2/repository/net/java/dev/msv/xsdlib/2013.6.1" includes="xsdlib-2013.6.1.jar"/>
+            <fileset dir="/mnt/data2/repository/relaxngDatatype/relaxngDatatype/20020414" includes="relaxngDatatype-20020414.jar"/>
+            <fileset dir="/mnt/data2/repository/com/sun/xml/bind/jaxb/isorelax/20090621" includes="isorelax-20090621.jar"/>
         </jar>
     </target>
 </project>
