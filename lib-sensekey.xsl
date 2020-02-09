@@ -37,7 +37,7 @@
 		</xsl:if>
 
 		<!-- LEMMA -->
-		<xsl:variable name="lemma" select="translate($sensenode/../Lemma/@writtenForm,' ABCDEFGHIJKLMNOPQRSTUVWXYZ,!:','_abcdefghijklmnopqrstuvwxyz___')" />
+		<xsl:variable name="lemma" select="translate($sensenode/../Lemma/@writtenForm,': ABCDEFGHIJKLMNOPQRSTUVWXYZ','#_abcdefghijklmnopqrstuvwxyz')" />
 
 		<!-- LEX_SENSE -->
 
