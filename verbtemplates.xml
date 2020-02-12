@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SyntacticBehaviours>
 		<SyntacticBehaviour id="ewn-st-1" sentenceTemplate="The children %s to the playground" />
 		<SyntacticBehaviour id="ewn-st-2" sentenceTemplate="The banks %s the check" />
 		<SyntacticBehaviour id="ewn-st-3" sentenceTemplate="The checks %s" />
@@ -168,3 +171,5 @@
 		<SyntacticBehaviour id="ewn-st-168" sentenceTemplate="The customs agents %s the bags for drugs" />
 		<SyntacticBehaviour id="ewn-st-169" sentenceTemplate="They %s him as chairman" />
 		<SyntacticBehaviour id="ewn-st-170" sentenceTemplate="They %s him 'Bobby'" />
+</SyntacticBehaviours>
+

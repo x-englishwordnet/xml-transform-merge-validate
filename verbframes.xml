@@ -1,4 +1,6 @@
-		
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SyntacticBehaviours>
 		<SyntacticBehaviour id="ewn-sb-1" subcategorizationFrame="Something ----s" />
 		<SyntacticBehaviour id="ewn-sb-2" subcategorizationFrame="Somebody ----s" />
 		<SyntacticBehaviour id="ewn-sb-3" subcategorizationFrame="It is ----ing" />
@@ -34,3 +36,5 @@
 		<SyntacticBehaviour id="ewn-sb-33" subcategorizationFrame="Somebody ----s VERB-ing" />
 		<SyntacticBehaviour id="ewn-sb-34" subcategorizationFrame="It ----s that CLAUSE" />
 		<SyntacticBehaviour id="ewn-sb-35" subcategorizationFrame="Something ----s INFINITIVE" />
+</SyntacticBehaviours>
+
