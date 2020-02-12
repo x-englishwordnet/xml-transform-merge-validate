@@ -26,10 +26,9 @@ sed 's/ *$/<\/sent>/' - > verbtemplates.xml
 sort -n ${data}/${templatesmap} | \
 awk -F ' |,' 'BEGIN{print "<maps>"} {printf "<map><sensekey>%s</sensekey>",$1; for(i=2;i<=NF;i++) if($i) printf "<sentid>%s</sentid>",$i; print "</map>"} END{print "</maps>"} ' - > data-verbtemplates.xml
 
-# template map
-sort -n ${data}/${templatesmap} | \
-awk -F ' |,' 'BEGIN{print "<maps>"} {printf "<map><sensekey>%s</sensekey>",$1; for(i=2;i<=NF;i++) if($i) printf "<sentid>%s</sentid>",$i; print "</map>"} END{print "</maps>"} ' - > data-verbtemplates.xml
-
 # tagcounts
 sort -n ${data}/${tagcounts} | \
 awk 'BEGIN{print "<maps>"} {printf "<map><sensekey>%s</sensekey>",$1; printf "<sensenum>%d</sensenum>",$2; printf "<tagcnt>%d</tagcnt>",$3; print "</map>"} END{print "</maps>"} ' - > data-tagcount.xml
+
+# adj position
+# annotated by xsl
