@@ -1,0 +1,11 @@
+/.settings/
+/target/
+/launch/
+/scripts/
+/xsl-debug/
+/xsl-tests/
+/xsl-misc/
+/in/
+/out/
+/data/data-*.xml
+/data/wn31/
