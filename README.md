@@ -39,10 +39,10 @@ The transformations can be pipelined using '-' as input/output.
 |n,v,a,r|                           |              | satellite_head |            |
 |n,v,a,r|                           |              |                | lib-lexid  |
 |n,v,a,r| add-tag_count             |              |                |            |
-|v      | add-verb_frames_entity    |              |                |            |
+|v      | add-verb_frames_decl      |              |                |            |
 |v      | add-verb_frames           |              |                |            |
 |v      | add-verb_frames-attr      |              |                |            |
-|v      | add-verb_templates_entity |              |                |            |
+|v      | add-verb_templates_decl   |              |                |            |
 |v      | add-verb_templates        |              |                |            |
 |a      | add-adj_position          |              |                |            | 
 

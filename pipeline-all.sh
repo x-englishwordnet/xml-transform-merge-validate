@@ -6,10 +6,10 @@
 #		lib-lexid.xsl
 #		lib-satellite_head.xsl
 #			lib-lexid.xsl
-# add-verb_frames_entity.xsl 	(v)
+# add-verb_frames_decl.xsl	 	(v)
 # add-verb_frames.xsl 			(v)
 # add-verb_frames-attr.xsl 		(v)
-# add-verb_templates_entity.xsl (v)
+# add-verb_templates_decl.xsl	(v)
 # add-verb_templates.xsl 		(v)
 # add-adj_position.xsl 			(a)
 

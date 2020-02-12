@@ -9,10 +9,6 @@
 	<xsl:variable name='debug' select='false()' />
 
 	<xsl:template match="/">
-		<xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE LexicalResource [
-<!ENTITY syntactic_behaviours SYSTEM "verbframes.xml">
-]>
-]]></xsl:text>
 		<xsl:copy>
 			<xsl:apply-templates select="@*|node()" />
 		</xsl:copy>
@@ -30,8 +26,19 @@
 	<xsl:template match="Lexicon">
 		<xsl:copy>
 			<xsl:apply-templates select="@*" />
-			<xsl:text disable-output-escaping="yes"><![CDATA[&syntactic_behaviours;]]></xsl:text>
-			<xsl:apply-templates select="node()" />
+
+			<xsl:variable name="vfs" select="document('verbframes.xml')/SyntacticBehaviours/SyntacticBehaviour"/>
+			<xsl:copy-of select="$vfs"/>
+			<!--
+			<xsl:for-each select="$vfs">
+				<xsl:sort select="substring(@id,8)" data-type="number"/>
+				<xsl:copy-of select="."/>
+			</xsl:for-each>
+			-->
+
+			<xsl:apply-templates select="SyntacticBehaviour" />
+			<xsl:apply-templates select="LexicalEntry" />
+			<xsl:apply-templates select="Synset" />
 		</xsl:copy>
 	</xsl:template>
 

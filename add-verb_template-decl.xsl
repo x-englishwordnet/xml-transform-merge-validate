@@ -2,19 +2,13 @@
 <!-- ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>. -->
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-	<xsl:strip-space elements="*" />
 
 	<xsl:output omit-xml-declaration="no" standalone="no" method="xml" version="1.1" encoding="UTF-8" indent="yes" />
-
 	<xsl:strip-space elements="*" />
 
 	<xsl:variable name='debug' select='false()' />
 
 	<xsl:template match="/">
-		<xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE LexicalResource [
-<!ENTITY verb_templates SYSTEM "verbtemplates.xml">
-]>
-]]></xsl:text>
 		<xsl:copy>
 			<xsl:apply-templates select="@*|node()" />
 		</xsl:copy>
@@ -32,8 +26,20 @@
 	<xsl:template match="Lexicon">
 		<xsl:copy>
 			<xsl:apply-templates select="@*" />
-			<xsl:text disable-output-escaping="yes"><![CDATA[&verb_templates;]]></xsl:text>
-			<xsl:apply-templates select="node()" />
+
+			<xsl:apply-templates select="SyntacticBehaviour" />
+
+			<xsl:variable name="vfs" select="document('verbtemplates.xml')/SyntacticBehaviours/SyntacticBehaviour"/>
+			<xsl:copy-of select="$vfs"/>
+			<!--
+			<xsl:for-each select="$vfs">
+				<xsl:sort select="substring(@id,8)" data-type="number"/>
+				<xsl:copy-of select="."/>
+			</xsl:for-each>
+			-->
+
+			<xsl:apply-templates select="LexicalEntry" />
+			<xsl:apply-templates select="Synset" />
 		</xsl:copy>
 	</xsl:template>
 
