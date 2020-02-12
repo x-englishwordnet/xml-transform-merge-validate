@@ -30,7 +30,7 @@ if [ "$1" == "-dir" ]; then
 fi
 
 if [ -z "$*" ]; then
-	echo  -e"${RED}SRC: null${RESET}" 1>&2;
+	echo -e "${RED}SRC: null${RESET}" 1>&2;
 	exit
 fi
 echo -e "${MAGENTA}SRC: $*${RESET}" 1>&2;
