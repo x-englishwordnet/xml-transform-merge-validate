@@ -1,5 +1,6 @@
 <xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:my="https://1313ou.github.io/ewn-transform3">
+	<!--  Author: Bernard Bou, Copyright (c) 2020: Bernard Bou, License: GPL3-->
 
 	<xsl:output
 		omit-xml-declaration="no"
@@ -10,32 +11,43 @@
 		doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.0.dtd" />
 	<xsl:strip-space elements="*" />
 
+	<!--  Turn to false() if the dbug section below is not to be printed to stdderr -->
 	<xsl:variable name="debug" select="true()" />
 
+	<!--  Strip lexentry ids of garbage that originates from adj position -->
 	<xsl:function name="my:strip" as="xs:string">
 		<xsl:param name="str" as="xs:string" />
 		<xsl:sequence select="replace(replace($str,'--a$','-a'),'-a-|-ip-|-p-|--', '-')" />
 	</xsl:function>
 
+	<!--  The group of elements that share the (stripped) id -->
 	<xsl:key name="get-group" match="*[@id]" use="my:strip(@id)" />
 
+	<!--  Start -->
 	<xsl:template match="/">
 		<xsl:copy>
 			<xsl:apply-templates select="@*|node()" />
 		</xsl:copy>
 	</xsl:template>
 
+	<!--  Copy all except ... -->
 	<xsl:template match="node() | @*">
 		<xsl:copy>
 			<xsl:apply-templates select="node() | @*" />
 		</xsl:copy>
 	</xsl:template>
 
+	<!--  Processing lexentries ... -->
 	<xsl:template match="LexicalEntry">
+		<!--  Stripped down id, an artifact, call it group id ... -->
 		<xsl:variable name="myGID" select="my:strip(@id)" />
+		<!--  Group of elements that map to the same group id ... -->
 		<xsl:variable name="myGroup" select="key('get-group', $myGID)" />
+		<!--  Generated id for current node ... -->
 		<xsl:variable name="id1" select="generate-id()" />
+		<!--  Generated id for first element in the group ... -->
 		<xsl:variable name="id2" select="generate-id($myGroup[1])" />
+		<!--  If id1 = id2 then the current node is the first element in the group ... -->
 
 		<xsl:if test="$debug">
 			<xsl:message>
@@ -68,15 +80,16 @@
 			</xsl:message>
 		</xsl:if>
 
-		<!-- if is first in group -->
+		<!-- If the current lexentry element is first in the group -->
 		<xsl:if test="$id1 = $id2">
+			<!-- Merge all elements in the group -->
 			<xsl:copy>
+				<!-- The group id replaces the current element id ... -->
 				<xsl:attribute name="id" select="$myGID" />
-<!-- 				<xsl:copy-of select="@*" /> -->
-				<!-- copy unique subelements -->
+				<!-- Copy unique subelements from the current node -->
 				<xsl:copy-of select="./Lemma" />
 				<xsl:copy-of select="./Form" />
-				<!-- copy group subelements -->
+				<!-- Copy subelements origination from the lex entries elements in the group -->
 				<xsl:apply-templates select="$myGroup/Sense" />
 				<xsl:apply-templates select="$myGroup/SyntacticRelation" />
 			</xsl:copy>
