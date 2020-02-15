@@ -30,7 +30,7 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<!--  Copy all except ... -->
+	<!--  Copy all except lex entries that have their own template -->
 	<xsl:template match="node() | @*">
 		<xsl:copy>
 			<xsl:apply-templates select="node() | @*" />
@@ -89,7 +89,7 @@
 				<!-- Copy unique subelements from the current node -->
 				<xsl:copy-of select="./Lemma" />
 				<xsl:copy-of select="./Form" />
-				<!-- Copy subelements origination from the lex entries elements in the group -->
+				<!-- Copy subelements originating from the lex entries elements in the group -->
 				<xsl:apply-templates select="$myGroup/Sense" />
 				<xsl:apply-templates select="$myGroup/SyntacticRelation" />
 			</xsl:copy>
