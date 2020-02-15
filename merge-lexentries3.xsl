@@ -17,7 +17,7 @@
 	<!--  Strip lexentry ids of garbage that originates from adj position -->
 	<xsl:function name="my:strip" as="xs:string">
 		<xsl:param name="str" as="xs:string" />
-		<xsl:sequence select="replace(replace($str,'--a$','-a'),'-a-|-ip-|-p-|--', '-')" />
+		<xsl:sequence select="replace(replace($str,'--a$','-a'),'(-a-|-ip-|-p-|--)([sa])$', '-$2')" />
 	</xsl:function>
 
 	<!--  The group of elements that share the (stripped) id -->
