@@ -26,6 +26,5 @@ if [ "$ISDIR" == "-dir"  ]; then
 else
 	shift # consume XSD
 	echo -e "${MAGENTA}XML: $*${RESET}" 1>&2;
-	java -jar validator.jar "$XSD" "$XML"
+	java -jar validator.jar "$XSD" $*
 fi
-
