@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>. -->
+<!-- ~ Copyright (c) 2020. Bernard Bou <1313ou@gmail.com>. -->
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:ili="http://ili.org/ili/"
 	xmlns:meta="https://github.com/globalwordnet/schemas" xmlns:pwn="http://www.princeton.edu/princeton/">
-	<!-- xmlns:saxon="http://saxon.sf.net" -->
 
-	<!-- <xsl:strip-space elements="*" /> -->
-	<xsl:output method="xml" indent="yes" />
+	<xsl:output doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-2.0.dtd" method="xml" indent="no" />
 
 	<xsl:variable name="debug" select="false()" />
 	<xsl:variable name="debug0" select="false()" />
 	<xsl:variable name="debug_ns" select="false()" />
-	<xsl:variable name="debug1" select="false()" />
-	<xsl:variable name="debug2" select="false()" />
+	<xsl:variable name="debug1" select="true()" />
+	<xsl:variable name="debug2" select="true()" />
 	<xsl:variable name="debug3" select="false()" />
 
-	<!-- in -->
+	<!-- in ns -->
 	<xsl:variable name="ns_dc" select="'http://purl.org/dc/elements/1.1/'" />
 
-	<!-- out -->
+	<!-- out ns -->
 	<xsl:variable name="ns_ili" select="'http://ili.org/ili/'" />
 	<xsl:variable name="ns_meta" select="'https://github.com/globalwordnet/schemas'" />
 	<xsl:variable name="ns_pwn" select="'http://www.princeton.edu/princeton/'" />
@@ -42,7 +40,7 @@
 		<xsl:copy>
 
 			<!-- A T T R I B U T E S -->
-			
+
 			<xsl:for-each select="@*">
 				<xsl:if test="$debug0">
 					<xsl:message>
@@ -76,15 +74,14 @@
 								</xsl:if>
 							</xsl:when>
 							<xsl:when test="local-name()='subject'">
-								<xsl:attribute name="lexfile2">
+								<xsl:attribute name="lexfile">
 									<xsl:value-of select="." />
 								</xsl:attribute>
 								<xsl:if test="$debug1">
 									<xsl:message>
 										<xsl:text>dc:</xsl:text>
 										<xsl:value-of select="local-name()" />
-										<xsl:text> to lexfile2</xsl:text>
-										<xsl:value-of select="local-name()" />
+										<xsl:text> to lexfile</xsl:text>
 									</xsl:message>
 								</xsl:if>
 							</xsl:when>
@@ -117,21 +114,45 @@
 								<xsl:attribute name="ili:id">
 									<xsl:value-of select="." />
 								</xsl:attribute>
+								<xsl:if test="$debug2">
+									<xsl:message>
+										<xsl:value-of select="local-name()" />
+										<xsl:text> to ili:id</xsl:text>
+									</xsl:message>
+								</xsl:if>
 							</xsl:when>
 							<xsl:when test="local-name()='status'">
 								<xsl:attribute name="meta:status">
 									<xsl:value-of select="." />
 								</xsl:attribute>
+								<xsl:if test="$debug2">
+									<xsl:message>
+										<xsl:value-of select="local-name()" />
+										<xsl:text> to meta:status</xsl:text>
+									</xsl:message>
+								</xsl:if>
 							</xsl:when>
 							<xsl:when test="local-name()='note'">
 								<xsl:attribute name="meta:note">
 									<xsl:value-of select="." />
 								</xsl:attribute>
+								<xsl:if test="$debug2">
+									<xsl:message>
+										<xsl:value-of select="local-name()" />
+										<xsl:text> to meta:note</xsl:text>
+									</xsl:message>
+								</xsl:if>
 							</xsl:when>
 							<xsl:when test="local-name()='confidenceScore'">
 								<xsl:attribute name="meta:confidenceScore">
 									<xsl:value-of select="." />
 								</xsl:attribute>
+								<xsl:if test="$debug2">
+									<xsl:message>
+										<xsl:value-of select="local-name()" />
+										<xsl:text> to meta:confidenceScore</xsl:text>
+									</xsl:message>
+								</xsl:if>
 							</xsl:when>
 
 							<xsl:otherwise>
@@ -157,15 +178,17 @@
 		<xsl:value-of select="." />
 	</xsl:template>
 
-	<!-- <xsl:template match="text()"> -->
-	<!-- <xsl:if test="$debug2"> -->
-	<!-- <xsl:message> -->
-	<!-- <xsl:text>text </xsl:text> -->
-	<!-- <xsl:value-of select="." /> -->
-	<!-- </xsl:message> -->
-	<!-- </xsl:if> -->
-	<!-- <xsl:copy-of select="." /> -->
-	<!-- </xsl:template> -->
+	<xsl:template match="text()">
+		<xsl:if test="$debug3">
+			<xsl:message>
+				<xsl:text>text </xsl:text>
+				<xsl:value-of select="." />
+			</xsl:message>
+		</xsl:if>
+		<xsl:copy>
+			<xsl:value-of select="." />
+		</xsl:copy>
+	</xsl:template>
 
 	<xsl:template match="comment()">
 		<xsl:if test="$debug3">
@@ -174,7 +197,9 @@
 				<xsl:value-of select="." />
 			</xsl:message>
 		</xsl:if>
-		<xsl:copy-of select="." />
+		<xsl:copy>
+			<xsl:value-of select="." />
+		</xsl:copy>
 	</xsl:template>
 
 </xsl:transform>
