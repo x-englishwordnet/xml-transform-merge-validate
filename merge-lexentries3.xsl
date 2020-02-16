@@ -1,4 +1,4 @@
-<xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xsl:transform version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:my="https://1313ou.github.io/ewn-transform3">
 	<!--  Author: Bernard Bou, Copyright (c) 2020: Bernard Bou, License: GPL3-->
 
@@ -12,7 +12,7 @@
 	<xsl:strip-space elements="*" />
 
 	<!--  Turn to false() if the dbug section below is not to be printed to stdderr -->
-	<xsl:variable name="debug" select="true()" />
+	<xsl:variable name="debug" select="false()" />
 
 	<!--  Strip lexentry ids of garbage that originates from adj position -->
 	<xsl:function name="my:strip" as="xs:string">
@@ -95,4 +95,4 @@
 			</xsl:copy>
 		</xsl:if>
 	</xsl:template>
-</xsl:stylesheet>
+</xsl:transform>
