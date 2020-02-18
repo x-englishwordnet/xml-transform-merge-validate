@@ -2,11 +2,14 @@ package validator;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.xml.namespace.QName;
+import javax.xml.stream.Location;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
@@ -24,6 +27,7 @@ import com.ctc.wstx.stax.WstxInputFactory;
 
 public class WoodstoxValidate
 {
+	private static final boolean STATS = false;
 
 	/**
 	 * Main entry point Arguments: [xml]* -e [LexicalResource|Lexicon|LexicalEntry|Sense|Synset|SenseRelation|SynsetRelation|...]*
@@ -37,7 +41,7 @@ public class WoodstoxValidate
 		// Timing
 		final long startTime = System.currentTimeMillis();
 
-		// command-line
+		// Command-line
 		String xsd = args[0];
 		List<String> xmls = new ArrayList<>();
 		List<String> elements = new ArrayList<>();
@@ -64,12 +68,19 @@ public class WoodstoxValidate
 				xmls.add(arg);
 		}
 
-		// validate
-		long count = new WoodstoxValidate(xsd).validate(xmls, elements);
+		// Validate
+		WoodstoxValidate validator = new WoodstoxValidate(xsd);
+		long parseEventcount = validator.validate(xmls, elements);
+
+		// Results
+		int invalidCount = validator.problems.keySet().size();
 
 		// Done
 		final long endTime = System.currentTimeMillis();
-		System.err.println("\n" + "Done " + ((endTime - startTime) / 1000) + "s, " + count + " parsing events\n");
+		System.err.printf("\nDone in %d ms, events %d, invalid %d%n%n", ((endTime - startTime) / 1000), parseEventcount, invalidCount);
+
+		// Exit
+		System.exit(invalidCount);
 	}
 
 	/**
@@ -78,13 +89,22 @@ public class WoodstoxValidate
 	private final XMLValidationSchema schema;
 
 	/**
+	 * Problems
+	 */
+	private Map<String, Integer> problems = new HashMap<>();
+
+	/**
 	 * Validation handler (called when a problem is found)
 	 */
 	private ValidationProblemHandler handler = new ValidationProblemHandler()
 	{
 		public void reportProblem(XMLValidationProblem problem) throws XMLValidationException
 		{
-			System.err.println("INVALID " + problem.getMessage() + " " + problem.getLocation());
+			Location location = problem.getLocation();
+			String file = location.getSystemId();
+			int val = !WoodstoxValidate.this.problems.containsKey(file) ? 0 : WoodstoxValidate.this.problems.get(file);
+			WoodstoxValidate.this.problems.put(file, val + 1);
+			System.err.println("INVALID " + problem.getMessage() + " " + location);
 		}
 	};
 
@@ -164,11 +184,14 @@ public class WoodstoxValidate
 		}
 		xmlReader.close();
 
-		System.out.println("start:		" + stats[XMLStreamConstants.START_ELEMENT]);
-		System.out.println("end:		" + stats[XMLStreamConstants.END_ELEMENT]);
-		System.out.println("comment:	" + stats[XMLStreamConstants.COMMENT]);
-		System.out.println("characters:	" + stats[XMLStreamConstants.CHARACTERS]);
-		System.out.println("spaces:		" + stats[XMLStreamConstants.SPACE]);
+		if (STATS)
+		{
+			System.out.println("start:		" + stats[XMLStreamConstants.START_ELEMENT]);
+			System.out.println("end:		" + stats[XMLStreamConstants.END_ELEMENT]);
+			System.out.println("comment:	" + stats[XMLStreamConstants.COMMENT]);
+			System.out.println("characters:	" + stats[XMLStreamConstants.CHARACTERS]);
+			System.out.println("spaces:		" + stats[XMLStreamConstants.SPACE]);
+		}
 		return count;
 	}
 
@@ -237,11 +260,14 @@ public class WoodstoxValidate
 		}
 		xmlReader.close();
 
-		System.out.println("start:		" + stats[XMLStreamConstants.START_ELEMENT]);
-		System.out.println("end:		" + stats[XMLStreamConstants.END_ELEMENT]);
-		System.out.println("comment:	" + stats[XMLStreamConstants.COMMENT]);
-		System.out.println("characters:	" + stats[XMLStreamConstants.CHARACTERS]);
-		System.out.println("spaces:		" + stats[XMLStreamConstants.SPACE]);
+		if (STATS)
+		{
+			System.out.println("start:		" + stats[XMLStreamConstants.START_ELEMENT]);
+			System.out.println("end:		" + stats[XMLStreamConstants.END_ELEMENT]);
+			System.out.println("comment:	" + stats[XMLStreamConstants.COMMENT]);
+			System.out.println("characters:	" + stats[XMLStreamConstants.CHARACTERS]);
+			System.out.println("spaces:		" + stats[XMLStreamConstants.SPACE]);
+		}
 		return count;
 	}
 
