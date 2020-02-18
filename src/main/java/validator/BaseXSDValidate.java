@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.XMLConstants;
 import javax.xml.stream.XMLStreamException;
@@ -20,6 +22,11 @@ import org.xml.sax.SAXParseException;
 public abstract class BaseXSDValidate
 {
 	/**
+	 * Problems
+	 */
+	protected Map<String, Integer> problems = new HashMap<>();
+
+	/**
 	 * Make source
 	 * 
 	 * @param filename
@@ -28,7 +35,7 @@ public abstract class BaseXSDValidate
 	 * @throws FileNotFoundException
 	 * @throws XMLStreamException
 	 */
-	abstract protected Source makeSource(final String filename) throws FileNotFoundException, XMLStreamException;
+	protected abstract Source makeSource(final String filename) throws FileNotFoundException, XMLStreamException;
 
 	/**
 	 * Make validator
@@ -97,19 +104,28 @@ public abstract class BaseXSDValidate
 			@Override
 			public void warning(SAXParseException e) throws SAXException
 			{
-				System.err.println("warning " + e);
+				String file = source.getSystemId();
+				int val = !BaseXSDValidate.this.problems.containsKey(file) ? 0 : BaseXSDValidate.this.problems.get(file);
+				BaseXSDValidate.this.problems.put(file, val + 1);
+				System.err.printf("[W] %s %s%n", e, source);
 			}
 
 			@Override
 			public void error(SAXParseException e) throws SAXException
 			{
-				System.err.println("error " + e);
+				String file = source.getSystemId();
+				int val = !BaseXSDValidate.this.problems.containsKey(file) ? 0 : BaseXSDValidate.this.problems.get(file);
+				BaseXSDValidate.this.problems.put(file, val + 1);
+				System.err.printf("[E] %s %s%n", e, source);
 			}
 
 			@Override
 			public void fatalError(SAXParseException e) throws SAXException
 			{
-				System.err.println("fatal " + e);
+				String file = source.getSystemId();
+				int val = !BaseXSDValidate.this.problems.containsKey(file) ? 0 : BaseXSDValidate.this.problems.get(file);
+				BaseXSDValidate.this.problems.put(file, val + 1);
+				System.err.printf("[F] %s %s%n", e, file);
 				throw e;
 			}
 		});
@@ -138,31 +154,13 @@ public abstract class BaseXSDValidate
 	 * Validate
 	 *
 	 * @param xsd
-	 *            xsd file
-	 * @param filename
-	 *            file to validate
-	 * @throws SAXException
-	 *             exception
-	 * @throws IOException
-	 *             exception
-	 */
-	public void validateOne(final String xsd, final String filename) throws SAXException, IOException
-	{
-		final Validator validator = makeValidator(xsd);
-		validate(validator, filename);
-	}
-
-	/**
-	 * Validate all
-	 *
-	 * @param xsd
 	 *            xsd path
 	 * @param filenames
 	 *            files
 	 * @throws SAXException
 	 *             exception
 	 */
-	public void validateAll(final String xsd, final String... filenames) throws SAXException
+	public void validate(final String xsd, final String... filenames) throws SAXException
 	{
 		final Validator validator = makeValidator(xsd);
 		for (final String filename : filenames)
@@ -174,7 +172,7 @@ public abstract class BaseXSDValidate
 			}
 			catch (final SAXException | IOException e)
 			{
-				System.out.println("->fail");
+				System.out.println("FAILURE");
 				System.err.println(e.getMessage());
 			}
 		}

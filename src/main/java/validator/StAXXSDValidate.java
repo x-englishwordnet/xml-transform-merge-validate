@@ -17,8 +17,9 @@ public class StAXXSDValidate extends BaseXSDValidate
 	@Override
 	protected Source makeSource(final String filename) throws FileNotFoundException, XMLStreamException
 	{
-		XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
-		XMLStreamReader xmlStreamReader = xmlInputFactory.createXMLStreamReader(new FileInputStream(filename));
+		XMLInputFactory factory = XMLInputFactory.newInstance();
+		factory.setProperty(XMLInputFactory.IS_VALIDATING, false);
+		XMLStreamReader xmlStreamReader = factory.createXMLStreamReader(new FileInputStream(filename));
 		return new StAXSource(xmlStreamReader);
 	}
 
@@ -35,10 +36,18 @@ public class StAXXSDValidate extends BaseXSDValidate
 		// Timing
 		final long startTime = System.currentTimeMillis();
 
-		new StAXXSDValidate().validateAll(args[0], Arrays.copyOfRange(args, 1, args.length));
+		// Validate
+		BaseXSDValidate validator = new StAXXSDValidate();
+		validator.validate(args[0], Arrays.copyOfRange(args, 1, args.length));
+
+		// Results
+		int invalidCount = validator.problems.keySet().size();
 
 		// Done
 		final long endTime = System.currentTimeMillis();
-		System.err.println("\nDone " + ((endTime - startTime) / 1000) + "s\n");
+		System.err.printf("%nDone in %d ms, invalid %d%n%n", ((endTime - startTime) / 1000), invalidCount);
+
+		// Exit
+		System.exit(invalidCount);
 	}
 }
