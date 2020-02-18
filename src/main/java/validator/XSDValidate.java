@@ -58,7 +58,7 @@ public class XSDValidate extends BaseXSDValidate
 
 		// Done
 		final long endTime = System.currentTimeMillis();
-		System.err.printf("\nDone in %d ms, invalid %d%n%n", ((endTime - startTime) / 1000), invalidCount);
+		System.err.printf("%nDone in %d ms, invalid %d%n%n", ((endTime - startTime) / 1000), invalidCount);
 
 		// Exit
 		System.exit(invalidCount);
