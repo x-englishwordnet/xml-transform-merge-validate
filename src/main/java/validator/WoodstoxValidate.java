@@ -77,7 +77,7 @@ public class WoodstoxValidate
 
 		// Done
 		final long endTime = System.currentTimeMillis();
-		System.err.printf("\nDone in %d ms, events %d, invalid %d%n%n", ((endTime - startTime) / 1000), parseEventcount, invalidCount);
+		System.err.printf("%nDone in %d ms, events %d, invalid %d%n%n", ((endTime - startTime) / 1000), parseEventcount, invalidCount);
 
 		// Exit
 		System.exit(invalidCount);
@@ -100,11 +100,28 @@ public class WoodstoxValidate
 	{
 		public void reportProblem(XMLValidationProblem problem) throws XMLValidationException
 		{
+			String header;
+			int severity = problem.getSeverity();
+			switch (severity)
+			{
+				case XMLValidationProblem.SEVERITY_WARNING:
+					header = "W";
+					break;
+				case XMLValidationProblem.SEVERITY_ERROR:
+					header = "E";
+					break;
+				case XMLValidationProblem.SEVERITY_FATAL:
+					header = "W";
+					break;
+				default:
+					header = "?";
+					break;
+			}
 			Location location = problem.getLocation();
 			String file = location.getSystemId();
 			int val = !WoodstoxValidate.this.problems.containsKey(file) ? 0 : WoodstoxValidate.this.problems.get(file);
 			WoodstoxValidate.this.problems.put(file, val + 1);
-			System.err.println("INVALID " + problem.getMessage() + " " + location);
+			System.err.printf("[%s] %s %s%n", header, problem.getMessage(), location);
 		}
 	};
 
