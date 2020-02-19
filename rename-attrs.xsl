@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ~ Copyright (c) 2020. Bernard Bou <1313ou@gmail.com>. -->
 
-<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:ili="http://ili.org/ili/"
-	xmlns:meta="https://github.com/globalwordnet/schemas" xmlns:pwn="http://www.princeton.edu/princeton/">
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" 
+	xmlns:ili="http://ili.org/ili/"
+	xmlns:meta="https://github.com/globalwordnet/schemas/meta/" 
+	xmlns:pwn="http://www.princeton.edu/wordnet/">
 
-	<xsl:output doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-2.0.dtd" method="xml" indent="no" />
+<!-- 	<xsl:output doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-2.0.dtd" method="xml" indent="no" /> -->
+	<xsl:output method="xml" indent="no" />
 
 	<xsl:variable name="debug" select="false()" />
 	<xsl:variable name="debug0" select="false()" />
@@ -18,12 +21,14 @@
 
 	<!-- out ns -->
 	<xsl:variable name="ns_ili" select="'http://ili.org/ili/'" />
-	<xsl:variable name="ns_meta" select="'https://github.com/globalwordnet/schemas'" />
-	<xsl:variable name="ns_pwn" select="'http://www.princeton.edu/princeton/'" />
+	<xsl:variable name="ns_meta" select="'https://github.com/globalwordnet/schemas/meta/'" />
+	<xsl:variable name="ns_pwn" select="'http://www.princeton.edu/wordnet/'" />
 
 	<xsl:template match="LexicalResource">
-		<LexicalResource xmlns:pwn="http://www.princeton.edu/princeton/" xmlns:ili="http://ili.org/ili/"
-			xmlns:meta="https://github.com/globalwordnet/schemas">
+		<LexicalResource 
+			xmlns:pwn="http://www.princeton.edu/wordnet/"
+			xmlns:ili="http://ili.org/ili/"
+			xmlns:meta="https://github.com/globalwordnet/schemas/meta/">
 			<xsl:apply-templates select="*" />
 		</LexicalResource>
 	</xsl:template>
