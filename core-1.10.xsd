@@ -89,9 +89,9 @@
 			<xsd:attribute name='lexfile' type='LexFileType' use='optional' />
 			<xsd:attribute name='lexid' type='LexIdType' use='required' />
 			<xsd:attribute name='sensekey' type='SensekeyType' use='required' />
-			<xsd:attribute name='adj_position' type='AdjPositionType' use='optional' />
 			<xsd:attribute name='syntactic_behaviour' type='LocalSyntacticBehaviourIDREFSType' use='optional' />
 			<xsd:attribute name='sentence_template' type='LocalSyntacticBehaviourIDREFSType' use='optional' />
+			<xsd:attribute name='adj_position' type='AdjPositionType' use='optional' />
 			<xsd:attribute name='tagcnt' type='TagCntType' default='0' use='optional' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute ref='dc:identifier' use='optional' />
@@ -173,7 +173,6 @@
 			<xsd:attributeGroup ref='Meta' />
 		</xsd:complexType>
 	</xsd:element>
-
 
 	<!-- A T T R I B U T E G R O U P S -->
 

@@ -38,21 +38,4 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<!-- foreign key types -->
-
-	<xsd:simpleType name='ILIType'>
-		<xsd:restriction base='xsd:string'>
-			<xsd:pattern value='&ili;' />
-		</xsd:restriction>
-	</xsd:simpleType>
-
-	<!-- meta types -->
-
-	<xsd:simpleType name='ConfidenceScoreType'>
-		<xsd:restriction base='xsd:float'>
-			<xsd:minInclusive value='0.0' />
-			<xsd:maxInclusive value='1.0' />
-		</xsd:restriction>
-	</xsd:simpleType>
-
 </xsd:schema>
