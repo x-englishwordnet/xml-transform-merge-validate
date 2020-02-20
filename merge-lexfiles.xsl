@@ -26,8 +26,8 @@
 		</xsl:message>
 
 		<LexicalResource 
-			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.6.xsd"
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10.xsd"
 			xmlns:dc="http://purl.org/dc/elements/1.1/">
 			<Lexicon 
 				id="ewn" 
