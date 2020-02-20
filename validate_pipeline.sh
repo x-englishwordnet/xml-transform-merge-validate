@@ -8,8 +8,10 @@ MAGENTA='\u001b[35m'
 CYAN='\u001b[36m'
 RESET='\u001b[0m'
 
+XSDDIR="1.10pipe"
+
 declare -A versions=( 
-["orig"]="		1.1		src							xEWN-LMF-1.1-relax_idrefs" 
+["orig"]="		1.1		src						EWN-LMF-1.1-relax_idrefs" 
 ["sk"]="		1.2		pipe1_sk					xEWN-LMF-1.2-relax_idrefs" 
 ["tagcnt"]="	1.2		pipe2_tagcount				xEWN-LMF-1.2-relax_idrefs" 
 ["adjpos"]="	1.3		pipe3_adjposition			xEWN-LMF-1.3-relax_idrefs" 
@@ -19,8 +21,8 @@ declare -A versions=(
 ["vtdecl"]="	1.3.4	pipe34_verbtemplate_decl	xEWN-LMF-1.3.4-relax_idrefs" 
 ["vtattr"]="	1.3.5	pipe35_verbtemplate_attr	xEWN-LMF-1.3.5-relax_idrefs" 
 ["nosb"]="		1.3.6	pipe36_sb					xEWN-LMF-1.3.6-relax_idrefs" 
-["xsrc"]="		1.10	xsrc						xEWN-LMF-1.10-relax_idrefs" 
-["xsrcm"]="		1.10	xsrc_merged					xEWN-LMF-1.10" 
+["final"]="		1.10	xsrc						xEWN-LMF-1.10-relax_idrefs" 
+["finalm"]="	1.10	xsrc_merged					xEWN-LMF-1.10" 
 )
 
 function process()
@@ -33,8 +35,8 @@ function process()
 	shift
 	for f in $*; do
 		echo -e "${CYAN}${f} - ${d}${RESET}";
-		#echo "./validate.sh ${v}/${f}.xsd ${d}/*.xml"
-		./validate2.sh ${f}.xsd in/${d}/*.xml
+		#echo "./validate.sh ${XSDDIR}/${f}.xsd ${d}/*.xml"
+		./validate2.sh ${XSDDIR}/${f}.xsd in/${d}/*.xml
 		retVal=$?
 		if [ $retVal -ne 0 ]; then
 			echo -e "${RED}ERROR ${retVal}${RESET}"

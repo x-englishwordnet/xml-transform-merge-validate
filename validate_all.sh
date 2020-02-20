@@ -15,8 +15,8 @@ declare -A versions=(
 ["2.0"]="	2.0		src2			WN-LMF-2.0-relax_idrefs		EWN-LMF-2.0-relax_idrefs"
 ["2.0m"]="	2.0		src2_merged		WN-LMF-2.0	 				EWN-LMF-2.0"
 
-["1.10"]="	1.10	xsrc			WN-LMF-1.10-relax_idrefs	xEWN-LMF-1.10-relax_idrefs" 
-["1.10m"]="	1.10	xsrc_merged		WN-LMF-1.10	 				xEWN-LMF-1.10" 
+["1.10"]="	1.10	xsrc			xWN-LMF-1.10-relax_idrefs	xEWN-LMF-1.10-relax_idrefs" 
+["1.10m"]="	1.10	xsrc_merged		xWN-LMF-1.10 				xEWN-LMF-1.10" 
 )
 
 function process()

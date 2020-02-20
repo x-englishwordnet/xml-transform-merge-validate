@@ -7,6 +7,9 @@
 	>
 
 	<xsd:import namespace='http://purl.org/dc/elements/1.1/'	schemaLocation='dc.xsd' />
+	<xsd:include												schemaLocation='pwn.xsd' />
+	<xsd:include												schemaLocation='ili.xsd' />
+	<xsd:include												schemaLocation='meta.xsd' />
 
 	<!-- E L E M E N T S -->
 
@@ -44,7 +47,7 @@
 				<xsd:element ref='Lemma' minOccurs='1' maxOccurs='1' />
 				<xsd:element ref='Form' minOccurs='0' maxOccurs='unbounded' />
 				<xsd:element ref='Sense' minOccurs='1' maxOccurs='unbounded' />
-				<xsd:element ref='SyntacticBehaviour' minOccurs='0' maxOccurs='unbounded' />
+				<xsd:element ref='SyntacticBehaviourRef' minOccurs='0' maxOccurs='unbounded' />
 			</xsd:sequence>
 
 			<xsd:attribute name='id' type='LexicalEntryIDType' use='required' />
@@ -90,6 +93,8 @@
 			<xsd:attribute name='lexfile' type='LexFileType' use='optional' />
 			<xsd:attribute name='lexid' type='LexIdType' use='required' />
 			<xsd:attribute name='sensekey' type='SensekeyType' use='required' />
+			<xsd:attribute name='syntactic_behaviour' type='LocalSyntacticBehaviourIDREFSType' use='optional' />
+			<xsd:attribute name='sentence_template' type='LocalSyntacticBehaviourIDREFSType' use='optional' />
 			<xsd:attribute name='tagcnt' type='TagCntType' default='0' use='optional' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute ref='dc:identifier' use='optional' />
@@ -107,7 +112,7 @@
 			</xsd:sequence>
 
 			<xsd:attribute name='id' type='SynsetIDType' use='required' />
-			<xsd:attribute name='ili' type='ILIType' use='required' />
+			<xsd:attribute ref='ili' use='required' />
 			<xsd:attribute name='partOfSpeech' use='optional' type='PartOfSpeechType' />
 			<xsd:attribute ref='dc:subject' use='optional' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
@@ -146,16 +151,17 @@
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:element name='ILIDefinition'>
-		<xsd:complexType mixed='true'>
-			<xsd:attributeGroup ref='Meta' />
+	<xsd:element name='SyntacticBehaviour'>
+		<xsd:complexType>
+			<xsd:attribute name='id' type='SyntacticBehaviourIDType' use='required' />
+			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='optional' />
+			<xsd:attribute name='sentenceTemplate' type='xsd:string' use='optional' />
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:element name='SyntacticBehaviour'>
+	<xsd:element name='SyntacticBehaviourRef'>
 		<xsd:complexType>
-			<xsd:attribute name='id' type='SyntacticBehaviourIDType' use='optional' />
-			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='optional' />
+			<xsd:attribute name='idref' type='LocalSyntacticBehaviourIDREFType' use='required' />
 			<xsd:attribute name='senses' type='LocalSenseIDREFSType' use='optional' />
 		</xsd:complexType>
 	</xsd:element>
@@ -171,26 +177,5 @@
 			<xsd:attributeGroup ref='Meta' />
 		</xsd:complexType>
 	</xsd:element>
-
-
-	<!-- A T T R I B U T E G R O U P S -->
-
-	<xsd:attributeGroup name='Meta'>
-		<xsd:attribute ref='dc:contributor' use='optional' />
-		<xsd:attribute ref='dc:coverage' use='optional' />
-		<xsd:attribute ref='dc:creator' use='optional' />
-		<xsd:attribute ref='dc:date' use='optional' />
-		<xsd:attribute ref='dc:description' use='optional' />
-		<xsd:attribute ref='dc:format' use='optional' />
-		<xsd:attribute ref='dc:publisher' use='optional' />
-		<xsd:attribute ref='dc:relation' use='optional' />
-		<xsd:attribute ref='dc:rights' use='optional' />
-		<xsd:attribute ref='dc:source' use='optional' />
-		<xsd:attribute ref='dc:title' use='optional' />
-		<xsd:attribute ref='dc:type' use='optional' />
-		<xsd:attribute name='status' type='xsd:string' use='optional' />
-		<xsd:attribute name='note' type='xsd:string' use='optional' />
-		<xsd:attribute name='confidenceScore' type='ConfidenceScoreType' default='1.0' use='optional' />
-	</xsd:attributeGroup>
 
 </xsd:schema>
