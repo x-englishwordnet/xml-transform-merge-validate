@@ -20,7 +20,7 @@
 	<xsl:template match="LexicalResource">
 		<LexicalResource 
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://1313ou.github.io/ewn-validation/WN-LMF-1.2-relax_idrefs.xsd" 
+			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10-relax_idrefs.xsd" 
 			xmlns:dc="http://purl.org/dc/elements/1.1/">
 			<xsl:apply-templates select="./*" />
 		</LexicalResource>
@@ -53,7 +53,7 @@
 
 		<xsl:copy>
 			<xsl:if test="$adjposition">
-				<xsl:attribute name="adj_position">
+				<xsl:attribute name="adjPosition">
 					<xsl:value-of select="$adjposition" />
 				</xsl:attribute>
 			</xsl:if>
