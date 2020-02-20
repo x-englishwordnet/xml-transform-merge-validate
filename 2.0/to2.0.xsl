@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ~ Copyright (c) 2020. Bernard Bou <1313ou@gmail.com>. -->
 
-<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" 
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+	xmlns:pwn="http://www.princeton.edu/wordnet/" 
 	xmlns:ili="http://ili.org/ili/"
-	xmlns:meta="https://github.com/globalwordnet/schemas/meta/" 
-	xmlns:pwn="http://www.princeton.edu/wordnet/">
+	xmlns:meta="https://github.com/globalwordnet/schemas/meta/" >
 
-<!-- 	<xsl:output doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-2.0.dtd" method="xml" indent="no" /> -->
+	<!-- <xsl:output doctype-system="http://globalwordnet.github.io/schemas/WN-LMF-relaxed-2.0.dtd" method="xml" indent="no" /> -->
 	<xsl:output method="xml" indent="no" />
 
 	<xsl:variable name="debug" select="false()" />
@@ -26,11 +26,18 @@
 
 	<xsl:template match="LexicalResource">
 		<LexicalResource 
-			xmlns:pwn="http://www.princeton.edu/wordnet/"
-			xmlns:ili="http://ili.org/ili/"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/2.0/xEWN-LMF-2.0-relax_idrefs.xsd" 
+			xmlns:pwn="http://www.princeton.edu/wordnet/" xmlns:ili="http://ili.org/ili/"
 			xmlns:meta="https://github.com/globalwordnet/schemas/meta/">
 			<xsl:apply-templates select="*" />
 		</LexicalResource>
+	</xsl:template>
+
+	<xsl:template match="ILIDefinition">
+		<xsl:element name="ili:Definition">
+			<xsl:apply-templates select="text()" />
+		</xsl:element>
 	</xsl:template>
 
 	<xsl:template match="*">

@@ -4,12 +4,8 @@
 
 <!DOCTYPE xsd:schema
 [
-<!ENTITY lemma "[a-z0-9_'/\-\.]+">
-<!ENTITY lexsense "\d+:\d+:\d+:[a-z0-9_'/\-\.]*:\d*">
 ]>
 <xsd:schema xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
-	xmlns:pwn='http://www.princeton.edu/wordnet/'
-	targetNamespace='http://www.princeton.edu/wordnet/'
 	>
 
 	<!-- T Y P E S  -->
@@ -19,10 +15,6 @@
 			<xsd:pattern value='&lemma;\%&lexsense;' />
 		</xsd:restriction>
 	</xsd:simpleType>
-
-	<!-- A T T R I B U T E S -->
-
-	<xsd:attribute name='sensekey' type='pwn:LegacySenseKeyType' />
 
 </xsd:schema>
 

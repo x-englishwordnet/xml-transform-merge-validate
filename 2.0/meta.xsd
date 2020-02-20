@@ -10,7 +10,7 @@
 	targetNamespace='https://github.com/globalwordnet/schemas/meta/'
 	>
 
-	<!-- types  -->
+	<!-- T Y P E S  -->
 
 	<xsd:simpleType name='ConfidenceScoreType'>
 		<xsd:restriction base='xsd:float'>
@@ -19,7 +19,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<!-- attributes  -->
+	<!-- A T T R I B U T E S -->
 
 	<xsd:attribute name='contributor' type='xsd:string' />
 	<xsd:attribute name='coverage' type='xsd:string' />
@@ -37,7 +37,7 @@
 	<xsd:attribute name='note' type='xsd:string' />
 	<xsd:attribute name='confidenceScore' type='meta:ConfidenceScoreType' default='1.0' />
 
-	<!-- group  -->
+	<!-- G R O U P S  -->
 
 	<xsd:attributeGroup name='Meta'>
 		<xsd:attribute ref='meta:contributor' use='optional' />

@@ -99,7 +99,7 @@
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element ref='Definition' minOccurs='0' maxOccurs='1' />
-				<xsd:element ref='ILIDefinition' minOccurs='0' maxOccurs='1' />
+				<xsd:element ref='ili:Definition' minOccurs='0' maxOccurs='1' />
 				<xsd:element ref='SynsetRelation' minOccurs='0' maxOccurs='unbounded' />
 				<xsd:element ref='Example' minOccurs='0' maxOccurs='unbounded' />
 			</xsd:sequence>
@@ -144,12 +144,6 @@
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:element name='ILIDefinition'>
-		<xsd:complexType mixed='true'>
-			<xsd:attributeGroup ref='meta:Meta' />
-		</xsd:complexType>
-	</xsd:element>
-
 	<xsd:element name='SyntacticBehaviour'>
 		<xsd:complexType>
 			<xsd:attribute name='subcategorizationFrame' type='xsd:string' use='required' />
@@ -170,4 +164,5 @@
 			<xsd:attributeGroup ref='meta:Meta' />
 		</xsd:complexType>
 	</xsd:element>
+
 </xsd:schema>

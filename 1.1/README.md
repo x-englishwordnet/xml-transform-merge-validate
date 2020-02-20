@@ -19,7 +19,9 @@ Namespaces are left unchanged. Beyond the current namespace, the only namespace 
 ***(ewn-)idtypes(-relax_idrefs).xsd*** for id types (it defines ID policy).
 ***(ewn-)wordtypes.xsd*** for word types (it defines word form policy).
 ***types.xsd*** for core data types.
-***types-1.1.xsd*** for 1.1 data types.
+***pwn.xsd*** for PWN types.
+***ili.xsd*** for ili types.
+***meta.xsd*** for meta types.
 ***core-1.1.xsd*** for elements and the core structure.
 
 This allows for different levels of validation to be performed. 
@@ -56,3 +58,8 @@ The current merged file satisfies both:
 
 - WN-LMF-1.1.xsd
 - EWN-LMF-1.1.xsd
+
+####Validation tool
+
+[Preferred validation tool](https://github.com/1313ou/ewn-validate2) (based on Saxon, fast and efficient) 
+[Basic validation tool](https://github.com/1313ou/ewn-validate) (based on standard validation tools that come with Java8, may be slow) 

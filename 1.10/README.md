@@ -21,6 +21,9 @@ Namespaces are left unchanged. Beyond the current namespace, the only namespace 
 ***(ewn-)wordtypes.xsd*** for id types (it defines ID policy).
 ***types.xsd*** for core data types.
 ***types-1.10.xsd*** for 1.10 data types.
+***pwn.xsd*** for PWN types.
+***ili.xsd*** for ili types.
+***meta.xsd*** for meta types.
 ***core-1.10.xsd*** for elements and the core structure.
 
 This allows for different levels of validation to be performed. 
@@ -59,3 +62,8 @@ The xsrc merged file satisfies both:
 
 - WN-LMF-1.10.xsd
 - xEWN-LMF-1.10.xsd
+
+####Validation tool
+
+[Preferred validation tool](https://github.com/1313ou/ewn-validate2) (based on Saxon, fast and efficient) 
+[Basic validation tool](https://github.com/1313ou/ewn-validate) (based on standard validation tools that come with Java8, may be slow) 

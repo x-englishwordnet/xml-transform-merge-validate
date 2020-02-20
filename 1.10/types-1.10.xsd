@@ -10,7 +10,6 @@
 <!ENTITY lexsense_lexid "\d\d">
 <!ENTITY nullable_lemma "[a-zA-Z0-9_'/\-\.]*">
 <!ENTITY nullable_lexsense_lexid "(\d\d)?">
-<!ENTITY ili "i\d+|in">
 ]>
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"

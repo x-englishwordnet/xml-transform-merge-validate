@@ -20,10 +20,12 @@ It is not desirable to mix **foreign references** (in the sense that they refer 
  The design is modular:
  
 ***ili.xsd*** and ***pwn.xsd*** for all the ILI and PWN stuff in their own namespaces.
-***meta.xsd*** for meta annotations.
 ***(ewn-)idtypes(-relax_idrefs).xsd*** for core id types (it defines ID policy).
 ***(ewn-)wordtypes.xsd*** for word types (it defines word form policy).
 ***types.xsd*** for core data types.
+***pwn.xsd*** for PWN namespace.
+***ili.xsd*** for ili namespace.
+***meta.xsd*** for meta namespace.
 ***core-2.0.xsd*** for elements and the core structure.
 
 This allows for different levels of validation to be performed. 
@@ -51,7 +53,7 @@ EWN-LMF-2.0.xsd
 
 ####migration
 
-A migration tool (rename-attrs.xsl) is provided in the form of an XSLT 1.0 transform. It does not change the structure nor the data. Only attributes are transformed to satisfy the new naming and namespaces.
+A migration tool (to2.0.xsl) is provided in the form of an XSLT 1.0 transform. It does not change the structure nor the data. Only attributes are transformed to satisfy the new naming and namespaces.
 
 ####EWN compatibility with 2.0 schema
 
@@ -64,3 +66,8 @@ The transformed merged file satisfies both:
 
 - WN-LMF-2.0.xsd
 - EWN-LMF-2.0.xsd
+
+####Validation tool
+
+[Preferred validation tool](https://github.com/1313ou/ewn-validate2) (based on Saxon, fast and efficient) 
+[Basic validation tool](https://github.com/1313ou/ewn-validate) (based on standard validation tools that come with Java8, may be slow) 
