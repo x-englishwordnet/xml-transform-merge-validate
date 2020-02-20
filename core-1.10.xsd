@@ -7,6 +7,9 @@
 	>
 
 	<xsd:import namespace='http://purl.org/dc/elements/1.1/'	schemaLocation='dc.xsd' />
+	<xsd:include												schemaLocation='pwn.xsd' />
+	<xsd:include												schemaLocation='ili.xsd' />
+	<xsd:include												schemaLocation='meta.xsd' />
 
 	<!-- E L E M E N T S -->
 
@@ -109,7 +112,7 @@
 			</xsd:sequence>
 
 			<xsd:attribute name='id' type='SynsetIDType' use='required' />
-			<xsd:attribute name='ili' type='ILIType' use='required' />
+			<xsd:attribute ref='ili' use='required' />
 			<xsd:attribute name='partOfSpeech' use='optional' type='PartOfSpeechType' />
 			<xsd:attribute ref='dc:subject' use='optional' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
@@ -148,12 +151,6 @@
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:element name='ILIDefinition'>
-		<xsd:complexType mixed='true'>
-			<xsd:attributeGroup ref='Meta' />
-		</xsd:complexType>
-	</xsd:element>
-
 	<xsd:element name='SyntacticBehaviour'>
 		<xsd:complexType>
 			<xsd:attribute name='id' type='SyntacticBehaviourIDType' use='required' />
@@ -173,25 +170,5 @@
 			<xsd:attributeGroup ref='Meta' />
 		</xsd:complexType>
 	</xsd:element>
-
-	<!-- A T T R I B U T E G R O U P S -->
-
-	<xsd:attributeGroup name='Meta'>
-		<xsd:attribute ref='dc:contributor' use='optional' />
-		<xsd:attribute ref='dc:coverage' use='optional' />
-		<xsd:attribute ref='dc:creator' use='optional' />
-		<xsd:attribute ref='dc:date' use='optional' />
-		<xsd:attribute ref='dc:description' use='optional' />
-		<xsd:attribute ref='dc:format' use='optional' />
-		<xsd:attribute ref='dc:publisher' use='optional' />
-		<xsd:attribute ref='dc:relation' use='optional' />
-		<xsd:attribute ref='dc:rights' use='optional' />
-		<xsd:attribute ref='dc:source' use='optional' />
-		<xsd:attribute ref='dc:title' use='optional' />
-		<xsd:attribute ref='dc:type' use='optional' />
-		<xsd:attribute name='status' type='xsd:string' use='optional' />
-		<xsd:attribute name='note' type='xsd:string' use='optional' />
-		<xsd:attribute name='confidenceScore' type='ConfidenceScoreType' default='1.0' use='optional' />
-	</xsd:attributeGroup>
 
 </xsd:schema>
