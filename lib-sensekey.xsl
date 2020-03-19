@@ -3,7 +3,8 @@
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
-	<xsl:import href='lib-lexid.xsl' />
+	<!-- not necessary imported as global by caller -->
+	<!-- <xsl:import href='lib-lexid.xsl' /> -->
 	<xsl:import href='lib-satellite_head.xsl' />
 
 	<xsl:variable name='debug' select='false()' />
