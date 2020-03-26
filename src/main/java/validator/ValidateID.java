@@ -11,7 +11,6 @@ public class ValidateID
 		System.out.println("ID validation of " + id);
 		boolean result = XMLChar.isValidName(id);
 		System.out.println(result);
-		System.err.println("Done");
 	}
 
 	private static String join(String[] args)
