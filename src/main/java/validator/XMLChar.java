@@ -126,7 +126,7 @@ public class XMLChar {
 	//
 	// Static initialization
 	//
-	static final int[] targets = { 0x2BB, '\'' };
+	static final int[] targets = {}; //{ 0x2BB, '\'' };
 
 	static void hook(int c, String where) {
 		for (int t : targets)
