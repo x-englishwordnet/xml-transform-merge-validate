@@ -31,7 +31,7 @@ public class WoodstoxValidate
 
 	/**
 	 * Main entry point Arguments: [xml]* -e [LexicalResource|Lexicon|LexicalEntry|Sense|Synset|SenseRelation|SynsetRelation|...]*
-	 * 
+	 *
 	 * @param args
 	 *            command-line arguments
 	 * @throws XMLStreamException
@@ -127,7 +127,7 @@ public class WoodstoxValidate
 
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param xsd
 	 *            XSD file
 	 * @throws XMLStreamException
@@ -141,7 +141,7 @@ public class WoodstoxValidate
 
 	/**
 	 * Validate data files
-	 * 
+	 *
 	 * @param xmls
 	 *            data files
 	 * @param elements
@@ -179,7 +179,7 @@ public class WoodstoxValidate
 
 	/**
 	 * Full validation. Note that IDREF(s) are checked.
-	 * 
+	 *
 	 * @param xmlReader
 	 *            xml reader
 	 * @return number of parse events
@@ -214,7 +214,7 @@ public class WoodstoxValidate
 
 	/**
 	 * Partial validation of found qNames. Note that IDREF(s) are NOT checked.
-	 * 
+	 *
 	 * @param xmlReader
 	 *            xml reader
 	 * @param qNames
@@ -259,7 +259,7 @@ public class WoodstoxValidate
 
 				//@formatter:off
 				/*
-				// Not called 
+				// Not called
 				case XMLStreamConstants.ATTRIBUTE:
 				{
 					// xmlReader.validateAgainst(this.schema);
@@ -290,7 +290,7 @@ public class WoodstoxValidate
 
 	/**
 	 * Make stream reader
-	 * 
+	 *
 	 * @param xml
 	 *            xml file path
 	 * @return stream reader
@@ -305,7 +305,7 @@ public class WoodstoxValidate
 
 	/**
 	 * Make set of validatable elements
-	 * 
+	 *
 	 * @param elements
 	 *            list of element tags
 	 * @return set of qNames
