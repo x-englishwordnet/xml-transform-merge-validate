@@ -20,6 +20,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
@@ -89,9 +90,12 @@ public class IDREFValidator
 		}
 	}
 
-	private static Map<String, List<String>> process(final String defXPath, final String refXPath, final String xsd, final String... xmls) throws SAXException, ParserConfigurationException, IOException, XPathExpressionException
+	private static Map<String, List<String>> process(final String defXPathExpr, final String refXPathExpr, final String xsd, final String... xmls) throws SAXException, ParserConfigurationException, IOException, XPathExpressionException
 	{
 		System.out.println("XML: " + Arrays.toString(xmls));
+
+		XPathExpression defXPath = XPathFactory.newInstance().newXPath().compile(defXPathExpr);
+		XPathExpression refXPath = XPathFactory.newInstance().newXPath().compile(refXPathExpr);
 
 		long validRefCount = 0;
 		long invalidRefCount = 0;
@@ -111,15 +115,13 @@ public class IDREFValidator
 		Set<String> defs = new HashSet<>();
 		for (Document doc : docs)
 		{
-			NodeList defNodes = getXPathNodeList(defXPath, doc);
+			NodeList defNodes = (NodeList) defXPath.evaluate(doc, XPathConstants.NODESET);
 			int defN = defNodes.getLength();
 			for (int j = 0; j < defN; j++)
 			{
 				Node node = defNodes.item(j);
 				assert node.getNodeType() == Node.ATTRIBUTE_NODE;
 				String id = node.getNodeValue();
-				if("ewn-90000031-n".equals(id))
-					System.out.println();
 				defs.add(id);
 				defCount++;
 			}
@@ -128,7 +130,7 @@ public class IDREFValidator
 		// Refs
 		for (Document doc : docs)
 		{
-			NodeList refNodes = getXPathNodeList(refXPath, doc);
+			NodeList refNodes = (NodeList) refXPath.evaluate(doc, XPathConstants.NODESET);
 			int refN = refNodes.getLength();
 			for (int j = 0; j < refN; j++)
 			{
@@ -145,12 +147,19 @@ public class IDREFValidator
 				else
 				{
 					invalidRefCount++;
+
+					// owner element or first ancestor element with an id
 					Element referringElement = attr.getOwnerElement();
-					Element parentElement = (Element) referringElement.getParentNode();
-					String parentName = parentElement.getNodeName();
-					String parentId = parentElement.getAttribute("id");
+					Element parentElement = referringElement;
+					String parentId = null;
+					while (parentElement != null && (parentId = parentElement.getAttribute("id")).isEmpty())
+					{
+						parentElement = (Element) parentElement.getParentNode();
+					}
+
+					String parentName = parentElement == null ? referringElement.getNodeName() : parentElement.getNodeName();
 					List<String> from = invalidRefs.computeIfAbsent(idRef, (l) -> new ArrayList<>());
-					from.add(parentName + ' ' + parentId);
+					from.add(parentName + ' ' + (parentId == null ? "no id" : parentId));
 				}
 				refCount++;
 			}
@@ -221,6 +230,6 @@ public class IDREFValidator
 	 */
 	static NodeList getXPathNodeList(String expr, Document doc) throws XPathExpressionException
 	{
-		return (NodeList) XPathFactory.newInstance().newXPath().compile(expr).evaluate(doc, XPathConstants.NODESET);
+		return (NodeList) XPathFactory.newInstance().newXPath().compile(expr);
 	}
 }
