@@ -16,4 +16,4 @@ echo -e "${C}DEF: $DEF_XPATH${Z}" 1>&2;
 echo -e "${C}REF: $REF_XPATH${Z}" 1>&2;
 
 echo -e "${M}XML: $*${Z}" 1>&2;
-java -cp validator2-runnable.jarvalidator.IDREFValidator "$DEF_XPATH" "$REF_XPATH" $*
+java -cp validator2-runnable.jar validator.IDREFValidator "$DEF_XPATH" "$REF_XPATH" $*
