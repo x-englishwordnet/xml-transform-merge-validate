@@ -3,11 +3,9 @@ package validator;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.TreeMap;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -31,7 +29,6 @@ public class IDREFs
 		boolean silent = false;
 		int threshold = 1;
 		String xsd = null;
-		String defXPath = null;
 		String refXPath = null;
 		List<String> xmls = new ArrayList<>();
 
@@ -54,11 +51,6 @@ public class IDREFs
 				continue;
 			}
 
-			if (defXPath == null)
-			{
-				defXPath = args[i];
-				continue;
-			}
 			if (refXPath == null)
 			{
 				refXPath = args[i];
@@ -68,13 +60,12 @@ public class IDREFs
 			xmls.add(args[i]);
 		}
 
-		System.out.println("DEF: " + defXPath);
 		System.out.println("REF: " + refXPath);
 		System.out.println("XSD: " + xsd);
 
 		for (String xml : xmls)
 		{
-			Map<String, List<String>> refs = process(defXPath, refXPath, xsd, xml);
+			Map<String, List<String>> refs = process(refXPath, xsd, xml);
 			if (refs != null)
 			{
 				if (!silent)
@@ -97,16 +88,12 @@ public class IDREFs
 		}
 	}
 
-	private static Map<String, List<String>> process(final String defXPathExpr, final String refXPathExpr, final String xsd, final String... xmls) throws SAXException, ParserConfigurationException, IOException, XPathExpressionException
+	private static Map<String, List<String>> process(final String refXPathExpr, final String xsd, final String... xmls) throws SAXException, ParserConfigurationException, IOException, XPathExpressionException
 	{
 		System.out.println("XML: " + Arrays.toString(xmls));
 
-		XPathExpression defXPath = XPathFactory.newInstance().newXPath().compile(defXPathExpr);
 		XPathExpression refXPath = XPathFactory.newInstance().newXPath().compile(refXPathExpr);
 
-		long validRefCount = 0;
-		long invalidRefCount = 0;
-		long defCount = 0;
 		long refCount = 0;
 		Map<String, List<String>> refs = new TreeMap<>();
 
@@ -116,22 +103,6 @@ public class IDREFs
 		{
 			Document doc = Util.getDocument(xml, xsd);
 			docs.add(doc);
-		}
-
-		// Defs
-		Set<String> defs = new HashSet<>();
-		for (Document doc : docs)
-		{
-			NodeList defNodes = (NodeList) defXPath.evaluate(doc, XPathConstants.NODESET);
-			int defN = defNodes.getLength();
-			for (int j = 0; j < defN; j++)
-			{
-				Node node = defNodes.item(j);
-				assert node.getNodeType() == Node.ATTRIBUTE_NODE;
-				String id = node.getNodeValue();
-				defs.add(id);
-				defCount++;
-			}
 		}
 
 		// Refs
@@ -146,16 +117,6 @@ public class IDREFs
 				Attr attr = (Attr) node;
 
 				String idRef = attr.getNodeValue();
-				if (defs.contains(idRef))
-				{
-					// System.out.println(node.getNodeValue());
-					validRefCount++;
-				}
-				else
-				{
-					invalidRefCount++;
-				}
-
 				Element ownerElement = attr.getOwnerElement();
 				String anchor = Util.findAnchor(ownerElement);
 				List<String> from = refs.computeIfAbsent(idRef, (l) -> new ArrayList<>());
@@ -164,7 +125,7 @@ public class IDREFs
 				refCount++;
 			}
 		}
-		System.out.printf("defs:%d refs:%d valid:%d invalid:%d set:%d%n", defCount, refCount, validRefCount, invalidRefCount, refs.size());
+		System.out.printf("refs:%d set:%d%n", refCount, refs.size());
 		return refs;
 	}
 }
