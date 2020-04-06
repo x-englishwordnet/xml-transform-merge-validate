@@ -135,12 +135,14 @@ public class XPathEvaluator
 
 				final NodeList nodes = (NodeList) xPaths[i].evaluate(doc, XPathConstants.NODESET);
 				final int nNodes = nodes.getLength();
+				System.err.println("Evaluating XPath[" + i + "] yields " + nNodes + " nodes");
 				for (int j = 0; j < nNodes; j++)
 				{
 					final Node node = nodes.item(j);
-
-					final String value = outputXPath != null ? Util.evaluate(outputXPath, node) : node.getNodeValue();
-					result2.add(value);
+					final String nodeValue = node.getNodeValue();
+					final String value = outputXPath != null ? Util.evaluate(outputXPath, node) : (nodeValue != null ? nodeValue : node.toString());
+					if (value != null)
+						result2.add(value);
 					if (debug)
 						System.err.println(value + " @ " + Util.findNodeAnchor(node));
 				}
