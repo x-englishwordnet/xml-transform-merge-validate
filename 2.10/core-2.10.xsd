@@ -2,7 +2,7 @@
 
 <!-- Copyright (c) 2020. Bernard Bou <1313ou@gmail.com>. -->
 
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:pwn='http://www.princeton.edu/wordnet/'
 	xmlns:ili='http://ili.org/ili/'
 	xmlns:meta='https://github.com/globalwordnet/schemas/meta/'
@@ -96,6 +96,8 @@
 			<xsd:attribute name='verbFrames' type='LocalSyntacticBehaviourIDREFSType' use='optional' />
 			<xsd:attribute name='verbTemplates' type='LocalSyntacticBehaviourIDREFSType' use='optional' />
 			<xsd:attribute name='adjPosition' type='AdjPositionType' use='optional' />
+			<xsd:attribute name='adjIsHead' type='xsd:boolean' use='optional' default='false' />
+			<xsd:attribute name='adjHead' type='LemmaType' use='optional' />
 			<xsd:attribute name='tagCnt' type='TagCntType' default='0' use='optional' />
 			<xsd:attribute name='lexicalized' type='xsd:boolean' default='true' use='optional' />
 			<xsd:attribute ref='pwn:sensekey' use='optional' />
