@@ -5,7 +5,7 @@
 
 	<xsl:output omit-xml-declaration="no" standalone="no" method="xml" version="1.1" encoding="UTF-8" indent="yes" />
 	<xsl:strip-space elements="*" />
-			
+
 	<xsl:template match="/">
 		<xsl:copy>
 			<xsl:apply-templates select="@*|node()" />
@@ -13,16 +13,15 @@
 	</xsl:template>
 
 	<xsl:template match="LexicalResource">
-		<LexicalResource 
+		<LexicalResource
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10-relax_idrefs.xsd" 
+			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10-relax_idrefs.xsd"
 			xmlns:dc="http://purl.org/dc/elements/1.1/">
 			<xsl:apply-templates select="./*" />
 		</LexicalResource>
 	</xsl:template>
 
 	<xsl:template match="Sense">
-
 		<xsl:variable name="idx">
 			<xsl:number />
 		</xsl:variable>

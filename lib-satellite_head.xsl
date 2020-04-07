@@ -5,6 +5,7 @@
 
 	<!-- not necessary imported as global by caller -->
 	<!-- <xsl:import href='lib-lexid.xsl' /> -->
+	<!-- <xsl:import href='lib-satellite_head_word.xsl' /> -->
 
 	<xsl:variable name='debug' select='false()' />
 
@@ -36,36 +37,22 @@
 			</xsl:when>
 
 			<xsl:otherwise>
-				<xsl:variable name="synset_id" select="$sensenode[1]/@synset" />
-				<xsl:variable name="synset" select="id($synset_id)" />
-				<xsl:variable name="head_synset_id" select="$synset[1]/SynsetRelation[@relType='similar']/@target" />
-				<xsl:variable name="head_senses" select="//Sense[@synset=$head_synset_id]" />
-				<xsl:variable name="lemma" select="$head_senses[1]/../Lemma/@writtenForm" />
 				<!-- HEAD WORD : "the lemma of the first word of the satellite's head synset" /> -->
-				<xsl:variable name="headword" select="translate($lemma,' ','_')" />
+				<xsl:variable name="headword">
+					<xsl:call-template name='make-satellite-head-word'>
+						<xsl:with-param name='sensenode' select='.' />
+						<xsl:with-param name='pos' select="'s'" />
+					</xsl:call-template>
+				</xsl:variable>
 
 				<xsl:if test='$debug = true()'>
 					<xsl:message>
-						<xsl:text>[D]   synset_id </xsl:text>
-						<xsl:value-of select="$synset_id" />
-						<xsl:text>&#xa;[D]   its fetched synset </xsl:text>
-						<xsl:value-of select="$synset" />
-						<xsl:text>&#xa;[D]   its fetched synset count() </xsl:text>
-						<xsl:value-of select="count($synset)" />
-						<xsl:text>&#xa;[D]   its fetched synset/@id </xsl:text>
-						<xsl:value-of select="$synset/@id" />
-						<xsl:text>&#xa;[D]   head_synset_id </xsl:text>
-						<xsl:value-of select="$head_synset_id" />
-						<xsl:text>&#xa;[D]   head_senses[1].@id </xsl:text>
-						<xsl:value-of select="$head_senses[1]/@id" />
-						<xsl:text>&#xa;[D]   lemma </xsl:text>
-						<xsl:value-of select="$lemma" />
 						<xsl:text>&#xa;[D]   headword=</xsl:text>
 						<xsl:value-of select="$headword" />
 					</xsl:message>
 				</xsl:if>
 
-				<!-- HEAD LEXID : "a two digit decimal integer that, when appended onto head_word, uniquely identifies the sense of head_word within a lexicographer file, as 
+				<!-- HEAD LEXID : "a two digit decimal integer that, when appended onto head_word, uniquely identifies the sense of head_word within a lexicographer file, as
 					described for lex_id" /> -->
 				<xsl:variable name="headid">
 					<xsl:call-template name="make-lexid">

@@ -5,7 +5,7 @@
 
 	<!-- not necessary imported as global by caller -->
 	<!-- <xsl:import href='lib-lexid.xsl' /> -->
-	<xsl:import href='lib-satellite_head.xsl' />
+	<xsl:import href='lib-satellite_head_word.xsl' />
 
 	<xsl:variable name='debug' select='false()' />
 
