@@ -36,7 +36,7 @@
 
 		<xsl:copy>
 			<xsl:if test="$head != ''">
-				<xsl:attribute name="head">
+				<xsl:attribute name="adjHead">
 					<xsl:value-of select="$head" />
 				</xsl:attribute>
 			</xsl:if>
@@ -53,7 +53,7 @@
 
 		<xsl:copy>
 			<xsl:if test='$is-head'>
-				<xsl:attribute name="isHead">
+				<xsl:attribute name="adjIsHead">
 					<xsl:value-of select="'true'" />
 				</xsl:attribute>
 			</xsl:if>
