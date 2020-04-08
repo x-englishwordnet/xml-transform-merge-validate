@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>. -->
+<!-- ~ Copyright (c) 2020. Bernard Bou <1313ou@gmail.com>. -->
 
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
-	<!-- not necessary imported as global by caller -->
+	<!-- not necessary if imported as global by caller -->
 	<!-- <xsl:import href='lib-lexid.xsl' /> -->
-	<!-- <xsl:import href='lib-satellite_head_word.xsl' /> -->
 
-	<xsl:variable name='debug' select='true()' />
+	<xsl:variable name='debug' select='false()' />
 	<xsl:variable name='error' select='true()' />
+
+	<!-- S A T E L L I T E - H E A D - F A C T O R Y -->
 
 	<xsl:template name="make-satellite-head-sense">
 		<xsl:param name="sensenode" />
@@ -28,7 +29,6 @@
 			<xsl:when test="$pos != 's'">
 				<xsl:message>
 					<xsl:text>[D]   not a satellite</xsl:text>
-					<xsl:text>&#xa;</xsl:text>
 				</xsl:message>
 				<xsl:value-of select="''" />
 			</xsl:when>
@@ -115,54 +115,6 @@
 
 	</xsl:template>
 
-	<xsl:template name="make-satellite-head-word">
-		<xsl:param name="sensenode" />
-		<xsl:param name="pos" />
-
-		<xsl:if test='$debug = true()'>
-			<xsl:message>
-				<xsl:text>[D] CALLED make-satellite-head-word(sensenode_id=</xsl:text>
-				<xsl:value-of select="$sensenode/@id" />
-				<xsl:text>, pos=</xsl:text>
-				<xsl:value-of select="$pos" />
-				<xsl:text>)</xsl:text>
-			</xsl:message>
-		</xsl:if>
-
-		<xsl:variable name="head_sense">
-			<xsl:call-template name="make-satellite-head-sense">
-				<xsl:with-param name="sensenode" select="$sensenode" />
-				<xsl:with-param name="pos" select="$pos" />
-			</xsl:call-template>
-		</xsl:variable>
-
-		<xsl:variable name="lemma" select="$head_sense/../Lemma/@writtenForm" />
-		<xsl:variable name="head_word" select="translate($lemma,' ','_')" />
-
-		<xsl:if test='$debug = true()'>
-			<xsl:message>
-				<xsl:text>&#xa;[D]   head_sense/@id </xsl:text>
-				<xsl:value-of select="$head_sense/@id" />
-				<xsl:text>&#xa;[D]   lemma </xsl:text>
-				<xsl:value-of select="$lemma" />
-				<xsl:text>&#xa;[D]   headword=</xsl:text>
-				<xsl:value-of select="$head_word" />
-			</xsl:message>
-		</xsl:if>
-		<xsl:if test="$head_word = '' and $error = true()">
-			<xsl:message>
-				<xsl:text>[E]   head not found for '</xsl:text>
-				<xsl:value-of select="$sensenode/@id" />
-				<xsl:text>'</xsl:text>
-			</xsl:message>
-		</xsl:if>
-
-		<xsl:value-of select="$head_word" />
-
-	</xsl:template>
-
-	<!-- S A T E L L I T E - H E A D - F A C T O R Y -->
-
 	<xsl:template name="make-satellite-head">
 		<xsl:param name="sensenode" />
 		<xsl:param name="pos" />
@@ -183,13 +135,13 @@
 			<xsl:when test="$pos != 's'">
 				<xsl:message>
 					<xsl:text>[D]   not a satellite</xsl:text>
-					<xsl:text>&#xa;</xsl:text>
 				</xsl:message>
 				<xsl:value-of select="':'" />
 			</xsl:when>
 
 			<xsl:otherwise>
-				<!-- HEAD WORD : "the lemma of the first word of the satellite's head synset" /> -->
+
+				<!-- HEAD SENSE : "the head sense of the satellite's head synset" /> -->
 				<xsl:variable name="headsenseid">
 					<xsl:call-template name='make-satellite-head-sense'>
 						<xsl:with-param name='sensenode' select='$sensenode' />
@@ -205,6 +157,7 @@
 					</xsl:message>
 				</xsl:if>
 
+				<!-- HEAD WORD : "the lemma of the first word of the satellite's head synset" /> -->
 				<xsl:variable name="lemma" select="$headsense/../Lemma/@writtenForm" />
 				<xsl:variable name="headword" select="translate($lemma,' ','_')" />
 
