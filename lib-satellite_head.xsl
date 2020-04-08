@@ -89,8 +89,9 @@
 					</xsl:when>
 					<xsl:when test="count($head_sense_with_antonym) > 1">
 						<xsl:message>
-							<xsl:text>[W]   multiple antonyms found </xsl:text>
-							<xsl:text> taking first of </xsl:text>
+							<xsl:text>[W]   multiple antonyms found in head synset </xsl:text>
+							<xsl:value-of select="$head_synset_id" />
+							<xsl:text>, taking first of </xsl:text>
 							<xsl:value-of select="count($head_sense_with_antonym)" />
 							<xsl:text> head synset member(s) with antonyms </xsl:text>
 						</xsl:message>
