@@ -5,7 +5,7 @@
 
 	<!-- not necessary imported as global by caller -->
 	<!-- <xsl:import href='lib-lexid.xsl' /> -->
-	<xsl:import href='lib-satellite_head_word.xsl' />
+	<xsl:import href='lib-satellite_head.xsl' />
 
 	<xsl:variable name='debug' select='false()' />
 
@@ -205,12 +205,12 @@
 				<xsl:when test="$lexfile = 'adj.ppl' ">
 					<xsl:value-of select="44" />
 				</xsl:when>
-				<xsl:when test="$lexfile = 'contrib.colloq' ">
-					<xsl:value-of select="50" />
-				</xsl:when>
-				<xsl:when test="$lexfile = 'contrib.plwn' ">
-					<xsl:value-of select="51" />
-				</xsl:when>
+				<!-- <xsl:when test="$lexfile = 'contrib.colloq' "> -->
+				<!-- 	<xsl:value-of select="50" /> -->
+				<!-- </xsl:when> -->
+				<!-- <xsl:when test="$lexfile = 'contrib.plwn' "> -->
+				<!-- 	<xsl:value-of select="51" /> -->
+				<!-- </xsl:when> -->
 				<xsl:otherwise>
 					<xsl:value-of select="concat('???',$lexfile)" />
 				</xsl:otherwise>
