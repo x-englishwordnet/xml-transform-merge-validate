@@ -9,6 +9,9 @@
 	<xsl:variable name='debug' select='false()' />
 	<xsl:variable name='error' select='true()' />
 
+	<!-- This is to avoid dependency on reading schema -->
+	<xsl:key name='find-sense-by-id' match='//Sense' use='@id'></xsl:key>
+
 	<!-- S A T E L L I T E - H E A D - W O R D F A C T O R Y -->
 
 	<xsl:template name="make-satellite-head-word">
@@ -43,6 +46,7 @@
 						<xsl:with-param name='pos' select="$pos" />
 					</xsl:call-template>
 				</xsl:variable>
+				<!-- xsl:variable name="headsense" select='id($headsenseid)' /> -->
 				<xsl:variable name="headsense" select='id($headsenseid)' />
 
 				<xsl:if test='$debug = true()'>
