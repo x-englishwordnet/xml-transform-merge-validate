@@ -90,6 +90,7 @@
 			<xsd:attribute name='synset' type='LocalSynsetIDREFType' use='required' />
 			<xsd:attribute name='n' type='NType' use='required' />
 			<xsd:attribute name='senseidx' type='SenseIdxType' use='required' />
+			<xsd:attribute name='order' type='xsd:integer' use='required' />
 			<xsd:attribute name='lexfile' type='LexFileType' use='optional' />
 			<xsd:attribute name='lexid' type='LexIdType' use='required' />
 			<xsd:attribute name='sensekey' type='SensekeyType' use='required' />

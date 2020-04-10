@@ -2,7 +2,7 @@
 
 <!-- Copyright (c) 2020. Bernard Bou <1313ou@gmail.com>. -->
 
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:dc='http://purl.org/dc/elements/1.1/'
 	>
 
@@ -86,6 +86,7 @@
 			<xsd:attribute name='synset' type='LocalSynsetIDREFType' use='required' />
 			<xsd:attribute name='n' type='NType' use='required' />
 			<xsd:attribute name='senseidx' type='SenseIdxType' use='required' />
+			<xsd:attribute name='order' type='xsd:integer' use='required' />
 			<xsd:attribute name='lexfile' type='LexFileType' use='required' />
 			<xsd:attribute name='lexid' type='LexIdType' use='required' />
 			<xsd:attribute name='sensekey' type='SensekeyType' use='required' />
