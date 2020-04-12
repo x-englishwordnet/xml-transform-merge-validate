@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>. -->
 
-<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="3.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 	<!-- not necessary imported as global by caller -->
 	<!-- <xsl:import href='lib-lexid.xsl' /> -->
 	<xsl:import href='lib-satellite_head.xsl' />
 
 	<xsl:variable name='debug' select='false()' />
+	<xsl:variable name='percentesc' select='/' /> <!-- can be multiple chars like '%%' with use of replace() instead of translate() -->
 
 	<!-- This is to avoid dependency on reading schema -->
 	<xsl:key name='find-synset-by-id' match='//Synset' use='@id'></xsl:key>
@@ -42,8 +43,9 @@
 		</xsl:if>
 
 		<!-- LEMMA -->
-		<!-- <xsl:variable name="lemma" select="translate($sensenode/../Lemma/@writtenForm,'% ABCDEFGHIJKLMNOPQRSTUVWXYZ','/_abcdefghijklmnopqrstuvwxyz')" /> -->
-		<xsl:variable name="lemma" select="translate($sensenode/../Lemma/@writtenForm,'% ','/_')" />
+		<!-- <xsl:variable name="lemma" select="translate($sensenode/../Lemma/@writtenForm,' ABCDEFGHIJKLMNOPQRSTUVWXYZ','_abcdefghijklmnopqrstuvwxyz')" /> -->
+		<xsl:variable name="lemma" select="translate($sensenode/../Lemma/@writtenForm,' ','_')" />
+		<xsl:variable name="escapedlemma" select="replace($lemma,'%',percentesc)" />
 
 		<!-- LEX_SENSE -->
 
@@ -237,7 +239,7 @@
 		</xsl:if>
 
 		<!-- LEX_SENSE.SS_TYPE:LEXFILENUM:LEXID /> -->
-		<xsl:value-of select="concat($lemma,'%',$sstype,':',format-number($lexfilenum,'00'),':',format-number($lexid,'00'))" />
+		<xsl:value-of select="concat($escapedlemma,'%',$sstype,':',format-number($lexfilenum,'00'),':',format-number($lexid,'00'))" />
 
 		<!-- SATELLITE HEAD -->
 		<xsl:choose>
@@ -252,7 +254,8 @@
 						<xsl:with-param name="method" select="$method" />
 					</xsl:call-template>
 				</xsl:variable>
-				<xsl:value-of select="concat(':',$head)" />
+				<xsl:variable name="escapedhead" select="replace($head,'%',$percentesc)"/>
+				<xsl:value-of select="concat(':',$escapedhead)" />
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
