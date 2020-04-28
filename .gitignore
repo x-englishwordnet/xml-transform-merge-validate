@@ -7,7 +7,7 @@
 /xsl-misc/
 /in/
 /out/
-/data/data-*.xml
+/data/
 /data/wn31/
 /add-adj_head.xsl
 /add-adj_position.xsl
