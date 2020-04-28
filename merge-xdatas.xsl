@@ -31,18 +31,20 @@
 		<LexicalResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10.xsd">
 			<Lexicon>
-				<xsl:merge>
-					<xsl:merge-source for-each-item="$docs" sort-before-merge="true" select="/LexicalResource/Lexicon/LexicalEntry/Sense">
-						<xsl:merge-key select="@id" order="ascending" />
-					</xsl:merge-source>
-					<xsl:merge-action>
-						<xsl:copy>
-							<xsl:for-each select="current-merge-group()">
-								<xsl:apply-templates select="./@*" />
-							</xsl:for-each>
-						</xsl:copy>
-					</xsl:merge-action>
-				</xsl:merge>
+				<LexicalEntry>
+					<xsl:merge>
+						<xsl:merge-source for-each-item="$docs" sort-before-merge="true" select="/LexicalResource/Lexicon/LexicalEntry/Sense">
+							<xsl:merge-key select="@id" order="ascending" />
+						</xsl:merge-source>
+						<xsl:merge-action>
+							<xsl:copy>
+								<xsl:for-each select="current-merge-group()">
+									<xsl:apply-templates select="./@*" />
+								</xsl:for-each>
+							</xsl:copy>
+						</xsl:merge-action>
+					</xsl:merge>
+				</LexicalEntry>
 			</Lexicon>
 		</LexicalResource>
 	</xsl:template>
