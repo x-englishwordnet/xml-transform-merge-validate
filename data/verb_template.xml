@@ -1,9 +1,10 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <LexicalResource xmlns:xs="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10-relax_idrefs.xsd">
-   <Lexicon>
-      <LexicalEntry>
+                 xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.1/changes.xsd">
+   <Lexicon id="ewn-change-senses-verbTemplates"
+            label="English WordNet - Changes to Sense/@verbTemplates">
+      <Changes>
          <Sense id="ewn-abash-v-01796126-02" verbTemplates="ewn-st-126 ewn-st-127"/>
          <Sense id="ewn-abhor-v-01778347-01"
                 verbTemplates="ewn-st-138 ewn-st-139 ewn-st-15"/>
@@ -3459,6 +3460,6 @@
          <Sense id="ewn-zap-v-00322737-03" verbTemplates="ewn-st-116"/>
          <Sense id="ewn-zigzag-v-01995776-01" verbTemplates="ewn-st-26"/>
          <Sense id="ewn-zip_by-v-02057753-01" verbTemplates="ewn-st-131"/>
-      </LexicalEntry>
+      </Changes>
    </Lexicon>
 </LexicalResource>

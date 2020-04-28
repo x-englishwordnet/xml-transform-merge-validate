@@ -1,9 +1,10 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <LexicalResource xmlns:xs="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10-relax_idrefs.xsd">
-   <Lexicon>
-      <LexicalEntry>
+                 xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.1/changes.xsd">
+   <Lexicon id="ewn-change-senses-tagCnt"
+            label="English WordNet - Changes to Sense/@tagCnt">
+      <Changes>
          <Sense id="ewn-0-n-13764498-02" tagCnt="20"/>
          <Sense id="ewn-0-s-02193771-02" tagCnt="3"/>
          <Sense id="ewn-1-n-13764713-02" tagCnt="21"/>
@@ -35303,6 +35304,6 @@
          <Sense id="ewn-zoning-n-00930566-01" tagCnt="1"/>
          <Sense id="ewn-zoo-n-03750637-02" tagCnt="2"/>
          <Sense id="ewn-zoom-v-02059445-01" tagCnt="2"/>
-      </LexicalEntry>
+      </Changes>
    </Lexicon>
 </LexicalResource>
