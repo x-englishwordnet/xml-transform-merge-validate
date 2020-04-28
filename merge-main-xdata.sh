@@ -32,5 +32,5 @@ if [ ! -z "$OUT" ]; then
 	OUT="-o:$OUT"
 fi
 
-echo java -jar Saxon-HE-9.9.1-6.jar $OPTIONS "-s:$MAIN" "$OUT" "-xsl:$XSL" "xdata=$XDATA"
-java -jar Saxon-HE-9.9.1-6.jar $OPTIONS "-s:$MAIN" "$OUT" "-xsl:$XSL" "xdata=$XDATA"
+java -jar Saxon-HE-9.9.1-6.jar $OPTIONS -s:"$MAIN" $OUT -xsl:"$XSL" xdata="$XDATA"
+
