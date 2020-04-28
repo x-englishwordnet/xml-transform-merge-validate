@@ -11,7 +11,7 @@ M='\u001b[35m'
 C='\u001b[36m'
 Z='\u001b[0m'
 
-XSL=merge-xdata.xsl
+XSL=merge-main-xdata.xsl
 echo -e "${M}XSL: $XSL${Z}" 1>&2;
 
 MAIN="$1"
@@ -32,4 +32,5 @@ if [ ! -z "$OUT" ]; then
 	OUT="-o:$OUT"
 fi
 
-java -jar Saxon-HE-9.9.1-6.jar $OPTIONS -s:"$MAIN" "$OUT" -xsl:"$XSL" xdata="$XDATA"
+echo java -jar Saxon-HE-9.9.1-6.jar $OPTIONS "-s:$MAIN" "$OUT" "-xsl:$XSL" "xdata=$XDATA"
+java -jar Saxon-HE-9.9.1-6.jar $OPTIONS "-s:$MAIN" "$OUT" "-xsl:$XSL" "xdata=$XDATA"

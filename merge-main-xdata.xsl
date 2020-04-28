@@ -7,7 +7,7 @@
 	<xsl:param name="xdata" as="xs:string" required="yes" />
 
 	<xsl:variable name="xdatadoc" select="document($xdata)" />
-	<xsl:variable name="maindoc" select="document(.)" />
+	<xsl:variable name="maindoc" select="/" />
 
 	<xsl:variable name='debug' select='false()' />
 	<xsl:variable name='fromtag' select='true()' />
