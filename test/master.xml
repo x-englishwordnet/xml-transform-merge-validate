@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LexicalResource SYSTEM "http://globalwordnet.github.io/schemas/WN-LMF-relaxed-1.0.dtd">
+<LexicalResource xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <Lexicon id="ewn"
+            label="English WordNet"
+            language="en"
+            email="john@mccr.ae"
+            license="https://wordnet.princeton.edu/license-and-commercial-use"
+            version="2019"
+            url="https://github.com/globalwordnet/english-wordnet"
+            confidenceScore="1.0">
+      <LexicalEntry id="ewn-xxx-n">
+         <Sense id="ewn-xxx-n-11111111-11"
+                n="0"
+                synset="ewn-11111111-n"
+                sensekey="xxx%p:ll:ii:hhhh:nn"
+                dc:identifier="XXX%P:LL:II:HHHH:NN"
+                lexicalized="true"/>
+         <SenseRelation relType="hypernym" target="ewn-xxx-n-22222222-22"/>
+         <Sense id="ewn-xxx-n-22222222-22"
+                n="1"
+                synset="ewn-22222222-n"
+                sensekey="xxx%p:ll:ii:hhhh:nn"
+                dc:identifier="XXX%P:LL:II:HHHH:NN"
+                lexicalized="true"/>
+         <SenseRelation relType="hyponym" target="ewn-xxx-n-11111111-11"/>
+      </LexicalEntry>
+      <LexicalEntry id="ewn-yyy-n">
+         <Sense id="ewn-yyy-n-33333333-33"
+                n="0"
+                synset="ewn-333333333-n"
+                sensekey="yyy%p:ll:ii:hhhh:nn"
+                dc:identifier="YYY%P:LL:II:HHHH:NN"
+                lexicalized="true"/>
+         <SenseRelation relType="hypernym" target="ewn-xxx-n-22222222-22"/>
+         <Sense id="ewn-yyy-n-44444444-44"
+                n="1"
+                synset="ewn-44444444-n"
+                sensekey="yyy%p:ll:ii:hhhh:nn"
+                dc:identifier="YYY%P:LL:II:HHHH:NN"
+                lexicalized="true"/>
+         <SenseRelation relType="hyponym" target="ewn-xxx-n-11111111-11"/>
+      </LexicalEntry>
+      <Other/>
+   </Lexicon>
+</LexicalResource>

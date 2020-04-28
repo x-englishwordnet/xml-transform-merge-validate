@@ -7,13 +7,13 @@
 
 	<Lexicon id = "xewn" label="English WordNet">
 
-		<LexicalEntry id="ewn-xxx-n">
+		<Changes id="ewn-xxx-n">
 			<Sense id="ewn-xxx-n-22222222-22" extra2="extra2-2222"/>
-		</LexicalEntry>
+		</Changes>
 
-		<LexicalEntry id="ewn-yyy-n">
+		<Changes id="ewn-yyy-n">
 			<Sense id="ewn-yyy-n-33333333-33" extra2="extra2-3333"/>
-		</LexicalEntry>
+		</Changes>
 
 	</Lexicon>
 </LexicalResource>
