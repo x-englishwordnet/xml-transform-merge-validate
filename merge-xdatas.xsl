@@ -30,10 +30,10 @@
 
 		<LexicalResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10.xsd">
-			<Lexicon>
-				<LexicalEntry>
+			<Lexicon id = "ewn-change-senses" label="English WordNet - All Changes to Sense">
+				<Changes>
 					<xsl:merge>
-						<xsl:merge-source for-each-item="$docs" sort-before-merge="true" select="/LexicalResource/Lexicon/LexicalEntry/Sense">
+						<xsl:merge-source for-each-item="$docs" sort-before-merge="true" select="//Sense">
 							<xsl:merge-key select="@id" order="ascending" />
 						</xsl:merge-source>
 						<xsl:merge-action>
@@ -44,7 +44,7 @@
 							</xsl:copy>
 						</xsl:merge-action>
 					</xsl:merge>
-				</LexicalEntry>
+				</Changes>
 			</Lexicon>
 		</LexicalResource>
 	</xsl:template>

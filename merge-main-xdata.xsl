@@ -10,7 +10,6 @@
 	<xsl:variable name="maindoc" select="/" />
 
 	<xsl:variable name='debug' select='false()' />
-	<xsl:variable name='fromtag' select='true()' />
 
 	<xsl:template match="/">
 		<xsl:message>
@@ -25,25 +24,27 @@
 		<xsl:apply-templates select="*"></xsl:apply-templates>
 	</xsl:template>
 
-	<xsl:template match="LexicalEntry">
-		<xsl:variable name="id" select="@id" />
-		<xsl:copy>
-			<xsl:apply-templates select="@*" />
-			<xsl:merge>
-				<xsl:merge-source for-each-item="$maindoc" sort-before-merge="true" select="//LexicalEntry[@id = $id]/Sense">
-					<xsl:merge-key select="@id" order="ascending" />
-				</xsl:merge-source>
-				<xsl:merge-source for-each-item="$xdatadoc" sort-before-merge="true" select="//LexicalEntry[@id = $id]/Sense">
-					<xsl:merge-key select="@id" order="ascending" />
-				</xsl:merge-source>
-				<xsl:merge-action>
-					<xsl:copy>
-						<xsl:apply-templates select="current-merge-group()[1]/@*" />
-						<xsl:apply-templates select="current-merge-group()[2]/@*" />
-					</xsl:copy>
-				</xsl:merge-action>
-			</xsl:merge>
-		</xsl:copy>
+	<xsl:template match="Sense">
+		<xsl:variable name="senseid" select="@id" />
+
+		<xsl:merge>
+			<xsl:merge-source select="." name="master">
+				<xsl:merge-key select="@id" />
+			</xsl:merge-source>
+			<xsl:merge-source select="$xdatadoc//Sense[@id = $senseid]" name="xdata">
+				<xsl:merge-key select="@id" />
+			</xsl:merge-source>
+			<xsl:merge-action>
+				<xsl:copy>
+					<xsl:apply-templates select="current-merge-group('master')/@*" />
+					<xsl:if test="not(empty(current-merge-group('xdata')))">
+						<xsl:apply-templates select="current-merge-group('xdata')/@*" />
+					</xsl:if>
+				</xsl:copy>
+				<xsl:apply-templates select="*" />
+			</xsl:merge-action>
+		</xsl:merge>
+
 	</xsl:template>
 
 	<xsl:template match="@*|node()">
