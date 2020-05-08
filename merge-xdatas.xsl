@@ -29,7 +29,7 @@
 		</xsl:message>
 
 		<LexicalResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10.xsd">
+			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10-changes.xsd">
 			<Lexicon id = "ewn-change-senses" label="English WordNet - All Changes to Sense">
 				<Changes>
 					<xsl:merge>
