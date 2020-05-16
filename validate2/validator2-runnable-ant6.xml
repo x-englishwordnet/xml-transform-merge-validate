@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project validator2 with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR file Export Wizard-->
+    <!--ANT 1.7 is required-->
+    <!--define folder properties-->
+	<property environment="env"/>
+	<property name="M2REPO_HOME" value="${env.M2REPO_HOME}"/>
+    <property name="dir.builddir" value="."/>
+
+	<target name="create_run_jar">
+        <jar destfile="${dir.builddir}/validator2-runnable-6.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="validator.WoodstoxValidate"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ woodstox-core-6.1.1.jar stax2-api-4.2.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="${dir.builddir}/target/classes"/>
+            <zipfileset dir="${M2REPO_HOME}/repository/com/fasterxml/woodstox/woodstox-core/6.1.1" includes="woodstox-core-6.1.1.jar"/>
+            <zipfileset dir="${M2REPO_HOME}/repository/org/codehaus/woodstox/stax2-api/4.2" includes="stax2-api-4.2.jar"/>
+        </jar>
+    </target>
+</project>

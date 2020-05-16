@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project validator2 with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR file Export Wizard-->
+    <!--ANT 1.7 is required-->
+    <!--define folder properties-->
+	<property environment="env"/>
+	<property name="M2REPO_HOME" value="${env.M2REPO_HOME}"/>
+    <property name="dir.builddir" value="."/>
+
+	<target name="create_run_jar">
+        <jar destfile="${dir.builddir}/validator2-runnable.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="validator.WoodstoxValidate"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ woodstox-core-asl-4.4.1.jar stax-api-1.0-2.jar stax2-api-3.1.4.jar msv-core-2013.6.1.jar xsdlib-2013.6.1.jar relaxngDatatype-20020414.jar isorelax-20090621.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="${dir.builddir}/target/classes"/>
+            <fileset dir="${M2REPO_HOME}/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1" includes="woodstox-core-asl-4.4.1.jar"/>
+            <fileset dir="${M2REPO_HOME}/repository/javax/xml/stream/stax-api/1.0-2" includes="stax-api-1.0-2.jar"/>
+            <fileset dir="${M2REPO_HOME}/repository/org/codehaus/woodstox/stax2-api/3.1.4" includes="stax2-api-3.1.4.jar"/>
+            <fileset dir="${M2REPO_HOME}/repository/net/java/dev/msv/msv-core/2013.6.1" includes="msv-core-2013.6.1.jar"/>
+            <fileset dir="${M2REPO_HOME}/repository/net/java/dev/msv/xsdlib/2013.6.1" includes="xsdlib-2013.6.1.jar"/>
+            <fileset dir="${M2REPO_HOME}/repository/relaxngDatatype/relaxngDatatype/20020414" includes="relaxngDatatype-20020414.jar"/>
+            <fileset dir="${M2REPO_HOME}/repository/com/sun/xml/bind/jaxb/isorelax/20090621" includes="isorelax-20090621.jar"/>
+        </jar>
+    </target>
+</project>
