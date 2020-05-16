@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LexicalResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                 xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10.xsd">
+   <Lexicon id="ewn-change-senses" label="English WordNet - All Changes to Sense">
+      <Changes>
+         <Sense id="ewn-xxx-n-22222222-22" extra="extra-2222" extra2="extra2-2222"/>
+         <Sense id="ewn-yyy-n-33333333-33"
+                extra3="extra3-3333"
+                extra="extra-3333"
+                extra2="extra2-3333"/>
+         <Sense id="ewn-yyy-n-44444444-44" extra3="extra3-4444"/>
+      </Changes>
+   </Lexicon>
+</LexicalResource>

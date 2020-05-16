@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LexicalResource
+	xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10-relax_idrefs.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<Lexicon id = "xewn" label="English WordNet">
+
+		<Changes id="ewn-xxx-n">
+			<Sense id="ewn-xxx-n-22222222-22" extra2="extra2-2222"/>
+		</Changes>
+
+		<Changes id="ewn-yyy-n">
+			<Sense id="ewn-yyy-n-33333333-33" extra2="extra2-3333"/>
+		</Changes>
+
+	</Lexicon>
+</LexicalResource>
