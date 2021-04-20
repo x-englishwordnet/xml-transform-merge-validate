@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <jardesc>
-    <jar path="validator/validator.jar"/>
-    <options buildIfNeeded="true" compress="true" descriptionLocation="/validator/validator.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <jar path="validate/validator.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/validate/validator.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
     <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
     <selectedProjects/>
-    <manifest generateManifest="true" mainClassHandleIdentifier="=validator/src\/main\/java&lt;validator{XSDValidate.java[XSDValidate" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+    <manifest generateManifest="true" mainClassHandleIdentifier="=validate/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;validator{XSDValidate.java[XSDValidate" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
         <sealing sealJar="false">
             <packagesToSeal/>
             <packagesToUnSeal/>
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <javaElement handleIdentifier="=validator/src\/main\/resources"/>
-        <file path="/validator/pom.xml"/>
-        <javaElement handleIdentifier="=validator/src\/main\/java"/>
-        <file path="/validator/README.md"/>
+        <file path="/validate/pom.xml"/>
+        <javaElement handleIdentifier="=validate/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/"/>
     </selectedElements>
 </jardesc>
