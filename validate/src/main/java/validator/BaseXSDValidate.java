@@ -147,7 +147,7 @@ public abstract class BaseXSDValidate
 	private void validate(final Validator validator, final String filename) throws SAXException, IOException
 	{
 		System.out.println("XML: " + filename);
-		validate(validator, new StreamSource(filename));
+		validate(validator, "-".equals(filename) ? new StreamSource(System.in) : new StreamSource(filename));
 	}
 
 	/**

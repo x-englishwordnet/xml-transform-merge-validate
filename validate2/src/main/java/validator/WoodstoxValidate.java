@@ -16,6 +16,7 @@ import javax.xml.stream.XMLStreamException;
 
 import org.codehaus.stax2.XMLInputFactory2;
 import org.codehaus.stax2.XMLStreamReader2;
+import org.codehaus.stax2.ri.Stax2ReaderAdapter;
 import org.codehaus.stax2.validation.ValidationProblemHandler;
 import org.codehaus.stax2.validation.XMLValidationException;
 import org.codehaus.stax2.validation.XMLValidationProblem;
@@ -300,6 +301,8 @@ public class WoodstoxValidate
 	{
 		XMLInputFactory2 factory = new WstxInputFactory();
 		factory.setProperty(XMLInputFactory.IS_VALIDATING, false);
+		if ("-".equals(xml))
+			return Stax2ReaderAdapter.wrapIfNecessary(factory.createXMLStreamReader(System.in));
 		return factory.createXMLStreamReader(new File(xml));
 	}
 
