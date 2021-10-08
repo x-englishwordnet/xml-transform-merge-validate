@@ -14,16 +14,18 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<xsl:template match="LexicalResource">
-		<LexicalResource
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10-relax_idrefs.xsd"
-			xmlns:dc="https://globalwordnet.github.io/schemas/dc/" >
-			<xsl:apply-templates select="./*" />
-		</LexicalResource>
-	</xsl:template>
+	<xsl:template match="Sense">
 
-	<xsl:template match="SyntacticBehaviourRef">
+		<xsl:copy>
+			<xsl:copy-of select="@*[name()!='subcat']" />
+			<xsl:if test="@subcat">
+				<xsl:attribute name="verbFrames">
+					<xsl:value-of select="@subcat" />
+			</xsl:attribute>
+			</xsl:if>
+
+			<xsl:apply-templates select="./*" />
+		</xsl:copy>
 	</xsl:template>
 
 	<xsl:template match="@*|node()">

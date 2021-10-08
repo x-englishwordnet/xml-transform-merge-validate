@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ~ Copyright (c) 2019. Bernard Bou <1313ou@gmail.com>. -->
 
-<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="3.0" xmlns:dc="http://purl.org/dc/elements/1.1/" exclude-result-prefixes="dc">
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="3.0" xmlns:dc="https://globalwordnet.github.io/schemas/dc/" exclude-result-prefixes="dc">
 
 	<xsl:output omit-xml-declaration="no" standalone="no" method="xml" version="1.1" encoding="UTF-8" indent="yes" />
 	<xsl:strip-space elements="*" />
@@ -17,7 +17,7 @@
 	<xsl:template match="LexicalResource">
 		<LexicalResource xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.1/changes.xsd">
-			<Lexicon id = "ewn-change-senses-tagCnt" label="English WordNet - Changes to Sense/@tagCnt">
+			<Lexicon id = "oewn-change-senses-tagCnt" label="English WordNet - Changes to Sense/@tagCnt">
 				<Changes>
 					<xsl:apply-templates select="//Sense[@tagCnt != '']"/>
 				</Changes>
