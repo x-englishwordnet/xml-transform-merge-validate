@@ -6,10 +6,10 @@
 	<xsl:strip-space elements="*" />
 	<xsl:output method="text" indent="no" />
 
-	<xsl:variable name='debug' select='false()' />
+	<xsl:variable name='debug' select='true()' />
 
 	<xsl:template match="/">
-		<xsl:variable name="items" select="//Sense[@sentence_template != '']" />
+		<xsl:variable name="items" select="//Sense[@verbTemplates != '']" />
 		<xsl:message>
 			<xsl:value-of select="count($items)" />
 			<xsl:text> processed</xsl:text>
@@ -18,9 +18,18 @@
 	</xsl:template>
 
 	<xsl:template match="Sense">
+		<xsl:if test="$debug=true()">
+			<xsl:message>
+				<xsl:text>sensekey </xsl:text>
+				<xsl:value-of select="@sensekey" />
+				<xsl:text> template=</xsl:text>
+				<xsl:value-of select="translate(normalize-space(translate(@verbTemplates,'oewn-st-','')),' ',',')" />
+			</xsl:message>
+		</xsl:if>
+	
 		<xsl:value-of select="@sensekey" />
 		<xsl:text> </xsl:text>
-		<xsl:value-of select="translate(normalize-space(translate(@sentence_template,'oewn-st-','')),' ',',')" />
+		<xsl:value-of select="translate(normalize-space(translate(@verbTemplates,'oewn-st-','')),' ',',')" />
 		<xsl:text>&#xa;</xsl:text>
 	</xsl:template>
 

@@ -27,6 +27,7 @@
 
 		<xsl:copy>
 			<xsl:apply-templates select="@*" />
+			
 			<xsl:attribute name="dc:identifier">
 				<xsl:value-of select="$sk" />
 			</xsl:attribute>
