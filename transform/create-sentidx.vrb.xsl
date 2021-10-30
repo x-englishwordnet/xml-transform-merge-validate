@@ -6,7 +6,7 @@
 	<xsl:strip-space elements="*" />
 	<xsl:output method="text" indent="no" />
 
-	<xsl:variable name='debug' select='true()' />
+	<xsl:variable name='debug' select='false()' />
 
 	<xsl:template match="/">
 		<xsl:variable name="items" select="//Sense[@verbTemplates != '']" />
