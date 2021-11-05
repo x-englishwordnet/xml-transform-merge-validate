@@ -30,27 +30,17 @@
 
 		<LexicalResource
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.10/xEWN-LMF-1.10.xsd"
+			xsi:schemaLocation=". https://x-englishwordnet.github.io/schemas/1.1b/xEWN-LMF-1.1.xsd"
 			xmlns:dc="https://globalwordnet.github.io/schemas/dc/">
 			<Lexicon
-				id="ewn"
-				label="English WordNet"
-				version="2020"
+				id="oewn"
+				label="Open English Wordnet"
+				version="2021"
 				language="en"
 				email="john@mccr.ae"
 				license="https://wordnet.princeton.edu/license-and-commercial-use"
 				url="https://github.com/globalwordnet/english-wordnet"
 				confidenceScore="1.0">
-
-				<!-- S Y N T A T I C B E H A V I O U R -->
-				<xsl:merge>
-					<xsl:merge-source for-each-item="$docs" sort-before-merge="true" select="/LexicalResource/Lexicon/SyntacticBehaviour">
-						<xsl:merge-key select="@id" order="ascending" />
-					</xsl:merge-source>
-					<xsl:merge-action>
-						<xsl:sequence select="current-merge-group()[1]" />
-					</xsl:merge-action>
-				</xsl:merge>
 
 				<!-- L E X I C A L E N T R Y -->
 				<!-- use /LexicalResource/Lexicon/LexicalEntry[@id='ewn-abandon-v'] for a simple example -->
@@ -88,12 +78,12 @@
 											<xsl:copy-of select="$first/Lemma" />
 											<xsl:copy-of select="$first/Form" />
 											<xsl:for-each select="$group/Sense">
-												<xsl:sort select="./@n" />
+												<xsl:sort data-type="number" select="./@n" />
 												<xsl:copy select=".">
+													<xsl:copy-of select="./@*" />
 													<xsl:attribute name="lexfile">
 														<xsl:value-of select="substring-after(substring-before(replace(base-uri(.), '.*/', '') , '.xml'),'wn-')" />
 													</xsl:attribute>
-													<xsl:copy-of select="./@*" />
 													<xsl:copy-of select="./*" />
 												</xsl:copy>
 											</xsl:for-each>
@@ -128,12 +118,12 @@
 									<xsl:choose>
 										<xsl:when test='$fromtag = true()'>
 											<xsl:for-each select="$group/Sense">
-											    <xsl:sort select="./@n" />
+											    <xsl:sort data-type="number" select="./@n" />
 												<xsl:copy select=".">
+													<xsl:copy-of select="./@*" />
 													<xsl:attribute name="lexfile">
 														<xsl:value-of select="substring-after(substring-before(replace(base-uri(.), '.*/', '') , '.xml'),'wn-')" />
 													</xsl:attribute>
-													<xsl:copy-of select="./@*" />
 													<xsl:copy-of select="./*" />
 												</xsl:copy>
 											</xsl:for-each>
@@ -168,6 +158,16 @@
 								</xsl:message>
 							</xsl:otherwise>
 						</xsl:choose>
+					</xsl:merge-action>
+				</xsl:merge>
+
+				<!-- S Y N T A T I C B E H A V I O U R -->
+				<xsl:merge>
+					<xsl:merge-source for-each-item="$docs" sort-before-merge="true" select="/LexicalResource/Lexicon/SyntacticBehaviour">
+						<xsl:merge-key select="@id" order="ascending" />
+					</xsl:merge-source>
+					<xsl:merge-action>
+						<xsl:sequence select="current-merge-group()[1]" />
 					</xsl:merge-action>
 				</xsl:merge>
 
