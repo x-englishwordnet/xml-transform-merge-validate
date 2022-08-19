@@ -32,7 +32,8 @@
 		<xsl:variable name="lemma3" select="replace($lemma2,'-rb-',')')" />
 		<xsl:variable name="lemma4" select="replace($lemma3,'-cm-',',')" />
 		<xsl:variable name="lemma5" select="replace($lemma4,'-ex-','!')" />
-		<xsl:variable name="lemma" select="replace($lemma5,'-sl-','/')" />
+		<xsl:variable name="lemma6" select="replace($lemma5,'-pl-','+')" />
+		<xsl:variable name="lemma" select="replace($lemma6,'-sl-','/')" />
 
 		<xsl:if test="$debug = true()">
 			<xsl:message>
