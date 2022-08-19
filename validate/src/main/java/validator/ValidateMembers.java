@@ -15,8 +15,8 @@ import javax.xml.parsers.SAXParserFactory;
 public class ValidateMembers extends DefaultHandler
 {
 	private String lexId;
-	private Map<String, String> synsetIdToMembers = new HashMap<>();
-	private List<Entry<String, String>> wordToSynsetId = new ArrayList<>();
+	private final Map<String, String> synsetIdToMembers = new HashMap<>();
+	private final List<Entry<String, String>> wordToSynsetId = new ArrayList<>();
 
 	static public void main(String[] args) throws Exception
 	{
@@ -32,9 +32,8 @@ public class ValidateMembers extends DefaultHandler
 		XMLReader xmlReader = saxParser.getXMLReader();
 		xmlReader.setContentHandler(validator);
 
-		for (int i = 0; i < args.length; i++)
+		for (String filename : args)
 		{
-			String filename = args[i];
 			String url = convertToFileURL(filename);
 			System.out.println(url);
 
@@ -58,7 +57,7 @@ public class ValidateMembers extends DefaultHandler
 	}
 
 	@Override
-	public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException
+	public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
 	{
 		if ("Synset".equals(localName))
 		{
@@ -85,9 +84,8 @@ public class ValidateMembers extends DefaultHandler
 			String attrName = atts.getQName(i);
 			if (name.equals(attrName))
 			{
-				String attrValue = atts.getValue(i);
 				//System.out.printf("'%s %s' %s\n", qName, attrName, attrValue, "ok");
-				return attrValue;
+				return atts.getValue(i);
 			}
 		}
 		throw new IllegalStateException(qName + " " + atts);
