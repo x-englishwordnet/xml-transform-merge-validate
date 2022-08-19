@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/archive/merger" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/archive/transformer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/archive/transformer3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/archive/validator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/archive/validator2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/grind" vcs="Git" />
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ewn-xml.iml" filepath="$PROJECT_DIR$/.idea/ewn-xml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grind/grind.iml" filepath="$PROJECT_DIR$/grind/grind.iml" />
+      <module fileurl="file://$PROJECT_DIR$/merge/merge.iml" filepath="$PROJECT_DIR$/merge/merge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transform/transform.iml" filepath="$PROJECT_DIR$/transform/transform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transform3/transform3.iml" filepath="$PROJECT_DIR$/transform3/transform3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/validate/validate.iml" filepath="$PROJECT_DIR$/validate/validate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/validate2/validate2.iml" filepath="$PROJECT_DIR$/validate2/validate2.iml" />
+    </modules>
+  </component>
+</project>
